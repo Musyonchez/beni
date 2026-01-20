@@ -9,33 +9,41 @@
 ## 📁 Directory Structure
 
 ```
-working/
-├── front-matter/              # Preliminary pages
-│   └── README.md              # Templates for cover, declaration, abstract, etc.
+beni/                          # Repository root
+├── document/                  # ← YOU ARE HERE - Template system
+│   ├── README.md              # This file - Master guide
+│   ├── QUICK_REFERENCE.md     # Quick lookup and checklists
+│   │
+│   ├── front-matter/          # Preliminary pages
+│   │   └── README.md          # Templates for cover, declaration, abstract, etc.
+│   │
+│   ├── main-body/             # Core chapters (8 chapters)
+│   │   ├── chapter-01-introduction/
+│   │   │   └── README.md      # ~2,500 words, 4 pages
+│   │   ├── chapter-02-literature-review/
+│   │   │   └── README.md      # ~9,500 words, 17 pages
+│   │   ├── chapter-03-aims-objectives/
+│   │   │   └── README.md      # ~1,800 words, 3 pages
+│   │   ├── chapter-04-proposed-project/
+│   │   │   └── README.md      # ~6,500 words, 18 pages
+│   │   ├── chapter-05-system-analysis-design/
+│   │   │   └── README.md      # ~7,800 words, 23 pages
+│   │   ├── chapter-06-implementation/
+│   │   │   └── README.md      # ~8,500 words, 17 pages
+│   │   ├── chapter-07-testing-evaluation/
+│   │   │   └── README.md      # ~6,800 words, 30 pages
+│   │   └── chapter-08-conclusion/
+│   │       └── README.md      # ~2,800 words, 5 pages
+│   │
+│   └── back-matter/           # References and appendices
+│       └── README.md          # Citation guidelines, appendix organization
 │
-├── main-body/                 # Core chapters (8 chapters)
-│   ├── chapter-01-introduction/
-│   │   └── README.md          # ~2,500 words, 4 pages
-│   ├── chapter-02-literature-review/
-│   │   └── README.md          # ~9,500 words, 17 pages
-│   ├── chapter-03-aims-objectives/
-│   │   └── README.md          # ~1,800 words, 3 pages
-│   ├── chapter-04-proposed-project/
-│   │   └── README.md          # ~6,500 words, 18 pages
-│   ├── chapter-05-system-analysis-design/
-│   │   └── README.md          # ~7,800 words, 23 pages
-│   ├── chapter-06-implementation/
-│   │   └── README.md          # ~8,500 words, 17 pages
-│   ├── chapter-07-testing-evaluation/
-│   │   └── README.md          # ~6,800 words, 30 pages
-│   └── chapter-08-conclusion/
-│       └── README.md          # ~2,800 words, 5 pages
+├── working/                   # Analysis and reference materials
+│   ├── CAMPUS_NAVIGATION_STRUCTURE_ANALYSIS.md
+│   └── campus_report_content.txt
 │
-├── back-matter/               # References and appendices
-│   └── README.md              # Citation guidelines, appendix organization
-│
-├── CAMPUS_NAVIGATION_STRUCTURE_ANALYSIS.md    # Original structure analysis
-└── campus_report_content.txt                   # Extracted PDF text
+└── original/                  # Source PDF files
+    └── CAMPUS NAVIGATION REPORT SAMPLE.pdf
 ```
 
 ---

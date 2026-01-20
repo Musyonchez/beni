@@ -14,34 +14,45 @@
 ## 📂 Folder Structure Quick View
 
 ```
-working/
+beni/                          # Repository root
 │
-├── 📄 README.md ← START HERE (Master guide)
-├── 📄 CAMPUS_NAVIGATION_STRUCTURE_ANALYSIS.md (Reference)
+├── 📄 README.md               # Repository overview (read this first)
+├── 📄 .gitignore              # Git configuration
 │
-├── 📁 front-matter/ (5-6 pages)
-│   ├── README.md (Template guide)
-│   ├── (Create) cover-page.md
-│   ├── (Create) declaration.md
-│   ├── (Create) acknowledgement.md
-│   ├── (Create) abstract.md
-│   └── (Create) table-of-contents.md
+├── 📁 document/               # ← MAIN TEMPLATES - Work from here
+│   ├── 📄 README.md           # ⭐ Master guide (START HERE)
+│   ├── 📄 QUICK_REFERENCE.md  # ⚡ This file - Quick lookup
+│   │
+│   ├── 📁 front-matter/       # Preliminary pages (5-6 pages)
+│   │   ├── README.md          # Template guide
+│   │   ├── (Create) cover-page.md
+│   │   ├── (Create) declaration.md
+│   │   ├── (Create) acknowledgement.md
+│   │   ├── (Create) abstract.md
+│   │   └── (Create) table-of-contents.md
+│   │
+│   ├── 📁 main-body/          # Core content (117 pages)
+│   │   ├── 📁 chapter-01-introduction/       (2,500 words, 4 pages)
+│   │   ├── 📁 chapter-02-literature-review/  (9,500 words, 17 pages)
+│   │   ├── 📁 chapter-03-aims-objectives/    (1,800 words, 3 pages)
+│   │   ├── 📁 chapter-04-proposed-project/   (6,500 words, 18 pages)
+│   │   ├── 📁 chapter-05-system-analysis-design/ (7,800 words, 23 pages)
+│   │   ├── 📁 chapter-06-implementation/     (8,500 words, 17 pages)
+│   │   ├── 📁 chapter-07-testing-evaluation/ (6,800 words, 30 pages)
+│   │   └── 📁 chapter-08-conclusion/         (2,800 words, 5 pages)
+│   │       └── Each contains: README.md with detailed templates
+│   │
+│   └── 📁 back-matter/        # References (2 pages)
+│       ├── README.md          # Citation guide
+│       ├── (Create) references.md
+│       └── (Create) appendices.md (optional)
 │
-├── 📁 main-body/ (117 pages)
-│   ├── 📁 chapter-01-introduction/ (4 pages, 2.5K words)
-│   ├── 📁 chapter-02-literature-review/ (17 pages, 9.5K words)
-│   ├── 📁 chapter-03-aims-objectives/ (3 pages, 1.8K words)
-│   ├── 📁 chapter-04-proposed-project/ (18 pages, 6.5K words)
-│   ├── 📁 chapter-05-system-analysis-design/ (23 pages, 7.8K words)
-│   ├── 📁 chapter-06-implementation/ (17 pages, 8.5K words)
-│   ├── 📁 chapter-07-testing-evaluation/ (30 pages, 6.8K words)
-│   └── 📁 chapter-08-conclusion/ (5 pages, 2.8K words)
-│       └── Each contains: README.md with detailed templates
+├── 📁 working/                # Analysis and reference
+│   ├── CAMPUS_NAVIGATION_STRUCTURE_ANALYSIS.md
+│   └── campus_report_content.txt
 │
-└── 📁 back-matter/ (2 pages)
-    ├── README.md (Citation guide)
-    ├── (Create) references.md
-    └── (Create) appendices.md (optional)
+└── 📁 original/               # Source materials
+    └── CAMPUS NAVIGATION REPORT SAMPLE.pdf
 ```
 
 ---
@@ -50,7 +61,7 @@ working/
 
 ### Phase 1: Planning (Week 1-2)
 ```
-1. ✅ Read working/README.md
+1. ✅ Read document/README.md (or ../README.md from repo root)
 2. ✅ Choose your project topic
 3. ✅ Read Chapter 1-4 templates
 4. ✅ Write Chapters 1-3
