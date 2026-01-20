@@ -1,0 +1,29 @@
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+~$*
+
+# Working/scratch files
+working/structure-summary.txt
+
+# Build outputs (if you add any)
+*.pdf
+*.docx
+!CAMPUS_NAVIGATION_REPORT_SAMPLE.pdf
+!Course_Outline*.pdf
+
+# Personal/sensitive data
+*.credentials
+*.env
