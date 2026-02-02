@@ -23,6 +23,7 @@ working/structure-summary.txt
 *.docx
 !CAMPUS_NAVIGATION_REPORT_SAMPLE.pdf
 !Course_Outline*.pdf
+!CAFETERIA ORDERING & LOYALTY REWARD SYSTEM.docx
 
 # Personal/sensitive data
 *.credentials
