@@ -11,8 +11,8 @@ COURSE: SWE 4900A     DATE: _______________     SEMESTER: SUMMER 2026
 |    |                                  | SDG no __, PILLAR__)    | Machine Learning)       |
 +----+----------------------------------+-------------------------+-------------------------+
 | 1  | MedBook: An Online Health        | Society Issue: Long     | Web Application         |
-|    | Appointment Booking and          | queues and missed       | (HTML, CSS, JavaScript, |
-|    | Management System                | appointments in Kenyan  | PHP/Laravel, MySQL)     |
+|    | Appointment Booking and          | queues and missed       | (Next.js, FastAPI,      |
+|    | Management System                | appointments in Kenyan  | MongoDB)                |
 |    |                                  | clinics. SDG 3 –        |                         |
 |    |                                  | Good Health and         |                         |
 |    |                                  | Well-being. Aspiration  |                         |
@@ -26,8 +26,8 @@ COURSE: SWE 4900A     DATE: _______________     SEMESTER: SUMMER 2026
 |    |                                  | AU Agenda 2063.         |                         |
 +----+----------------------------------+-------------------------+-------------------------+
 | 3  | EduTrack: An Online Student      | Society Issue: Schools  | Web Application         |
-|    | Academic Progress Monitoring     | lack digital tools to   | (HTML, CSS, JavaScript, |
-|    | System                           | track student growth.   | Django, MySQL)          |
+|    | Academic Progress Monitoring     | lack digital tools to   | (Vue.js, Django,        |
+|    | System                           | track student growth.   | MySQL)                  |
 |    |                                  | SDG 4 – Quality         |                         |
 |    |                                  | Education. Aspiration   |                         |
 |    |                                  | 1, AU Agenda 2063.      |                         |
