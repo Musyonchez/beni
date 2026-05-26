@@ -1,0 +1,283 @@
+================================================================================
+MEDBOOK – PROJECT ROADMAP (START TO FINISH)
+SWE/IST 4900 – Summer Semester 2026
+Based on: Logbook, Weekly Progress Plan, Project Documentation Format
+================================================================================
+
+This document maps out every step of the final project from day one to
+submission. It follows the 6 logbook meetings and 7-chapter report structure.
+
+--------------------------------------------------------------------------------
+PHASE 0 – BEFORE WEEK 1 (Setup)
+--------------------------------------------------------------------------------
+
+STEP 1 – Topic Selection Form
+  [x] Fill in student details (name, reg no, concentration, supervisor)
+  [ ] Get supervisor to sign and approve the form
+  File: project/topic_selection_form.txt
+
+STEP 2 – Logbook Setup
+  [ ] Fill in cover page of the logbook (Student ID, Name, Email,
+      Concentration, Year/Semester, Supervisor)
+  File: hold/SWE-IST 4900 Logbook.pdf (print and fill manually)
+
+STEP 3 – Project Folder & Git
+  [x] Initialize git repository
+  [x] Create project/ and hold/ folders
+  [ ] Create subfolders: project/docs, project/chapters, project/system
+
+
+--------------------------------------------------------------------------------
+PHASE 1 – WEEKS 1–2 | LOGBOOK MEETING 1
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Design the system UI mockups / wireframes
+  - Plan: font sizes, colors, navigation flow, professional layout
+
+WHAT TO WRITE (Report):
+  CHAPTER ONE – INTRODUCTION
+    1.0  Introduction (3–4 lines about the system and its purpose)
+    1.1  Background of the Study
+           - 3 developed countries that have similar systems (5–7 lines each)
+           - 2 African countries with similar systems (5–7 lines each)
+           - Kenya context (5–7 lines)
+    1.2  Problem Statement
+           - State and explain at least 4 problems the system solves
+    1.3  Project Objectives
+           1.3.1  Overall Goal – "To design and develop MedBook..."
+           1.3.2  Systems Design Objectives (4 unique developer features)
+                    - Doctor search & filtering by specialty/location
+                    - Automated SMS/email appointment reminders
+                    - Patient medical history & appointment dashboard
+                    - Real-time slot management for administrators
+           1.3.3  Specific Research Objectives
+                    - SRO1: Challenges with old/manual systems
+                    - SRO2: Benefits of the new online system
+    1.4  Project Questions
+    1.5  Scope of the Project (how the system works + stakeholders + location)
+    1.6  Limitations of the Study (challenges in 14 weeks + solutions)
+    1.7  Significance of the Study
+           - Link to SDG 3 (Good Health and Well-being)
+           - Link to AU Agenda 2063 Aspiration 1 (Prosperous Africa)
+
+LOGBOOK MEETING 1:
+  [ ] Meet supervisor, discuss topic and Chapter 1 progress
+  [ ] Record: Focus of Discussion, Current Activities, Next Week's Activities
+  [ ] Get supervisor signature + date
+
+
+--------------------------------------------------------------------------------
+PHASE 2 – WEEKS 3–4 | LOGBOOK MEETING 2
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Implement data input forms (registration, login, booking form)
+  - Add, update, delete functionality for appointments
+  - Validation: empty fields, correct format, correct length
+
+WHAT TO WRITE (Report):
+  CHAPTER TWO – LITERATURE REVIEW
+    2.0  Introduction (3–4 lines)
+    2.1  Analysis of Existing Systems (3 systems from different countries)
+           2.1.1  System 1 – Name, Country, URL (5–7 lines, strengths/weaknesses)
+           2.1.2  System 2 – Name, Country, URL
+           2.1.3  System 3 – Name, Country, URL
+           2.1.4  Comparison Table:
+                    Features | System 1 | System 2 | System 3
+                    Cost, Easy to Install, Easy to Use, Database,
+                    Security, Vulnerability Assessment
+    2.2  Literature Review Based on Research Objectives
+           2.2.1  Challenges of Old/Manual Systems (state and explain 8)
+           2.2.2  Benefits of the New System (state and explain 8)
+    2.3  Conclusion
+
+LOGBOOK MEETING 2:
+  [ ] Present Chapter 1 (completed), show Chapter 2 progress
+  [ ] Demo input forms
+  [ ] Get supervisor signature + date
+
+
+--------------------------------------------------------------------------------
+PHASE 3 – WEEKS 5–6 | LOGBOOK MEETING 3
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Design and implement the database
+  - Normalize to at least 3NF
+  - Tables: Users, Doctors, Appointments, Specialties, Notifications, etc.
+
+WHAT TO WRITE (Report):
+  CHAPTER THREE – RESEARCH DESIGN AND METHODOLOGY
+    3.0  Introduction
+    3.1  Locality of the Project and Beneficiaries
+    3.2  Research Design Approach – DESCRIPTIVE
+    3.3  Population of the Study (Target Group) and Sampling Method
+    3.4  Data Collection Methods (questionnaire, interviews, observation)
+    3.5  Data Analysis Methods
+    3.6  Testing Plan for the System
+    3.7  Ethical Clearance Considerations
+
+  CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
+    4.0  Introduction
+    4.1  System Requirements
+           4.1.1  Functional Requirements
+           4.1.2  Non-Functional Requirements
+    4.3  Stakeholders
+    4.4  System Models
+           4.4.1  Systems Architecture Diagram
+           4.4.2  Use Case Diagram
+           4.4.3  Flowchart
+           4.4.4  Class Diagrams
+           4.4.5  Data Flow Diagram
+                    - Context Diagram (Level 0)
+                    - Level 1 Diagram
+                    - Level 2 Diagram
+           4.4.6  Entity Relationship Diagram (ERD)
+           4.4.7  Sequence Diagrams
+                    - Admin Sequence Diagram
+                    - User Sequence Diagram
+
+LOGBOOK MEETING 3:
+  [ ] Present Chapters 1 & 2, show Ch.3 & 4 progress
+  [ ] Show database schema / ERD
+  [ ] Get supervisor signature + date
+
+
+--------------------------------------------------------------------------------
+PHASE 4 – WEEKS 8–9 | LOGBOOK MEETING 4
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Implement data integrity features
+  - Add security: password encryption (bcrypt/hashing), input sanitization
+  - Role-based access control (patient / doctor / admin)
+
+WHAT TO WRITE (Report):
+  CHAPTER FIVE – RESEARCH FINDINGS AND ANALYSIS
+    5.1  Response Rate (how many questionnaires sent vs received)
+    5.2  Demographics Results (charts/tables from questionnaire)
+    5.3  Results of Specific Research Objective 1
+           (findings on challenges with old systems – from questionnaire data)
+    5.4  Results of Specific Research Objective 2
+           (findings on benefits of new system – from questionnaire data)
+
+  CHAPTER SIX – DISCUSSION, CONCLUSION AND RECOMMENDATIONS
+    6.1  Discussion (interpret findings in context of literature)
+    6.2  Conclusion
+    6.3  Recommendations
+    6.4  Future Work
+
+  NOTE: To write Ch.5 you need to have distributed and collected the
+        questionnaire (Appendix 9.1) during Weeks 5–7.
+
+LOGBOOK MEETING 4:
+  [ ] Present Chs. 1–4, show Ch.5 & 6 progress
+  [ ] Demo security features (login, encryption)
+  [ ] Get supervisor signature + date
+
+
+--------------------------------------------------------------------------------
+PHASE 5 – WEEKS 10–11 | LOGBOOK MEETING 5
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Implement system reports (e.g. appointment history, statistics dashboard)
+  - Reports should be clear, well-laid out, and useful for decision making
+
+WHAT TO WRITE (Report):
+  CHAPTER SEVEN – IMPLEMENTATION (PROTOTYPE FRAMEWORK)
+    7.1  System Implementation
+    7.2  Technologies Used
+           7.2.1  Hardware Platform
+           7.2.2  Programming Language (e.g. Python/Django or PHP/Laravel)
+           7.2.3  Programming Tools (e.g. VS Code, Git)
+           7.2.4  Software Platform (e.g. XAMPP, MySQL)
+    7.3  Features of the Prototype
+           7.3.1  Technical Manual Screenshots (admin-facing)
+           7.3.2  User Manual Screenshots (step-by-step patient flow)
+    7.4  Database Management System
+
+LOGBOOK MEETING 5:
+  [ ] Present Chs. 1–6, show Ch.7 progress
+  [ ] Demo reports feature
+  [ ] Get supervisor signature + date
+
+
+--------------------------------------------------------------------------------
+PHASE 6 – WEEKS 12–13 | LOGBOOK MEETING 6
+--------------------------------------------------------------------------------
+
+WHAT TO BUILD (System):
+  - Full system integration – all modules working together
+  - Test all features end-to-end
+  - Consider submitting to any hackathon / innovation challenge
+
+WHAT TO WRITE (Report):
+  FINAL SECTIONS:
+    8.0  References – APA Format (all sources cited in the report)
+    9.0  Appendix
+           9.1  Questionnaire / Interview Schedule
+                  Section A: Respondent bio data (gender, education level)
+                  Section B: Questions per research objective
+           9.2  Work Plan in Gantt Chart Format
+           9.3  Budget
+
+  FRONT MATTER (write last, once all chapters are done):
+    - Title Page
+    - Declaration
+    - Acknowledgement
+    - Abstract (max 1 page: background, problem, objectives, LR, methodology,
+                results, conclusion, recommendations)
+    - Table of Contents
+    - List of Tables
+    - List of Figures
+    - List of Abbreviations
+    - Copyright Page
+
+LOGBOOK MEETING 6:
+  [ ] Final supervisor review of completed report and system
+  [ ] Get supervisor signature + date
+
+FINAL SUBMISSION CHECKLIST:
+  [ ] Full report (minimum 6,000 words) – printed and bound
+  [ ] Logbook – all 6 meetings signed
+  [ ] Working prototype / system demo
+  [ ] Questionnaire results included in appendix
+  [ ] Gantt chart and budget in appendix
+  [ ] References in APA format
+  [ ] Copyright page signed
+
+
+================================================================================
+GRADING BREAKDOWN (per Weekly Progress Plan)
+================================================================================
+
+  Logbook meetings (6 x 5 marks)   = 30 marks  (Progress Presentations)
+  Project Report (Documentation)   = 2.5 marks per section
+  Systems Development              = 2.5 marks per section
+
+  Minimum word count: 6,000 words
+
+
+================================================================================
+FILE STRUCTURE (suggested)
+================================================================================
+
+  project/
+  ├── docs/
+  │   ├── project_steps.txt       ← this file
+  │   └── (other planning docs)
+  ├── chapters/
+  │   ├── chapter1_introduction.txt
+  │   ├── chapter2_literature_review.txt
+  │   ├── chapter3_methodology.txt
+  │   ├── chapter4_systems_analysis.txt
+  │   ├── chapter5_findings.txt
+  │   ├── chapter6_discussion.txt
+  │   └── chapter7_implementation.txt
+  ├── system/
+  │   └── (your actual code goes here)
+  └── topic_selection_form.txt
+
+================================================================================
