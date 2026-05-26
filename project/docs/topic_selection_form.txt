@@ -1,167 +1,58 @@
-UNITED STATES INTERNATIONAL UNIVERSITY-AFRICA
-SCHOOL OF SCIENCE AND TECHNOLOGY
-SWE/IST 4900 – FINAL TERM PROJECT
-TOPIC SELECTION FORM
-Summer Semester 2026
+         United States International University-Africa
+              SCHOOL OF SCIENCE AND TECHNOLOGY
+                PROJECT TOPIC SELECTION FORM
 
-================================================================================
-SECTION A: STUDENT DETAILS
-================================================================================
+COURSE: SWE 4900A     DATE: _______________     SEMESTER: SUMMER 2026
 
-Student Name        : Beni Ishimwe
-Registration Number : 669396
-Concentration       : Software Engineering (SWE)
-Year and Semester   : Year 4 – Summer Semester 2026
-Email               : musyokaphilip24@gmail.com
-Supervisor          : ___________________________
++----+----------------------------------+-------------------------+-------------------------+
+| No | PROJECT TITLE/TOPIC              | Justification of        | Technology to be        |
+|    |                                  | Selection               | designed and developed  |
+|    |                                  | (Society Issue,         | (e.g. IOT, Mobile App,  |
+|    |                                  | SDG no __, PILLAR__)    | Machine Learning)       |
++----+----------------------------------+-------------------------+-------------------------+
+| 1  | MedBook: An Online Health        | Society Issue: Long     | Web Application         |
+|    | Appointment Booking and          | queues and missed       | (HTML, CSS, JavaScript, |
+|    | Management System                | appointments in Kenyan  | PHP/Laravel, MySQL)     |
+|    |                                  | clinics. SDG 3 –        |                         |
+|    |                                  | Good Health and         |                         |
+|    |                                  | Well-being. Aspiration  |                         |
+|    |                                  | 1, AU Agenda 2063.      |                         |
++----+----------------------------------+-------------------------+-------------------------+
+| 2  | FarmLink: An Online Agricultural | Society Issue: Farmers  | Mobile App              |
+|    | Produce Marketplace for Kenyan   | lack direct market      | (React Native, Node.js, |
+|    | Smallholder Farmers              | access. SDG 2 –         | MySQL)                  |
+|    |                                  | Zero Hunger.            |                         |
+|    |                                  | Aspiration 1,           |                         |
+|    |                                  | AU Agenda 2063.         |                         |
++----+----------------------------------+-------------------------+-------------------------+
+| 3  | EduTrack: An Online Student      | Society Issue: Schools  | Web Application         |
+|    | Academic Progress Monitoring     | lack digital tools to   | (HTML, CSS, JavaScript, |
+|    | System                           | track student growth.   | Django, MySQL)          |
+|    |                                  | SDG 4 – Quality         |                         |
+|    |                                  | Education. Aspiration   |                         |
+|    |                                  | 1, AU Agenda 2063.      |                         |
++----+----------------------------------+-------------------------+-------------------------+
 
+Most INNOVATIVE AND MARKET DRIVEN Viable topic selected:
 
-================================================================================
-SECTION B: PROJECT TITLE
-================================================================================
++----+----------------------------------+---------------------+-------------------------+
+| No | TOPIC                            |                     |                         |
++----+----------------------------------+---------------------+-------------------------+
+| 1  | MedBook: An Online Health        |                     |                         |
+|    | Appointment Booking and          |                     |                         |
+|    | Management System                |                     |                         |
++----+----------------------------------+---------------------+-------------------------+
 
-MedBook: An Online Health Appointment Booking and Management System
+Student Sign
 
+Students name  Beni Ishimwe                    Reg No  669396      Sign ___________
 
-================================================================================
-SECTION C: BACKGROUND AND MOTIVATION
-================================================================================
+Students name  ___________________________     Reg No  _________   Sign ___________
 
-Access to quality healthcare remains a significant challenge across Africa, including
-Kenya, where long queues, missed appointments, and poor scheduling continue to burden
-both patients and healthcare providers. Many clinics and hospitals still rely on manual,
-paper-based booking systems that are inefficient, prone to errors, and inaccessible to
-patients outside working hours.
+Lecture Comment
 
-In developed countries such as the United Kingdom, the United States, and Australia,
-digital health appointment systems have dramatically improved patient experience,
-reduced waiting times, and optimized doctor availability. In Africa, countries such as
-South Africa and Rwanda have begun adopting digital health platforms, yet adoption in
-Kenya remains low, especially among small and mid-sized clinics.
-
-MedBook aims to address this gap by providing a web-based system that allows patients
-to book, reschedule, and cancel appointments online, while enabling healthcare
-facilities to efficiently manage their schedules, patient records, and doctor
-availability in real time.
-
-
-================================================================================
-SECTION D: PROBLEM STATEMENT
-================================================================================
-
-The current manual and fragmented appointment booking processes in Kenyan healthcare
-facilities present the following problems:
-
-1. Long physical queues at hospitals and clinics waste patients' time and reduce
-   the quality of care delivered.
-
-2. No-show appointments are common due to lack of automated reminders, leading to
-   wasted doctor time and lost revenue for facilities.
-
-3. Patients have no visibility into doctor availability before visiting a facility,
-   resulting in unnecessary trips and frustration.
-
-4. Healthcare administrators struggle to manage and retrieve patient appointment
-   records efficiently due to disorganized paper-based filing systems.
-
-
-================================================================================
-SECTION E: PROJECT OBJECTIVES
-================================================================================
-
-E.1 Overall Goal
-To design and develop an online health appointment booking and management system
-that enables patients to book appointments remotely and healthcare facilities to
-efficiently manage their schedules and patient data.
-
-E.2 Systems Design and Development Objectives (Unique Developer Features)
-i.   Doctor search and filtering by specialty, location, and availability
-ii.  Automated SMS/email appointment reminders to reduce no-shows
-iii. Patient medical history and appointment dashboard
-iv.  Real-time appointment slot management for healthcare administrators
-
-E.3 Specific Research Objectives
-i.  To identify the traditional challenges associated with manual health appointment
-    booking systems in Kenyan healthcare facilities.
-ii. To determine the benefits of adopting an online health appointment booking and
-    management system.
-
-
-================================================================================
-SECTION F: PROJECT QUESTIONS
-================================================================================
-
-1. What are the traditional challenges associated with manual health appointment
-   booking systems in Kenyan healthcare facilities?
-
-2. What are the benefits of adopting an online health appointment booking and
-   management system?
-
-
-================================================================================
-SECTION G: SCOPE OF THE PROJECT
-================================================================================
-
-MedBook will be a web-based system designed for use by patients, doctors, and
-administrative staff in small to medium-sized healthcare facilities in Kenya.
-
-Patients will be able to:
-- Register and log in securely
-- Search for doctors by specialty and location
-- View doctor availability and book appointments
-- Receive automated reminders via SMS/email
-- View their appointment history and upcoming bookings
-
-Doctors/Staff will be able to:
-- Manage appointment slots and availability
-- View patient booking details
-- Update appointment status (confirmed, cancelled, completed)
-
-Administrators will be able to:
-- Manage system users (doctors, staff, patients)
-- Generate reports on appointment statistics
-
-The system will be implemented as a prototype targeting a healthcare facility
-in Nairobi, Kenya.
-
-
-================================================================================
-SECTION H: ALIGNMENT TO SDGs AND AU AGENDA 2063
-================================================================================
-
-This project directly contributes to:
-
-SDG 3 – Good Health and Well-being:
-  By improving access to healthcare services and streamlining appointment
-  management, MedBook supports the goal of ensuring healthy lives and promoting
-  well-being for all.
-
-AU Agenda 2063 – Aspiration 1 (Prosperous Africa):
-  The system supports digital transformation of the healthcare sector, contributing
-  to inclusive service delivery and improved quality of life for African citizens.
-
-
-================================================================================
-SECTION I: PROPOSED TECHNOLOGIES
-================================================================================
-
-Frontend        : HTML, CSS, JavaScript (React.js)
-Backend         : Python (Django) or PHP (Laravel)
-Database        : MySQL
-Notifications   : Twilio SMS API / Email (SMTP)
-Hosting         : Local server (XAMPP) for prototype
-
-
-================================================================================
-SECTION J: DECLARATION
-================================================================================
-
-I declare that the above topic is my original choice and that I have not previously
-submitted this topic for any other academic work.
-
-Student Signature: ___________________________   Date: _______________
-Beni Ishimwe | Reg No. 669396
-
-Supervisor Signature: ________________________   Date: _______________
-
-================================================================================
++------------------------------------------------------------------------------+
+|                                                                              |
+|                                                                              |
+|                                                                              |
++------------------------------------------------------------------------------+
