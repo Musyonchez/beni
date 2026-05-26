@@ -371,6 +371,14 @@ CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
   NFR4 – Availability: System must be accessible 24/7 (for booking purposes)
   NFR5 – Compatibility: Must work on Chrome, Firefox, and mobile browsers
 
+  NOTE ON STACK CHOICES FOR NFR JUSTIFICATIONS
+    Next.js  – chosen for server-side rendering (faster page loads) and built-in
+               routing, improving performance and SEO
+    FastAPI  – chosen for its speed (async Python), automatic API docs, and
+               easy integration with MongoDB via Motor/Beanie
+    MongoDB  – chosen for flexible document schema (appointment records vary
+               in structure) and easy scalability
+
 --- DIAGRAMS – WHAT EACH ONE MUST SHOW ---
 
   USE CASE DIAGRAM
@@ -484,10 +492,10 @@ CHAPTER SEVEN – IMPLEMENTATION
 
   TECHNOLOGIES – be exact, include version numbers when you know them
     Hardware : Laptop/PC running Windows 10/11, min 4GB RAM
-    Language : PHP 8.x (Laravel) OR Python 3.x (Django) – decide early, stick to it
-    Tools    : VS Code, Git, XAMPP (Apache + MySQL), Postman (for API testing)
-    Database : MySQL 8.x
-    Frontend : HTML5, CSS3, Bootstrap 5, JavaScript
+    Frontend : Next.js (React framework) – handles UI and routing
+    Backend  : FastAPI (Python) – REST API layer
+    Database : MongoDB – NoSQL document store
+    Tools    : VS Code, Git, Postman (for API testing), Docker (optional)
     SMS API  : Twilio (free tier) or Africa's Talking (Kenyan provider)
 
   SCREENSHOTS – label every single one
