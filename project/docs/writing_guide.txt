@@ -1,0 +1,559 @@
+================================================================================
+MEDBOOK – DETAILED WRITING GUIDE
+How to write every section of the report, with tone, length, and content rules
+================================================================================
+
+This file is the companion to project_steps.txt.
+Steps tells you WHAT to do. This file tells you HOW to write it.
+Follow this so the report reads consistently from Chapter 1 to Chapter 7,
+even if written across multiple weeks or by different contributors.
+
+
+================================================================================
+GENERAL WRITING RULES (apply everywhere)
+================================================================================
+
+TONE
+  - Academic and formal. No slang, no contractions (don't → do not).
+  - Write in third person: "The system allows patients to..." not "our system..."
+  - Be specific. Never write vague sentences like "the system is very good."
+    Instead: "The system reduces patient waiting time by enabling online booking."
+
+TENSE
+  - Background and literature review: past tense ("Studies have shown...")
+  - System description and objectives: present/future tense ("The system will...")
+  - Findings and results: past tense ("Respondents indicated...")
+
+LENGTH TARGETS
+  - Minimum total: 6,000 words (excluding diagrams, tables, appendices)
+  - Chapter 1: ~1,000–1,200 words
+  - Chapter 2: ~1,500–2,000 words
+  - Chapter 3: ~600–800 words
+  - Chapter 4: ~800–1,000 words (text only, not counting diagrams)
+  - Chapter 5: ~600–800 words
+  - Chapter 6: ~500–700 words
+  - Chapter 7: ~400–600 words (text only, not counting screenshots)
+
+CITATIONS
+  - APA 7th edition throughout
+  - Every claim about another country or system needs a citation
+  - Format: (Author, Year) in-text, full reference in Section 8.0
+  - Example: (World Health Organization, 2021)
+  - If no author, use the organisation name: (Ministry of Health Kenya, 2020)
+  - Do not cite Wikipedia. Use WHO, government sites, journals, conference papers.
+
+HEADINGS
+  - Use the exact numbering from the documentation format (1.0, 1.1, 1.2...)
+  - Do not skip numbering or rename sections
+
+PARAGRAPHS
+  - Minimum 3 sentences per paragraph
+  - Each paragraph = one idea. New idea = new paragraph.
+  - No bullet points in the body of chapters (only in requirement lists in Ch.4)
+
+
+================================================================================
+CHAPTER ONE – INTRODUCTION
+================================================================================
+
+--- 1.0 INTRODUCTION (3–4 sentences) ---
+
+Purpose: Orient the reader. What is the project and why does it exist?
+
+Write:
+  Sentence 1 – What the system is.
+  Sentence 2 – The context/problem that motivated it.
+  Sentence 3 – What the system does to address the problem.
+  Sentence 4 – Overview of what this chapter covers.
+
+Example structure (fill in with real content):
+  "MedBook is a web-based health appointment booking and management system
+  designed to improve access to healthcare services in Kenya. The increasing
+  demand for healthcare, combined with inefficient manual booking processes,
+  has resulted in long queues and poor patient experiences in many Kenyan
+  clinics. MedBook enables patients to search for doctors, book appointments
+  online, and receive automated reminders, while allowing healthcare
+  administrators to efficiently manage schedules and patient records.
+  This chapter presents the background, problem statement, objectives, scope,
+  limitations, and significance of the project."
+
+
+--- 1.1 BACKGROUND OF THE STUDY (1.5–2 pages) ---
+
+Purpose: Show the system exists elsewhere and is needed here.
+
+Structure – write 5–7 lines for each:
+
+  THREE DEVELOPED COUNTRIES (pick from: UK, USA, Australia, Canada, Germany)
+    What system/platform exists there, when it was introduced, what it does,
+    and what impact it has had. Cite each.
+
+    Suggested systems to research:
+      USA     – Zocdoc (zocdoc.com) – online doctor search and booking
+      UK      – NHS App / Patient Access – national health booking platform
+      Germany – Doctolib – appointment booking system widely used in Europe
+
+  TWO AFRICAN COUNTRIES (pick from: South Africa, Rwanda, Nigeria, Ghana)
+    Same format as above. Show Africa is also adopting this.
+
+    Suggested:
+      South Africa – Quro Medical / HealthQ
+      Rwanda       – Babylon Health partnership with government (2019)
+
+  KENYA CONTEXT
+    Describe the current situation in Kenya:
+    - Most clinics use paper registers or phone calls to book appointments
+    - Urban hospitals like KNH and Aga Khan have partial digital systems
+    - Rural and mid-sized clinics have no digital booking at all
+    - Patients sometimes travel to find a doctor is unavailable
+    Cite: Ministry of Health Kenya reports or Kenya Health Policy documents.
+
+IMPORTANT: Do not copy-paste from websites. Read, understand, rewrite in
+your own words, then cite the source.
+
+
+--- 1.2 PROBLEM STATEMENT (half page, ~250 words) ---
+
+Purpose: Convince the reader the problem is real and the system is necessary.
+
+Rules:
+  - State exactly 4 problems (numbered)
+  - Each problem: 2–3 sentences. State the problem, then explain its impact.
+  - Problems must be specific to the Kenyan/manual booking context.
+  - Do NOT say "the system is slow" — say what the consequence of that slowness is.
+
+The 4 problems for MedBook:
+  1. Long physical queues – patients spend hours waiting, reducing time for work/school
+  2. No-show appointments – no reminder system means wasted doctor slots and lost revenue
+  3. No visibility of doctor availability – patients travel to clinics only to be turned away
+  4. Poor record keeping – paper-based files are easily lost, making continuity of care difficult
+
+
+--- 1.3 PROJECT OBJECTIVES ---
+
+  1.3.1 OVERALL GOAL (1 sentence)
+    "To design and develop MedBook, an online health appointment booking and
+    management system for healthcare facilities in Nairobi, Kenya."
+
+  1.3.2 SYSTEMS DESIGN AND DEVELOPMENT OBJECTIVES
+    These are the 4 technical features YOU are building. Write each as:
+    "To implement [feature] in order to [benefit]."
+
+    i.   To implement a doctor search and filtering module that allows patients
+         to find doctors by specialty, name, and location.
+    ii.  To develop an automated SMS and email reminder system that notifies
+         patients of upcoming appointments to reduce no-shows.
+    iii. To build a patient dashboard that displays appointment history,
+         upcoming bookings, and basic medical notes.
+    iv.  To create a real-time appointment slot management interface for
+         healthcare administrators to manage doctor availability.
+
+  1.3.3 SPECIFIC RESEARCH OBJECTIVES
+    These are the research questions — NOT the system features.
+
+    1.3.3.1 To identify the traditional challenges associated with manual
+            health appointment booking systems in Kenyan healthcare facilities.
+    1.3.3.2 To determine the benefits of adopting an online health appointment
+            booking and management system in Kenyan healthcare facilities.
+
+
+--- 1.4 PROJECT QUESTIONS (2 questions matching 1.3.3) ---
+
+  1. What are the traditional challenges associated with manual health
+     appointment booking systems in Kenyan healthcare facilities?
+  2. What are the benefits of adopting an online health appointment booking
+     and management system in Kenyan healthcare facilities?
+
+
+--- 1.5 SCOPE OF THE PROJECT (~200–300 words) ---
+
+Purpose: Define boundaries. What the system does, who uses it, and where.
+
+Cover:
+  SYSTEM FUNCTIONALITY – summarize the 3 user roles and what each can do
+    Patient: register, search doctors, book/cancel appointments, get reminders
+    Doctor/Staff: manage availability, view bookings, update appointment status
+    Admin: manage all users, view system-wide reports
+
+  STAKEHOLDERS
+    Patients, Doctors, Clinic Administrators, System Developer (you)
+
+  LOCATION / IMPLEMENTATION TARGET
+    "The system will be prototyped and tested at a healthcare facility in
+    Nairobi, Kenya, targeting small to medium-sized clinics with 2–20 doctors."
+
+  WHAT IS OUT OF SCOPE (important – sets expectations)
+    - The system will not process insurance claims
+    - The system will not integrate with national health databases (e.g. NHIF)
+    - Telemedicine / video consultations are not included in this version
+
+
+--- 1.6 LIMITATIONS OF THE STUDY (~150–200 words) ---
+
+Purpose: Be honest about constraints. Shows academic maturity.
+
+Format: State limitation → then immediately state how you will manage it.
+
+Suggested limitations:
+  1. Time – 14 weeks is short for a full production system.
+     Solution: Focus on a working prototype with core features.
+  2. Sample size – questionnaire may reach a small number of respondents.
+     Solution: Use purposive sampling targeting clinic staff and patients.
+  3. Internet access – some target users may have limited internet.
+     Solution: System designed to be lightweight and mobile-friendly.
+  4. Budget – no funds for paid hosting or SMS API beyond free tier.
+     Solution: Use Twilio free tier for SMS and XAMPP for local hosting.
+
+
+--- 1.7 SIGNIFICANCE OF THE STUDY (~200 words) ---
+
+Purpose: Justify why this project matters beyond your grade.
+
+Paragraph 1 – SDG link:
+  "This project is directly relevant to Sustainable Development Goal 3
+  (Good Health and Well-being), which calls for ensuring healthy lives and
+  promoting well-being for all at all ages. Specifically, MedBook supports
+  target 3.8, which aims to achieve universal health coverage including
+  access to quality essential healthcare services..."
+
+Paragraph 2 – AU Agenda 2063 link:
+  "MedBook also contributes to the African Union's Agenda 2063 Aspiration 1,
+  which envisions a prosperous Africa built on inclusive growth. Digital health
+  systems are a key driver of this aspiration, enabling African citizens to
+  access services without the barriers of geography or physical queues..."
+
+Paragraph 3 – Local impact:
+  "Within Kenya, the system has the potential to reduce patient congestion
+  in urban clinics, improve doctor utilisation rates, and create a digital
+  health record trail that supports continuity of care..."
+
+
+================================================================================
+CHAPTER TWO – LITERATURE REVIEW
+================================================================================
+
+--- 2.0 INTRODUCTION (3–4 sentences) ---
+
+  Briefly state what this chapter covers:
+  "This chapter reviews existing online health appointment systems from around
+  the world, comparing their features, strengths, and weaknesses. It also
+  examines literature related to the two specific research objectives:
+  challenges of manual booking systems and benefits of digital alternatives."
+
+
+--- 2.1 EXISTING SYSTEMS (each: 5–7 lines + cite) ---
+
+  Format for each system:
+    Name and country → what it does → who uses it → key features →
+    strengths → weaknesses → cite
+
+  System 1 – Zocdoc (USA)
+    URL: zocdoc.com
+    What it does: Allows patients to search for doctors by specialty,
+    insurance, and location, and book same-day appointments online.
+    Strength: Large doctor network, real-time availability, insurance filtering.
+    Weakness: Only available in the USA, requires insurance details, costly for clinics.
+
+  System 2 – Doctolib (France/Germany/Italy)
+    URL: doctolib.fr
+    What it does: A European appointment platform used by over 300,000
+    healthcare professionals. Includes teleconsultation features.
+    Strength: Multi-language, widely adopted, integrated with hospital systems.
+    Weakness: Not localised for African markets, expensive subscription model.
+
+  System 3 – HealthQ (South Africa)
+    What it does: A South African digital health platform offering appointment
+    booking, queue management, and patient check-in.
+    Strength: Africa-focused, queue management feature, accessible via mobile.
+    Weakness: Limited to South Africa, not open source, no offline mode.
+
+  2.1.4 COMPARISON TABLE
+    Columns: Feature | Zocdoc (USA) | Doctolib (France) | HealthQ (S.Africa)
+    Rows: Cost, Easy to Install, Easy to Use, Efficient Database,
+          Good Security, Vulnerability Assessment
+    Use: Tick (✓) = Yes, X = No, or "Partial"
+
+
+--- 2.2 LITERATURE REVIEW ON RESEARCH OBJECTIVES ---
+
+  2.2.1 CHALLENGES OF MANUAL/OLD SYSTEMS (state and explain 8)
+
+  Write each as: bold heading → 2–3 sentence explanation → cite if possible.
+
+  Suggested 8 challenges:
+    1. Long waiting times and patient congestion
+    2. High rate of missed/no-show appointments due to no reminders
+    3. Difficulty retrieving patient records from paper files
+    4. Scheduling conflicts and double-bookings by administrative staff
+    5. Limited operating hours – patients can only book during clinic hours
+    6. No data for decision making (no appointment statistics or reports)
+    7. High administrative workload on receptionists
+    8. Lack of transparency – patients do not know doctor availability in advance
+
+  2.2.2 BENEFITS OF THE NEW SYSTEM (state and explain 8)
+
+  Suggested 8 benefits:
+    1. 24/7 appointment booking access for patients
+    2. Automated reminders reduce no-shows
+    3. Reduced queues and waiting time at clinics
+    4. Centralised digital patient records for easy retrieval
+    5. Real-time visibility of doctor availability
+    6. Reduced administrative workload
+    7. Data-driven reports to support clinic management decisions
+    8. Improved patient satisfaction and experience
+
+
+--- 2.3 CONCLUSION (1 short paragraph) ---
+
+  Summarise what the literature shows and how it justifies MedBook.
+  "The literature reveals that manual health appointment booking systems
+  are insufficient to meet modern healthcare demands. Existing digital
+  systems in developed countries demonstrate clear benefits, yet none are
+  tailored to the Kenyan context. MedBook addresses this gap by providing
+  a locally-relevant, affordable, and accessible solution."
+
+
+================================================================================
+CHAPTER THREE – METHODOLOGY
+================================================================================
+
+--- KEY DECISIONS TO STATE CLEARLY ---
+
+  Research Design: DESCRIPTIVE (as specified by supervisor)
+    Explain: "A descriptive research design was adopted to describe the
+    current state of appointment booking systems and the needs of users,
+    without manipulating variables."
+
+  Population and Sampling:
+    Target group: Patients and administrative staff at a clinic in Nairobi
+    Sample size: Aim for 30–50 respondents (realistic for 14 weeks)
+    Sampling method: Purposive sampling (explain why – they are the direct users)
+
+  Data Collection:
+    Primary: Questionnaire (Appendix 9.1) + optional short interviews
+    Secondary: Books, journals, websites (used in Chapter 2)
+
+  Data Analysis:
+    Quantitative data from questionnaire → tables and bar charts in Chapter 5
+    Use percentages: "60% of respondents indicated that..."
+
+  Testing Plan (for the system):
+    Unit testing – each module tested individually
+    Integration testing – modules tested together
+    User acceptance testing (UAT) – real users test the prototype
+
+  Ethical Considerations:
+    - Informed consent obtained from all questionnaire respondents
+    - Data collected anonymously – no names on questionnaires
+    - Data used only for academic purposes
+
+
+================================================================================
+CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
+================================================================================
+
+--- FUNCTIONAL REQUIREMENTS (what the system MUST do) ---
+
+  FR1  – Patients shall be able to register and log in securely
+  FR2  – Patients shall be able to search for doctors by specialty and location
+  FR3  – Patients shall be able to view doctor availability and book appointments
+  FR4  – The system shall send automated SMS/email reminders 24 hours before appointments
+  FR5  – Patients shall be able to cancel or reschedule appointments
+  FR6  – Doctors/staff shall be able to manage their appointment slots
+  FR7  – Admins shall be able to add, edit, and deactivate user accounts
+  FR8  – The system shall generate appointment reports for administrators
+
+--- NON-FUNCTIONAL REQUIREMENTS (how the system MUST perform) ---
+
+  NFR1 – Security: Passwords must be hashed (bcrypt). Sessions must time out.
+  NFR2 – Usability: System must be navigable by a first-time user within 5 minutes
+  NFR3 – Performance: Pages must load within 3 seconds on a standard connection
+  NFR4 – Availability: System must be accessible 24/7 (for booking purposes)
+  NFR5 – Compatibility: Must work on Chrome, Firefox, and mobile browsers
+
+--- DIAGRAMS – WHAT EACH ONE MUST SHOW ---
+
+  USE CASE DIAGRAM
+    Actors: Patient, Doctor, Admin
+    Patient use cases: Register, Login, Search Doctor, Book Appointment,
+                       Cancel Appointment, View History, Receive Reminder
+    Doctor use cases: Login, Manage Availability, View Bookings, Update Status
+    Admin use cases: Login, Manage Users, View Reports
+
+  FLOWCHART
+    Show the patient booking flow:
+    Start → Login/Register → Search Doctor → Select Doctor → Choose Slot →
+    Confirm Booking → System sends confirmation → Reminder sent D-1 → Appointment
+
+  CLASS DIAGRAM
+    Main classes: User, Patient, Doctor, Admin, Appointment, Specialty,
+                  Notification, Report
+    Show attributes and methods for each class
+    Show relationships (Patient books Appointment, Doctor has Specialty, etc.)
+
+  DATA FLOW DIAGRAM
+    Level 0 (Context): One central process "MedBook System", external entities
+                       (Patient, Doctor, Admin, SMS Gateway), data stores
+    Level 1: Break into sub-processes: User Management, Appointment Management,
+             Notification Management, Reporting
+    Level 2: Further break down Appointment Management (search, book, cancel,
+             update)
+
+  ERD (Entity Relationship Diagram)
+    Entities: users, doctors, patients, appointments, specialties,
+              notifications, reports
+    Key relationships:
+      - patient (1) books (many) appointments
+      - doctor (1) has (many) appointment slots
+      - appointment (1) triggers (1) notification
+
+  SEQUENCE DIAGRAMS
+    Admin: Admin logs in → manages users → system updates database → confirms
+    User (Patient): Patient searches doctor → selects slot → confirms booking →
+                    system saves → sends confirmation → sends reminder
+
+  DATABASE TABLES (document these in 7.4, but plan them here)
+    users         (id, name, email, password_hash, role, created_at)
+    patients      (id, user_id, dob, phone, address)
+    doctors       (id, user_id, specialty_id, bio, location)
+    specialties   (id, name)
+    appointments  (id, patient_id, doctor_id, slot_datetime, status, notes)
+    notifications (id, appointment_id, type, sent_at, status)
+
+
+================================================================================
+CHAPTER FIVE – FINDINGS AND ANALYSIS
+================================================================================
+
+--- HOW TO PRESENT DATA ---
+
+  Each finding gets:
+    1. A table or bar chart showing the raw responses
+    2. 2–3 sentences interpreting what the data means
+    3. A link back to the research objective it answers
+
+  Response Rate section:
+    "A total of X questionnaires were distributed to patients and administrative
+    staff at [clinic name]. Y were returned, representing a response rate of Z%,
+    which is considered [adequate/good] for this study."
+
+  Demographics:
+    Present: gender split, education level, age range
+    Use simple bar charts or pie charts
+
+  SRO 1 findings (challenges):
+    Show responses to questions about their experience with the current system
+    "X% of respondents agreed that long waiting times were a major challenge..."
+
+  SRO 2 findings (benefits):
+    Show responses to questions about desired features of a new system
+    "Y% of respondents indicated they would use an online booking system if available..."
+
+
+================================================================================
+CHAPTER SIX – DISCUSSION, CONCLUSION, RECOMMENDATIONS
+================================================================================
+
+  DISCUSSION
+    Compare your findings to what the literature said in Chapter 2.
+    "The finding that 80% of respondents experienced long waiting times
+    corroborates Ndegwa (2019), who noted that Kenyan clinics average a
+    2-hour wait time for walk-in patients..."
+
+  CONCLUSION
+    Answer the two research questions directly.
+    "This study found that the primary challenges of manual systems include
+    [list]. The proposed MedBook system addresses these through [features]."
+
+  RECOMMENDATIONS
+    For the clinic, for future developers, for policymakers.
+    Be specific: "Clinics should invest in reliable internet infrastructure
+    to support the adoption of digital booking systems."
+
+  FUTURE WORK
+    What you would add if you had more time:
+    - Telemedicine / video call integration
+    - NHIF insurance verification
+    - Mobile application (Android/iOS)
+    - Multi-language support (Swahili)
+
+
+================================================================================
+CHAPTER SEVEN – IMPLEMENTATION
+================================================================================
+
+  TECHNOLOGIES – be exact, include version numbers when you know them
+    Hardware : Laptop/PC running Windows 10/11, min 4GB RAM
+    Language : PHP 8.x (Laravel) OR Python 3.x (Django) – decide early, stick to it
+    Tools    : VS Code, Git, XAMPP (Apache + MySQL), Postman (for API testing)
+    Database : MySQL 8.x
+    Frontend : HTML5, CSS3, Bootstrap 5, JavaScript
+    SMS API  : Twilio (free tier) or Africa's Talking (Kenyan provider)
+
+  SCREENSHOTS – label every single one
+    Format: "Figure X.X – [Description of what is shown]"
+    Required screenshots:
+      Admin side:  login, dashboard, manage users, view reports
+      Doctor side: manage availability, view bookings
+      Patient side: register, search doctor, book appointment,
+                    confirmation page, appointment history
+
+  USER MANUAL (7.3.2)
+    Step-by-step for a patient booking an appointment:
+    Step 1: Open browser and navigate to [system URL]
+    Step 2: Click "Register" and fill in your details
+    Step 3: Log in with your email and password
+    ... (continue for every step until appointment confirmed)
+
+
+================================================================================
+ABSTRACT – WRITE THIS LAST
+================================================================================
+
+  One paragraph, maximum 1 page (~300 words).
+  Follow this exact structure:
+
+  [2 sentences – background and problem]
+  [1 sentence – overall objective]
+  [2 sentences – methodology: research design, population, data collection]
+  [2 sentences – key findings from questionnaire]
+  [2 sentences – what the system does / key features]
+  [1 sentence – conclusion]
+  [1 sentence – recommendation]
+
+
+================================================================================
+APA REFERENCE FORMAT REMINDERS
+================================================================================
+
+  Journal article:
+    Author, A. A., & Author, B. B. (Year). Title of article. Journal Name,
+    Volume(Issue), page–page. https://doi.org/xxxxx
+
+  Website:
+    Organisation Name. (Year, Month Day). Title of page. Website Name.
+    Retrieved from https://...
+
+  Book:
+    Author, A. A. (Year). Title of work: Capital letter also for subtitle.
+    Publisher.
+
+  Minimum references: 15 (mix of journals, books, and reputable websites)
+  All in-text citations must appear in the reference list and vice versa.
+
+
+================================================================================
+MAINTAINING UNIFORMITY (read this every time you sit down to write)
+================================================================================
+
+  1. Check the tone – formal, third person, no contractions
+  2. Check the tense – past for background/findings, future/present for system
+  3. Every claim about the real world needs a citation
+  4. Every section heading must match the numbering in the documentation format
+  5. Every diagram must have a figure number and caption below it
+  6. Every table must have a table number and caption above it
+  7. Word count matters – aim for the targets in the General Writing Rules section
+  8. When in doubt, refer back to the supervisor's documentation format in:
+     hold/SWE-IST 4900 PROJECT DOCUMENTATION FORMAT.docx
+
+================================================================================
