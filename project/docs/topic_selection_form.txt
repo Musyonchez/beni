@@ -19,8 +19,8 @@ COURSE: SWE 4900A     DATE: _______________     SEMESTER: SUMMER 2026
 |    |                                  | 1, AU Agenda 2063.      |                         |
 +----+----------------------------------+-------------------------+-------------------------+
 | 2  | FarmLink: An Online Agricultural | Society Issue: Farmers  | Mobile App              |
-|    | Produce Marketplace for Kenyan   | lack direct market      | (React Native, Node.js, |
-|    | Smallholder Farmers              | access. SDG 2 –         | MySQL)                  |
+|    | Produce eMarketplace for Kenyan  | lack direct market      | (React Native, Node.js, |
+|    | Smallholder Farmers              | access. SDG 2 –         | MongoDB)                |
 |    |                                  | Zero Hunger.            |                         |
 |    |                                  | Aspiration 1,           |                         |
 |    |                                  | AU Agenda 2063.         |                         |
@@ -38,9 +38,9 @@ Most INNOVATIVE AND MARKET DRIVEN Viable topic selected:
 +----+----------------------------------+---------------------+-------------------------+
 | No | TOPIC                            |                     |                         |
 +----+----------------------------------+---------------------+-------------------------+
-| 1  | MedBook: An Online Health        |                     |                         |
-|    | Appointment Booking and          |                     |                         |
-|    | Management System                |                     |                         |
+| 2  | FarmLink: An Online Agricultural |                     |                         |
+|    | Produce eMarketplace for Kenyan  |                     |                         |
+|    | Smallholder Farmers              |                     |                         |
 +----+----------------------------------+---------------------+-------------------------+
 
 Student Sign

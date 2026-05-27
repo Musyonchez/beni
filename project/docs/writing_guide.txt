@@ -1,5 +1,5 @@
 ================================================================================
-MEDBOOK – DETAILED WRITING GUIDE
+FARMLINK – DETAILED WRITING GUIDE
 How to write every section of the report, with tone, length, and content rules
 ================================================================================
 
@@ -15,9 +15,10 @@ GENERAL WRITING RULES (apply everywhere)
 
 TONE
   - Academic and formal. No slang, no contractions (don't → do not).
-  - Write in third person: "The system allows patients to..." not "our system..."
+  - Write in third person: "The system allows farmers to..." not "our system..."
   - Be specific. Never write vague sentences like "the system is very good."
-    Instead: "The system reduces patient waiting time by enabling online booking."
+    Instead: "FarmLink reduces post-harvest losses by connecting farmers
+    directly to buyers within their locality."
 
 TENSE
   - Background and literature review: past tense ("Studies have shown...")
@@ -38,9 +39,9 @@ CITATIONS
   - APA 7th edition throughout
   - Every claim about another country or system needs a citation
   - Format: (Author, Year) in-text, full reference in Section 8.0
-  - Example: (World Health Organization, 2021)
-  - If no author, use the organisation name: (Ministry of Health Kenya, 2020)
-  - Do not cite Wikipedia. Use WHO, government sites, journals, conference papers.
+  - Example: (Food and Agriculture Organization, 2021)
+  - If no author, use the organisation name: (Ministry of Agriculture Kenya, 2020)
+  - Do not cite Wikipedia. Use FAO, government sites, journals, conference papers.
 
 HEADINGS
   - Use the exact numbering from the documentation format (1.0, 1.1, 1.2...)
@@ -67,15 +68,15 @@ Write:
   Sentence 4 – Overview of what this chapter covers.
 
 Example structure (fill in with real content):
-  "MedBook is a web-based health appointment booking and management system
-  designed to improve access to healthcare services in Kenya. The increasing
-  demand for healthcare, combined with inefficient manual booking processes,
-  has resulted in long queues and poor patient experiences in many Kenyan
-  clinics. MedBook enables patients to search for doctors, book appointments
-  online, and receive automated reminders, while allowing healthcare
-  administrators to efficiently manage schedules and patient records.
-  This chapter presents the background, problem statement, objectives, scope,
-  limitations, and significance of the project."
+  "FarmLink is a mobile-based agricultural produce eMarketplace designed to
+  connect Kenyan smallholder farmers directly with buyers, eliminating the
+  need for intermediaries. The majority of Kenyan farmers operate at a
+  subsistence level partly due to lack of access to fair and direct markets,
+  leading to low income and significant post-harvest losses. FarmLink addresses
+  this by providing a platform where farmers can list produce, buyers can
+  discover and purchase directly, and transactions are completed securely via
+  M-Pesa. This chapter presents the background, problem statement, objectives,
+  scope, limitations, and significance of the project."
 
 
 --- 1.1 BACKGROUND OF THE STUDY (1.5–2 pages) ---
@@ -84,29 +85,28 @@ Purpose: Show the system exists elsewhere and is needed here.
 
 Structure – write 5–7 lines for each:
 
-  THREE DEVELOPED COUNTRIES (pick from: UK, USA, Australia, Canada, Germany)
-    What system/platform exists there, when it was introduced, what it does,
-    and what impact it has had. Cite each.
+  THREE DEVELOPED COUNTRIES
+    USA     – FarmersWeb: B2B platform connecting local farms to restaurants
+              and institutions. Launched 2013, operates across major US cities.
+    UK      – Farmdrop: Online farm-to-consumer grocery platform connecting
+              local British farmers to urban buyers. (Cite: farmdrop.com)
+    Australia – Farmhub or AgriDigital: digital grain marketplace and supply
+              chain platform. Widely adopted by Australian grain farmers.
 
-    Suggested systems to research:
-      USA     – Zocdoc (zocdoc.com) – online doctor search and booking
-      UK      – NHS App / Patient Access – national health booking platform
-      Germany – Doctolib – appointment booking system widely used in Europe
-
-  TWO AFRICAN COUNTRIES (pick from: South Africa, Rwanda, Nigeria, Ghana)
-    Same format as above. Show Africa is also adopting this.
-
-    Suggested:
-      South Africa – Quro Medical / HealthQ
-      Rwanda       – Babylon Health partnership with government (2019)
+  TWO AFRICAN COUNTRIES
+    Nigeria – Farmcrowdy / TradeDepot: agri-tech platforms connecting farmers
+              to markets and investors. Significant adoption since 2016.
+    Kenya   – Twiga Foods: B2B platform sourcing produce from farmers and
+              distributing to urban vendors via a logistics network.
+              (Note: this is a competitor — compare and contrast with FarmLink)
 
   KENYA CONTEXT
-    Describe the current situation in Kenya:
-    - Most clinics use paper registers or phone calls to book appointments
-    - Urban hospitals like KNH and Aga Khan have partial digital systems
-    - Rural and mid-sized clinics have no digital booking at all
-    - Patients sometimes travel to find a doctor is unavailable
-    Cite: Ministry of Health Kenya reports or Kenya Health Policy documents.
+    - About 75% of Kenya's population depends on agriculture (FAO, 2020)
+    - Smallholder farmers (< 2 acres) produce 75% of total farm output
+    - Most sell through brokers/middlemen at reduced prices
+    - Post-harvest losses estimated at 30–40% of produce (MoA Kenya, 2019)
+    - Mobile internet penetration in Kenya reached 43% in 2023 (CA Kenya, 2023)
+      — creating a viable environment for a mobile eMarketplace
 
 IMPORTANT: Do not copy-paste from websites. Read, understand, rewrite in
 your own words, then cite the source.
@@ -116,116 +116,121 @@ your own words, then cite the source.
 
 Purpose: Convince the reader the problem is real and the system is necessary.
 
-Rules:
-  - State exactly 4 problems (numbered)
-  - Each problem: 2–3 sentences. State the problem, then explain its impact.
-  - Problems must be specific to the Kenyan/manual booking context.
-  - Do NOT say "the system is slow" — say what the consequence of that slowness is.
-
-The 4 problems for MedBook:
-  1. Long physical queues – patients spend hours waiting, reducing time for work/school
-  2. No-show appointments – no reminder system means wasted doctor slots and lost revenue
-  3. No visibility of doctor availability – patients travel to clinics only to be turned away
-  4. Poor record keeping – paper-based files are easily lost, making continuity of care difficult
+The 4 problems for FarmLink:
+  1. Overdependence on middlemen – farmers receive as little as 20–30% of
+     the final retail price, reducing their income and discouraging production.
+  2. No direct digital channel – farmers lack a platform to reach buyers
+     outside their immediate geography, limiting market access.
+  3. Buyers cannot verify produce quality or origin before purchase, leading
+     to mistrust and preference for supermarkets over local farmers.
+  4. Post-harvest losses – without a quick way to find buyers, perishable
+     produce rots before it can be sold, costing farmers significant income.
 
 
 --- 1.3 PROJECT OBJECTIVES ---
 
   1.3.1 OVERALL GOAL (1 sentence)
-    "To design and develop MedBook, an online health appointment booking and
-    management system for healthcare facilities in Nairobi, Kenya."
+    "To design and develop FarmLink, an online agricultural produce
+    eMarketplace for Kenyan smallholder farmers."
 
   1.3.2 SYSTEMS DESIGN AND DEVELOPMENT OBJECTIVES
-    These are the 4 technical features YOU are building. Write each as:
-    "To implement [feature] in order to [benefit]."
+    Write each as: "To implement [feature] in order to [benefit]."
 
-    i.   To implement a doctor search and filtering module that allows patients
-         to find doctors by specialty, name, and location.
-    ii.  To develop an automated SMS and email reminder system that notifies
-         patients of upcoming appointments to reduce no-shows.
-    iii. To build a patient dashboard that displays appointment history,
-         upcoming bookings, and basic medical notes.
-    iv.  To create a real-time appointment slot management interface for
-         healthcare administrators to manage doctor availability.
+    i.   To implement a geolocation module that enables buyers to discover
+         farmers and available produce within their geographical proximity.
+    ii.  To develop a shopping cart and M-Pesa payment integration that
+         allows buyers to purchase produce securely within the application.
+    iii. To build a real-time order tracking feature that allows buyers to
+         monitor the status of their orders from farm to delivery.
+    iv.  To create a seller rating and review system that allows buyers to
+         rate farmers and produce quality, promoting accountability and trust.
 
   1.3.3 SPECIFIC RESEARCH OBJECTIVES
-    These are the research questions — NOT the system features.
+    1.3.3.1 To identify the traditional challenges faced by smallholder
+            farmers when using manual and intermediary-based market systems
+            in Kenya.
+    1.3.3.2 To determine the benefits of adopting an online agricultural
+            produce eMarketplace for Kenyan smallholder farmers.
 
-    1.3.3.1 To identify the traditional challenges associated with manual
-            health appointment booking systems in Kenyan healthcare facilities.
-    1.3.3.2 To determine the benefits of adopting an online health appointment
-            booking and management system in Kenyan healthcare facilities.
 
+--- 1.4 PROJECT QUESTIONS ---
 
---- 1.4 PROJECT QUESTIONS (2 questions matching 1.3.3) ---
-
-  1. What are the traditional challenges associated with manual health
-     appointment booking systems in Kenyan healthcare facilities?
-  2. What are the benefits of adopting an online health appointment booking
-     and management system in Kenyan healthcare facilities?
+  1. What are the traditional challenges faced by Kenyan smallholder farmers
+     when using manual and intermediary-based market systems?
+  2. What are the benefits of adopting an online agricultural produce
+     eMarketplace for Kenyan smallholder farmers?
 
 
 --- 1.5 SCOPE OF THE PROJECT (~200–300 words) ---
 
-Purpose: Define boundaries. What the system does, who uses it, and where.
+  USER ROLES AND FUNCTIONALITY
+    Farmer (Seller):
+      Register/login, list produce (name, price, quantity, photos, location),
+      manage listings, view and confirm orders, view ratings and earnings
 
-Cover:
-  SYSTEM FUNCTIONALITY – summarize the 3 user roles and what each can do
-    Patient: register, search doctors, book/cancel appointments, get reminders
-    Doctor/Staff: manage availability, view bookings, update appointment status
-    Admin: manage all users, view system-wide reports
+    Buyer (Consumer):
+      Register/login, browse produce by category or location, view farmer
+      profiles, add to cart, pay via M-Pesa, track orders, leave reviews
+
+    Admin:
+      Manage all users, moderate listings, view platform-wide reports
+      (sales volume, active farmers, popular categories)
 
   STAKEHOLDERS
-    Patients, Doctors, Clinic Administrators, System Developer (you)
+    Smallholder farmers, Buyers/consumers, System administrator,
+    Safaricom (M-Pesa gateway), Developer (Beni Ishimwe)
 
-  LOCATION / IMPLEMENTATION TARGET
-    "The system will be prototyped and tested at a healthcare facility in
-    Nairobi, Kenya, targeting small to medium-sized clinics with 2–20 doctors."
+  IMPLEMENTATION TARGET
+    "The system will be prototyped and tested targeting smallholder farmers
+    in the peri-urban areas of Nairobi County (Limuru, Kikuyu, Kiambu),
+    with buyers primarily in Nairobi City."
 
-  WHAT IS OUT OF SCOPE (important – sets expectations)
-    - The system will not process insurance claims
-    - The system will not integrate with national health databases (e.g. NHIF)
-    - Telemedicine / video consultations are not included in this version
+  OUT OF SCOPE
+    - Logistics and physical delivery are not managed by the system
+    - The system will not handle insurance or government subsidy processing
+    - Bulk/wholesale B2B transactions (restaurants, supermarkets) are not
+      included in this version
 
 
 --- 1.6 LIMITATIONS OF THE STUDY (~150–200 words) ---
 
-Purpose: Be honest about constraints. Shows academic maturity.
-
-Format: State limitation → then immediately state how you will manage it.
-
-Suggested limitations:
-  1. Time – 14 weeks is short for a full production system.
-     Solution: Focus on a working prototype with core features.
-  2. Sample size – questionnaire may reach a small number of respondents.
-     Solution: Use purposive sampling targeting clinic staff and patients.
-  3. Internet access – some target users may have limited internet.
-     Solution: System designed to be lightweight and mobile-friendly.
-  4. Budget – no funds for paid hosting or SMS API beyond free tier.
-     Solution: Use Twilio free tier for SMS and XAMPP for local hosting.
+  1. Time – 14 weeks limits development to a prototype.
+     Solution: Focus on core features; document future work in Chapter 6.
+  2. Internet access – some target farmers in peri-urban areas have
+     limited or expensive data.
+     Solution: App designed to be lightweight; key screens cached offline.
+  3. M-Pesa sandbox – full payment testing requires a Safaricom business
+     account; only sandbox/test mode available as a student.
+     Solution: Use Daraja API sandbox and document live deployment steps.
+  4. Sample size – access to farmers for the questionnaire may be limited.
+     Solution: Use purposive sampling; target farmer cooperatives or SACCOs.
 
 
 --- 1.7 SIGNIFICANCE OF THE STUDY (~200 words) ---
 
-Purpose: Justify why this project matters beyond your grade.
+  Paragraph 1 – SDG 2:
+    "This project contributes to Sustainable Development Goal 2 (Zero Hunger),
+    which calls for ending hunger, achieving food security and improved
+    nutrition, and promoting sustainable agriculture. By providing farmers
+    with direct market access, FarmLink supports target 2.3, which aims to
+    double the agricultural productivity and income of small-scale food
+    producers by 2030..."
 
-Paragraph 1 – SDG link:
-  "This project is directly relevant to Sustainable Development Goal 3
-  (Good Health and Well-being), which calls for ensuring healthy lives and
-  promoting well-being for all at all ages. Specifically, MedBook supports
-  target 3.8, which aims to achieve universal health coverage including
-  access to quality essential healthcare services..."
+  Paragraph 2 – SDG 8:
+    "FarmLink also contributes to SDG 8 (Decent Work and Economic Growth)
+    by enabling smallholder farmers to earn a fair and direct income from
+    their produce, reducing economic exploitation by intermediaries..."
 
-Paragraph 2 – AU Agenda 2063 link:
-  "MedBook also contributes to the African Union's Agenda 2063 Aspiration 1,
-  which envisions a prosperous Africa built on inclusive growth. Digital health
-  systems are a key driver of this aspiration, enabling African citizens to
-  access services without the barriers of geography or physical queues..."
+  Paragraph 3 – AU Agenda 2063:
+    "The project aligns with the African Union's Agenda 2063 Aspiration 1,
+    which envisions a prosperous Africa built on inclusive growth and
+    sustainable development. Digital agricultural marketplaces are identified
+    as a key enabler of rural economic transformation across the continent..."
 
-Paragraph 3 – Local impact:
-  "Within Kenya, the system has the potential to reduce patient congestion
-  in urban clinics, improve doctor utilisation rates, and create a digital
-  health record trail that supports continuity of care..."
+  Paragraph 4 – Local impact:
+    "Within Kenya, FarmLink has the potential to increase farmer income,
+    reduce post-harvest losses, and improve food availability in urban areas
+    by shortening the supply chain between farm and consumer."
 
 
 ================================================================================
@@ -234,228 +239,213 @@ CHAPTER TWO – LITERATURE REVIEW
 
 --- 2.0 INTRODUCTION (3–4 sentences) ---
 
-  Briefly state what this chapter covers:
-  "This chapter reviews existing online health appointment systems from around
-  the world, comparing their features, strengths, and weaknesses. It also
-  examines literature related to the two specific research objectives:
-  challenges of manual booking systems and benefits of digital alternatives."
+  "This chapter reviews existing online agricultural eMarketplace systems
+  from around the world, analysing their features, strengths, and weaknesses.
+  It further examines literature related to the two specific research
+  objectives: challenges of traditional market systems and benefits of
+  digital agricultural eMarketplaces."
 
 
---- 2.1 EXISTING SYSTEMS (each: 5–7 lines + cite) ---
+--- 2.1 EXISTING SYSTEMS ---
 
-  Format for each system:
-    Name and country → what it does → who uses it → key features →
-    strengths → weaknesses → cite
+  System 1 – FarmersWeb (USA)
+    URL: farmersweb.com
+    B2B platform connecting local farms to chefs, restaurants, and grocery
+    buyers. Features: product catalogue, order management, delivery scheduling.
+    Strength: Strong B2B focus, clean UI, trusted by over 600 farms.
+    Weakness: USA only, B2B only (no consumer access), subscription fee required.
 
-  System 1 – Zocdoc (USA)
-    URL: zocdoc.com
-    What it does: Allows patients to search for doctors by specialty,
-    insurance, and location, and book same-day appointments online.
-    Strength: Large doctor network, real-time availability, insurance filtering.
-    Weakness: Only available in the USA, requires insurance details, costly for clinics.
+  System 2 – Farmdrop (UK)
+    Farm-to-consumer online grocery platform. Buyers order from local British
+    farms; Farmdrop handles logistics.
+    Strength: Consumer-facing, strong sustainability branding, quality control.
+    Weakness: Discontinued in 2022 due to logistics costs — important lesson
+    on keeping delivery out of scope for v1.
 
-  System 2 – Doctolib (France/Germany/Italy)
-    URL: doctolib.fr
-    What it does: A European appointment platform used by over 300,000
-    healthcare professionals. Includes teleconsultation features.
-    Strength: Multi-language, widely adopted, integrated with hospital systems.
-    Weakness: Not localised for African markets, expensive subscription model.
-
-  System 3 – HealthQ (South Africa)
-    What it does: A South African digital health platform offering appointment
-    booking, queue management, and patient check-in.
-    Strength: Africa-focused, queue management feature, accessible via mobile.
-    Weakness: Limited to South Africa, not open source, no offline mode.
+  System 3 – Twiga Foods (Kenya)
+    B2B agri-logistics platform. Sources from smallholder farmers and delivers
+    to urban kiosks and vendors via a cold chain.
+    Strength: Kenya-specific, large farmer network, mobile-first.
+    Weakness: B2B only, farmers cannot set their own prices, platform takes margin.
 
   2.1.4 COMPARISON TABLE
-    Columns: Feature | Zocdoc (USA) | Doctolib (France) | HealthQ (S.Africa)
+    Columns: Feature | FarmersWeb (USA) | Farmdrop (UK) | Twiga Foods (Kenya)
     Rows: Cost, Easy to Install, Easy to Use, Efficient Database,
           Good Security, Vulnerability Assessment
-    Use: Tick (✓) = Yes, X = No, or "Partial"
 
 
 --- 2.2 LITERATURE REVIEW ON RESEARCH OBJECTIVES ---
 
-  2.2.1 CHALLENGES OF MANUAL/OLD SYSTEMS (state and explain 8)
+  2.2.1 CHALLENGES OF TRADITIONAL/MANUAL MARKET SYSTEMS (8 challenges)
 
-  Write each as: bold heading → 2–3 sentence explanation → cite if possible.
+    1. Exploitation by middlemen – farmers receive a fraction of retail price
+    2. Limited geographic market reach – farmers can only sell locally
+    3. Price opacity – farmers have no visibility into market prices before selling
+    4. Post-harvest losses – no fast channel to find buyers for perishables
+    5. Lack of produce traceability – buyers cannot verify origin or quality
+    6. High transport costs – farmers travel to markets without guaranteed sales
+    7. No credit or financial record – informal sales leave no transaction history
+    8. Seasonal income instability – no forward orders or pre-booking system
 
-  Suggested 8 challenges:
-    1. Long waiting times and patient congestion
-    2. High rate of missed/no-show appointments due to no reminders
-    3. Difficulty retrieving patient records from paper files
-    4. Scheduling conflicts and double-bookings by administrative staff
-    5. Limited operating hours – patients can only book during clinic hours
-    6. No data for decision making (no appointment statistics or reports)
-    7. High administrative workload on receptionists
-    8. Lack of transparency – patients do not know doctor availability in advance
+  2.2.2 BENEFITS OF AN ONLINE AGRICULTURAL EMARKETPLACE (8 benefits)
 
-  2.2.2 BENEFITS OF THE NEW SYSTEM (state and explain 8)
-
-  Suggested 8 benefits:
-    1. 24/7 appointment booking access for patients
-    2. Automated reminders reduce no-shows
-    3. Reduced queues and waiting time at clinics
-    4. Centralised digital patient records for easy retrieval
-    5. Real-time visibility of doctor availability
-    6. Reduced administrative workload
-    7. Data-driven reports to support clinic management decisions
-    8. Improved patient satisfaction and experience
+    1. Direct farmer-to-buyer connection removes intermediary exploitation
+    2. Expanded market reach beyond local geography via mobile internet
+    3. Price transparency – farmers can set and compare prices
+    4. Reduced post-harvest losses through faster buyer discovery
+    5. Digital transaction records support financial inclusion and credit access
+    6. Geolocation reduces buyer search time and delivery distance
+    7. Ratings and reviews build trust and incentivise quality produce
+    8. Data insights for farmers (which produce sells fastest, peak demand times)
 
 
---- 2.3 CONCLUSION (1 short paragraph) ---
+--- 2.3 CONCLUSION ---
 
-  Summarise what the literature shows and how it justifies MedBook.
-  "The literature reveals that manual health appointment booking systems
-  are insufficient to meet modern healthcare demands. Existing digital
-  systems in developed countries demonstrate clear benefits, yet none are
-  tailored to the Kenyan context. MedBook addresses this gap by providing
-  a locally-relevant, affordable, and accessible solution."
+  "The literature demonstrates that traditional market systems consistently
+  disadvantage smallholder farmers through price exploitation and limited
+  market access. While digital solutions exist in developed countries and
+  emerging markets like Kenya, none are tailored to the direct consumer-farmer
+  mobile experience that FarmLink proposes. This gap justifies the development
+  of an affordable, mobile-first eMarketplace solution designed for the
+  Kenyan context."
 
 
 ================================================================================
 CHAPTER THREE – METHODOLOGY
 ================================================================================
 
---- KEY DECISIONS TO STATE CLEARLY ---
-
-  Research Design: DESCRIPTIVE (as specified by supervisor)
-    Explain: "A descriptive research design was adopted to describe the
-    current state of appointment booking systems and the needs of users,
-    without manipulating variables."
+  Research Design: DESCRIPTIVE
+    "A descriptive research design was adopted to describe the current state
+    of market access for smallholder farmers and the needs of buyers, without
+    manipulating any variables."
 
   Population and Sampling:
-    Target group: Patients and administrative staff at a clinic in Nairobi
-    Sample size: Aim for 30–50 respondents (realistic for 14 weeks)
-    Sampling method: Purposive sampling (explain why – they are the direct users)
+    Target: Smallholder farmers in peri-urban Nairobi + urban buyers
+    Sample: 30–50 respondents
+    Method: Purposive sampling (they are direct users of the proposed system)
+    Where to find respondents: farmer cooperatives, local markets (Kangemi,
+    Wakulima Market), SACCOs, neighbours/community members
 
   Data Collection:
-    Primary: Questionnaire (Appendix 9.1) + optional short interviews
-    Secondary: Books, journals, websites (used in Chapter 2)
+    Primary: Questionnaire (Appendix 9.1)
+    Secondary: FAO reports, Ministry of Agriculture Kenya, journals
 
   Data Analysis:
-    Quantitative data from questionnaire → tables and bar charts in Chapter 5
-    Use percentages: "60% of respondents indicated that..."
+    Percentages and bar charts from questionnaire responses
+    "X% of farmer respondents indicated that..."
 
-  Testing Plan (for the system):
-    Unit testing – each module tested individually
-    Integration testing – modules tested together
-    User acceptance testing (UAT) – real users test the prototype
+  Testing Plan:
+    Unit testing – each module (auth, listings, cart, payment, tracking)
+    Integration testing – full flow: list → discover → buy → track
+    UAT – real farmers and buyers test the prototype
 
   Ethical Considerations:
-    - Informed consent obtained from all questionnaire respondents
-    - Data collected anonymously – no names on questionnaires
-    - Data used only for academic purposes
+    - Informed consent from all respondents
+    - Anonymous questionnaires (no names collected)
+    - Data used for academic purposes only
 
 
 ================================================================================
 CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
 ================================================================================
 
---- FUNCTIONAL REQUIREMENTS (what the system MUST do) ---
+--- FUNCTIONAL REQUIREMENTS ---
 
-  FR1  – Patients shall be able to register and log in securely
-  FR2  – Patients shall be able to search for doctors by specialty and location
-  FR3  – Patients shall be able to view doctor availability and book appointments
-  FR4  – The system shall send automated SMS/email reminders 24 hours before appointments
-  FR5  – Patients shall be able to cancel or reschedule appointments
-  FR6  – Doctors/staff shall be able to manage their appointment slots
-  FR7  – Admins shall be able to add, edit, and deactivate user accounts
-  FR8  – The system shall generate appointment reports for administrators
+  FR1  – Farmers shall be able to register, log in, and manage their profile
+  FR2  – Farmers shall be able to list, edit, and remove produce listings
+  FR3  – Buyers shall be able to browse and search produce by category and location
+  FR4  – The system shall display nearby farmers based on buyer's geolocation
+  FR5  – Buyers shall be able to add items to a cart and checkout via M-Pesa
+  FR6  – The system shall update order status in real time (placed → delivered)
+  FR7  – Buyers shall be able to leave ratings and reviews for farmers
+  FR8  – Admins shall be able to manage users, listings, and view reports
 
---- NON-FUNCTIONAL REQUIREMENTS (how the system MUST perform) ---
+--- NON-FUNCTIONAL REQUIREMENTS ---
 
-  NFR1 – Security: Passwords must be hashed (bcrypt). Sessions must time out.
-  NFR2 – Usability: System must be navigable by a first-time user within 5 minutes
-  NFR3 – Performance: Pages must load within 3 seconds on a standard connection
-  NFR4 – Availability: System must be accessible 24/7 (for booking purposes)
-  NFR5 – Compatibility: Must work on Chrome, Firefox, and mobile browsers
+  NFR1 – Security: Passwords hashed (bcrypt), JWT for session tokens
+  NFR2 – Usability: A first-time user can complete a purchase within 5 minutes
+  NFR3 – Performance: API responses under 2 seconds on a 3G connection
+  NFR4 – Availability: App accessible 24/7 for browsing and ordering
+  NFR5 – Compatibility: Works on Android 8+ and iOS 13+
 
-  NOTE ON STACK CHOICES FOR NFR JUSTIFICATIONS
-    Next.js  – chosen for server-side rendering (faster page loads) and built-in
-               routing, improving performance and SEO
-    FastAPI  – chosen for its speed (async Python), automatic API docs, and
-               easy integration with MongoDB via Motor/Beanie
-    MongoDB  – chosen for flexible document schema (appointment records vary
-               in structure) and easy scalability
+  NOTE ON STACK CHOICES (for Section 7.2 justifications):
+    React Native – cross-platform (Android + iOS) from one codebase; large
+                   community; Expo simplifies testing on physical devices
+    Node.js      – fast, non-blocking I/O ideal for real-time order updates;
+                   JavaScript across frontend and backend reduces context switching
+    MongoDB      – flexible document schema suits variable produce listings
+                   (different fields per category); scales horizontally
 
 --- DIAGRAMS – WHAT EACH ONE MUST SHOW ---
 
   USE CASE DIAGRAM
-    Actors: Patient, Doctor, Admin
-    Patient use cases: Register, Login, Search Doctor, Book Appointment,
-                       Cancel Appointment, View History, Receive Reminder
-    Doctor use cases: Login, Manage Availability, View Bookings, Update Status
-    Admin use cases: Login, Manage Users, View Reports
+    Actors: Farmer, Buyer, Admin, M-Pesa Gateway
+    Farmer: Register, Login, List Produce, Manage Listings, View Orders,
+            View Earnings, View Reviews
+    Buyer:  Register, Login, Browse Produce, Search by Location, Add to Cart,
+            Pay via M-Pesa, Track Order, Leave Review
+    Admin:  Manage Users, Moderate Listings, View Reports
 
-  FLOWCHART
-    Show the patient booking flow:
-    Start → Login/Register → Search Doctor → Select Doctor → Choose Slot →
-    Confirm Booking → System sends confirmation → Reminder sent D-1 → Appointment
+  FLOWCHART (buyer purchase flow)
+    Start → Open App → Register/Login → Browse/Search Produce →
+    View Product → Add to Cart → Checkout → Enter M-Pesa PIN →
+    Payment Confirmed → Order Placed → Farmer Notified →
+    Order Dispatched → Buyer Tracks → Delivered → Leave Review
 
   CLASS DIAGRAM
-    Main classes: User, Patient, Doctor, Admin, Appointment, Specialty,
-                  Notification, Report
-    Show attributes and methods for each class
-    Show relationships (Patient books Appointment, Doctor has Specialty, etc.)
+    Classes: User, Farmer, Buyer, Admin, Product, Category, Order,
+             OrderItem, Payment, Review, Notification
+    Farmer extends User; Buyer extends User; Admin extends User
+    Farmer has many Products; Buyer places many Orders;
+    Order has many OrderItems; Order has one Payment; Order has one Review
 
   DATA FLOW DIAGRAM
-    Level 0 (Context): One central process "MedBook System", external entities
-                       (Patient, Doctor, Admin, SMS Gateway), data stores
-    Level 1: Break into sub-processes: User Management, Appointment Management,
-             Notification Management, Reporting
-    Level 2: Further break down Appointment Management (search, book, cancel,
-             update)
+    Level 0: FarmLink System ↔ Farmer, Buyer, Admin, M-Pesa Gateway
+    Level 1: User Management, Product Management, Order Management,
+             Payment Processing, Notification Service, Reporting
+    Level 2: Break down Order Management into:
+             Browse, Add to Cart, Checkout, Track, Complete, Review
 
-  ERD (Entity Relationship Diagram)
-    Entities: users, doctors, patients, appointments, specialties,
-              notifications, reports
-    Key relationships:
-      - patient (1) books (many) appointments
-      - doctor (1) has (many) appointment slots
-      - appointment (1) triggers (1) notification
+  ERD – KEY COLLECTIONS (MongoDB documents)
+    users        { _id, name, email, password_hash, role, phone, created_at }
+    farmers      { _id, user_id, location, bio, rating, total_sales }
+    products     { _id, farmer_id, category_id, name, price, quantity,
+                   unit, images[], location, available, created_at }
+    categories   { _id, name }
+    orders       { _id, buyer_id, farmer_id, items[], total, status,
+                   payment_ref, created_at, updated_at }
+    reviews      { _id, order_id, buyer_id, farmer_id, rating, comment, date }
+    notifications{ _id, user_id, message, type, read, created_at }
 
   SEQUENCE DIAGRAMS
-    Admin: Admin logs in → manages users → system updates database → confirms
-    User (Patient): Patient searches doctor → selects slot → confirms booking →
-                    system saves → sends confirmation → sends reminder
-
-  DATABASE TABLES (document these in 7.4, but plan them here)
-    users         (id, name, email, password_hash, role, created_at)
-    patients      (id, user_id, dob, phone, address)
-    doctors       (id, user_id, specialty_id, bio, location)
-    specialties   (id, name)
-    appointments  (id, patient_id, doctor_id, slot_datetime, status, notes)
-    notifications (id, appointment_id, type, sent_at, status)
+    Farmer: Login → List Product → Receive Order Notification → Confirm Order
+    Buyer:  Login → Search Produce → Add to Cart → Pay (M-Pesa) →
+            Receive Confirmation → Track Order → Leave Review
+    Admin:  Login → View Reports → Manage Users → Moderate Listings
 
 
 ================================================================================
 CHAPTER FIVE – FINDINGS AND ANALYSIS
 ================================================================================
 
---- HOW TO PRESENT DATA ---
-
-  Each finding gets:
-    1. A table or bar chart showing the raw responses
-    2. 2–3 sentences interpreting what the data means
-    3. A link back to the research objective it answers
-
-  Response Rate section:
-    "A total of X questionnaires were distributed to patients and administrative
-    staff at [clinic name]. Y were returned, representing a response rate of Z%,
-    which is considered [adequate/good] for this study."
+  Response Rate:
+    "A total of X questionnaires were distributed to smallholder farmers
+    and buyers in [location]. Y were returned, a response rate of Z%."
 
   Demographics:
-    Present: gender split, education level, age range
-    Use simple bar charts or pie charts
+    Gender, education level, farming experience (for farmers),
+    frequency of buying local produce (for buyers)
 
-  SRO 1 findings (challenges):
-    Show responses to questions about their experience with the current system
-    "X% of respondents agreed that long waiting times were a major challenge..."
+  SRO 1 findings:
+    Show data on: middlemen usage, price satisfaction, market access problems,
+    post-harvest loss experience
+    "X% of farmer respondents reported selling through a middleman..."
 
-  SRO 2 findings (benefits):
-    Show responses to questions about desired features of a new system
-    "Y% of respondents indicated they would use an online booking system if available..."
+  SRO 2 findings:
+    Show data on: willingness to use a mobile app, desired features,
+    M-Pesa familiarity
+    "Y% of buyer respondents indicated they would use an app to buy
+    directly from farmers if available..."
 
 
 ================================================================================
@@ -463,68 +453,59 @@ CHAPTER SIX – DISCUSSION, CONCLUSION, RECOMMENDATIONS
 ================================================================================
 
   DISCUSSION
-    Compare your findings to what the literature said in Chapter 2.
-    "The finding that 80% of respondents experienced long waiting times
-    corroborates Ndegwa (2019), who noted that Kenyan clinics average a
-    2-hour wait time for walk-in patients..."
+    Link findings back to Chapter 2 literature.
+    "The finding that X% of farmers sell through middlemen corroborates
+    Kirimi et al. (2011), who documented that Kenyan smallholder farmers
+    receive only 20–30% of the final retail price..."
 
   CONCLUSION
-    Answer the two research questions directly.
-    "This study found that the primary challenges of manual systems include
-    [list]. The proposed MedBook system addresses these through [features]."
+    Answer both research questions directly.
 
   RECOMMENDATIONS
-    For the clinic, for future developers, for policymakers.
-    Be specific: "Clinics should invest in reliable internet infrastructure
-    to support the adoption of digital booking systems."
+    - For farmers: join cooperatives to aggregate produce for the platform
+    - For government: invest in rural internet infrastructure
+    - For future developers: integrate logistics tracking with boda boda networks
 
   FUTURE WORK
-    What you would add if you had more time:
-    - Telemedicine / video call integration
-    - NHIF insurance verification
-    - Mobile application (Android/iOS)
     - Multi-language support (Swahili)
+    - Farmer cooperative group accounts
+    - Delivery coordination with third-party riders
+    - Crop price forecasting using historical sales data
+    - Web admin dashboard (currently admin is mobile only)
 
 
 ================================================================================
 CHAPTER SEVEN – IMPLEMENTATION
 ================================================================================
 
-  TECHNOLOGIES – be exact, include version numbers when you know them
-    Hardware : Laptop/PC running Windows 10/11, min 4GB RAM
-    Frontend : Next.js (React framework) – handles UI and routing
-    Backend  : FastAPI (Python) – REST API layer
-    Database : MongoDB – NoSQL document store
-    Tools    : VS Code, Git, Postman (for API testing), Docker (optional)
-    SMS API  : Twilio (free tier) or Africa's Talking (Kenyan provider)
+  TECHNOLOGIES (be exact):
+    Hardware : Laptop/PC, Windows 10/11, min 4GB RAM; Android phone for testing
+    Frontend : React Native (Expo) – cross-platform mobile framework
+    Backend  : Node.js with Express.js – REST API
+    Database : MongoDB (MongoDB Atlas free tier for cloud hosting)
+    Tools    : VS Code, Git, Postman, Expo Go, MongoDB Compass
+    Payments : Safaricom Daraja API (M-Pesa STK Push, sandbox mode)
+    Auth     : JWT (JSON Web Tokens) for session management
 
-  SCREENSHOTS – label every single one
-    Format: "Figure X.X – [Description of what is shown]"
-    Required screenshots:
-      Admin side:  login, dashboard, manage users, view reports
-      Doctor side: manage availability, view bookings
-      Patient side: register, search doctor, book appointment,
-                    confirmation page, appointment history
-
-  USER MANUAL (7.3.2)
-    Step-by-step for a patient booking an appointment:
-    Step 1: Open browser and navigate to [system URL]
-    Step 2: Click "Register" and fill in your details
-    Step 3: Log in with your email and password
-    ... (continue for every step until appointment confirmed)
+  SCREENSHOTS – label every one:
+    Format: "Figure X.X – [Description]"
+    Required:
+      Admin:  login, dashboard, user management, listings moderation, reports
+      Farmer: register, add listing, view orders, view earnings/ratings
+      Buyer:  register, home feed, product detail, cart, M-Pesa prompt,
+              order confirmation, order tracking, leave review
 
 
 ================================================================================
 ABSTRACT – WRITE THIS LAST
 ================================================================================
 
-  One paragraph, maximum 1 page (~300 words).
-  Follow this exact structure:
+  One paragraph, max 1 page (~300 words). Exact structure:
 
   [2 sentences – background and problem]
   [1 sentence – overall objective]
-  [2 sentences – methodology: research design, population, data collection]
-  [2 sentences – key findings from questionnaire]
+  [2 sentences – methodology]
+  [2 sentences – key findings]
   [2 sentences – what the system does / key features]
   [1 sentence – conclusion]
   [1 sentence – recommendation]
@@ -534,34 +515,30 @@ ABSTRACT – WRITE THIS LAST
 APA REFERENCE FORMAT REMINDERS
 ================================================================================
 
-  Journal article:
-    Author, A. A., & Author, B. B. (Year). Title of article. Journal Name,
-    Volume(Issue), page–page. https://doi.org/xxxxx
+  Journal:   Author, A. (Year). Title. Journal, Vol(Issue), pp. DOI
+  Website:   Organisation. (Year). Title. Retrieved from https://...
+  Book:      Author, A. (Year). Title. Publisher.
 
-  Website:
-    Organisation Name. (Year, Month Day). Title of page. Website Name.
-    Retrieved from https://...
-
-  Book:
-    Author, A. A. (Year). Title of work: Capital letter also for subtitle.
-    Publisher.
-
-  Minimum references: 15 (mix of journals, books, and reputable websites)
-  All in-text citations must appear in the reference list and vice versa.
+  Minimum references: 15
+  Useful sources to look up:
+    - FAO (Food and Agriculture Organization) – food security stats
+    - Kenya National Bureau of Statistics (KNBS) – agricultural data
+    - Communications Authority of Kenya – internet/mobile penetration stats
+    - Ministry of Agriculture Kenya – farmer income and post-harvest loss data
+    - Google Scholar – search "smallholder farmers Kenya market access"
 
 
 ================================================================================
 MAINTAINING UNIFORMITY (read this every time you sit down to write)
 ================================================================================
 
-  1. Check the tone – formal, third person, no contractions
-  2. Check the tense – past for background/findings, future/present for system
-  3. Every claim about the real world needs a citation
-  4. Every section heading must match the numbering in the documentation format
-  5. Every diagram must have a figure number and caption below it
-  6. Every table must have a table number and caption above it
-  7. Word count matters – aim for the targets in the General Writing Rules section
-  8. When in doubt, refer back to the supervisor's documentation format in:
-     hold/SWE-IST 4900 PROJECT DOCUMENTATION FORMAT.docx
+  1. Formal tone, third person, no contractions
+  2. Past tense for background/findings; future/present for system description
+  3. Every real-world claim needs a citation
+  4. Headings must match the documentation format numbering exactly
+  5. Every diagram: figure number + caption below
+  6. Every table: table number + caption above
+  7. Aim for the word count targets above
+  8. When in doubt, refer to: hold/SWE-IST 4900 PROJECT DOCUMENTATION FORMAT.docx
 
 ================================================================================
