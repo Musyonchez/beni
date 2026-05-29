@@ -23,6 +23,9 @@ Aker, J. C., & Mbiti, I. M. (2010). Mobile phones and economic development
 in Africa. *Journal of Economic Perspectives*, *24*(3), 207–232.
 https://doi.org/10.1257/jep.24.3.207
 
+Creswell, J. W. (2014). *Research design: Qualitative, quantitative, and mixed
+methods approaches* (4th ed.). SAGE Publications.
+
 Communications Authority of Kenya. (2023). *Sector statistics report Q2
 2022–2023*. Communications Authority of Kenya.
 https://www.ca.go.ke/sector-statistics [VERIFY URL]
@@ -74,6 +77,9 @@ https://doi.org/10.1162/qjec.122.3.879
 Kenya National Bureau of Statistics. (2022). *Kenya economic survey 2022*.
 KNBS.
 https://www.knbs.or.ke/economic-survey-2022 [VERIFY URL]
+
+Kombo, D. K., & Tromp, D. L. A. (2006). *Proposal and thesis writing: An
+introduction*. Paulines Publications Africa.
 
 Kirimi, L., Sitko, N., Jayne, T. S., Karin, F., Muyanga, M., Sheahan, M.,
 Flock, J., & Bor, G. (2011). *A farm gate-to-consumer value chain analysis of
@@ -134,6 +140,6 @@ https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?locations=KE
 
 ---
 
-**Total references: 28**
+**Total references: 30**
 **Minimum required: 15**
-**Status: Covers Chapters 1 and 2 only — add new sources here as Chapters 3–7 are written.**
+**Status: Covers Chapters 1–4 — add new sources here as Chapters 5–7 are written.**
