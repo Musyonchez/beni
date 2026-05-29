@@ -1,0 +1,62 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ActivityIndicator, View } from 'react-native';
+import { useAuth } from '../context/AuthContext';
+import LoginScreen from '../screens/auth/LoginScreen';
+import RegisterScreen from '../screens/auth/RegisterScreen';
+
+const Stack = createStackNavigator();
+
+// Placeholder screens — will be replaced in Phase 3+
+const PlaceholderScreen = () => <View />;
+
+const AuthStack = () => (
+  <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Login" component={LoginScreen} />
+    <Stack.Screen name="Register" component={RegisterScreen} />
+  </Stack.Navigator>
+);
+
+const FarmerStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="FarmerHome" component={PlaceholderScreen} options={{ title: 'Dashboard' }} />
+  </Stack.Navigator>
+);
+
+const BuyerStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="BuyerHome" component={PlaceholderScreen} options={{ title: 'Browse' }} />
+  </Stack.Navigator>
+);
+
+const AdminStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="AdminHome" component={PlaceholderScreen} options={{ title: 'Admin' }} />
+  </Stack.Navigator>
+);
+
+export const RootNavigator: React.FC = () => {
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  const AppStack = () => {
+    if (!user) return <AuthStack />;
+    if (user.role === 'farmer') return <FarmerStack />;
+    if (user.role === 'admin') return <AdminStack />;
+    return <BuyerStack />;
+  };
+
+  return (
+    <NavigationContainer>
+      <AppStack />
+    </NavigationContainer>
+  );
+};
