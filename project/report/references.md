@@ -103,6 +103,9 @@ Mkulima Online. (2026). *Mkulima Online — Kenya's agricultural marketplace*.
 Mkulima Online.
 https://mkulimaonline.org
 
+Mugenda, O. M., & Mugenda, A. G. (2003). *Research methods: Quantitative and
+qualitative approaches*. African Centre for Technology Studies.
+
 Muyanga, M., & Jayne, T. S. (2014). Effects of rising rural population density
 on smallholder agriculture in Kenya. *Food Policy*, *48*, 98–113.
 https://doi.org/10.1016/j.foodpol.2014.03.001
@@ -140,6 +143,6 @@ https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?locations=KE
 
 ---
 
-**Total references: 30**
+**Total references: 31**
 **Minimum required: 15**
-**Status: Covers Chapters 1–4 — add new sources here as Chapters 5–7 are written.**
+**Status: Covers Chapters 1–6 — add new sources here as Chapter 7 is written.**
