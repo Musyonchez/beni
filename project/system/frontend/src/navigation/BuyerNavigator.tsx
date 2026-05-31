@@ -1,15 +1,14 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text } from 'react-native';
 import HomeFeedScreen from '../screens/buyer/HomeFeedScreen';
 import MapViewScreen from '../screens/buyer/MapViewScreen';
 import ProductDetailScreen from '../screens/buyer/ProductDetailScreen';
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
-// Placeholder screens for tabs not yet built
 const PlaceholderScreen = () => null;
 
 const HomeStack = () => (
