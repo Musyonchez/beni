@@ -29,7 +29,7 @@ const UserSchema = new Schema<IUser>(
     role: { type: String, enum: ['farmer', 'buyer', 'admin'], required: true },
     profilePhoto: { type: String },
     location: {
-      type: { type: String, enum: ['Point'], default: 'Point' },
+      type: { type: String, enum: ['Point'] },
       coordinates: { type: [Number] },
     },
     locationName: { type: String },
