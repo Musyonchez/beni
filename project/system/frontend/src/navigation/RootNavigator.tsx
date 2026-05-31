@@ -5,10 +5,10 @@ import { ActivityIndicator, View } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
+import { BuyerNavigator } from './BuyerNavigator';
 
 const Stack = createStackNavigator();
 
-// Placeholder screens — will be replaced in Phase 3+
 const PlaceholderScreen = () => <View />;
 
 const AuthStack = () => (
@@ -21,12 +21,6 @@ const AuthStack = () => (
 const FarmerStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="FarmerHome" component={PlaceholderScreen} options={{ title: 'Dashboard' }} />
-  </Stack.Navigator>
-);
-
-const BuyerStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="BuyerHome" component={PlaceholderScreen} options={{ title: 'Browse' }} />
   </Stack.Navigator>
 );
 
@@ -51,7 +45,7 @@ export const RootNavigator: React.FC = () => {
     if (!user) return <AuthStack />;
     if (user.role === 'farmer') return <FarmerStack />;
     if (user.role === 'admin') return <AdminStack />;
-    return <BuyerStack />;
+    return <BuyerNavigator />;
   };
 
   return (
