@@ -39,7 +39,7 @@ const FarmerStack = () => (
 
 const AdminStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="AdminHome" component={PlaceholderScreen} options={{ title: 'Admin' }} />
+    <Stack.Screen name="AdminHome" component={() => <View />} options={{ title: 'Admin' }} />
   </Stack.Navigator>
 );
 
