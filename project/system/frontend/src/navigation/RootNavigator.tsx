@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../context/AuthContext';
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
@@ -9,7 +9,20 @@ import { BuyerNavigator } from './BuyerNavigator';
 
 const Stack = createNativeStackNavigator();
 
-const PlaceholderScreen = () => <View />;
+const FarmerPlaceholder = () => {
+  const { logout } = useAuth();
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 16, color: '#555', marginBottom: 24 }}>Farmer dashboard coming soon</Text>
+      <TouchableOpacity
+        onPress={logout}
+        style={{ backgroundColor: '#c62828', paddingHorizontal: 32, paddingVertical: 12, borderRadius: 8 }}
+      >
+        <Text style={{ color: '#fff', fontWeight: '600' }}>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 const AuthStack = () => (
   <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -20,7 +33,7 @@ const AuthStack = () => (
 
 const FarmerStack = () => (
   <Stack.Navigator>
-    <Stack.Screen name="FarmerHome" component={PlaceholderScreen} options={{ title: 'Dashboard' }} />
+    <Stack.Screen name="FarmerHome" component={FarmerPlaceholder} options={{ title: 'Dashboard' }} />
   </Stack.Navigator>
 );
 
