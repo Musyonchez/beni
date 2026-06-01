@@ -45,17 +45,32 @@ export const BuyerNavigator = () => (
     <Tab.Screen
       name="CartTab"
       component={CartScreen}
-      options={{ tabBarLabel: 'Cart', tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>🛒</Text> }}
+      options={{
+        headerShown: true,
+        title: 'Cart',
+        tabBarLabel: 'Cart',
+        tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>🛒</Text>,
+      }}
     />
     <Tab.Screen
       name="OrdersTab"
       component={OrdersScreen}
-      options={{ tabBarLabel: 'Orders', tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📦</Text> }}
+      options={{
+        headerShown: true,
+        title: 'My Orders',
+        tabBarLabel: 'Orders',
+        tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📦</Text>,
+      }}
     />
     <Tab.Screen
       name="ProfileTab"
       component={PlaceholderScreen}
-      options={{ tabBarLabel: 'Profile', tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>👤</Text> }}
+      options={{
+        headerShown: true,
+        title: 'Profile',
+        tabBarLabel: 'Profile',
+        tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>👤</Text>,
+      }}
     />
   </Tab.Navigator>
 );
