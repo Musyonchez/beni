@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { cancelOrder, getMyOrders, Order } from '../../api/orders';
+import { initiatePayment } from '../../api/payments';
 
 const STATUS_COLOR: Record<string, string> = {
   pending: '#f57c00',
@@ -24,6 +25,7 @@ export default function OrdersScreen() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [payingId, setPayingId] = useState<string | null>(null);
 
   const fetchOrders = useCallback(async () => {
     setError(null);
@@ -61,6 +63,18 @@ export default function OrdersScreen() {
     ]);
   };
 
+  const handlePay = async (id: string) => {
+    setPayingId(id);
+    try {
+      const res = await initiatePayment(id);
+      Alert.alert('M-Pesa', res.data.message);
+    } catch (e: any) {
+      Alert.alert('Payment Error', e?.response?.data?.message ?? 'Failed to initiate payment');
+    } finally {
+      setPayingId(null);
+    }
+  };
+
   if (loading) return <ActivityIndicator style={{ flex: 1 }} size="large" color="#2E7D32" />;
 
   if (error) return (
@@ -85,6 +99,7 @@ export default function OrdersScreen() {
       }
       renderItem={({ item }) => {
         const farmer = typeof item.farmer === 'object' ? item.farmer : null;
+        const isPaying = payingId === item._id;
         return (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
@@ -104,11 +119,28 @@ export default function OrdersScreen() {
             ))}
             <View style={styles.cardFooter}>
               <Text style={styles.total}>Total: KES {item.total}</Text>
-              {item.status === 'pending' && (
-                <TouchableOpacity onPress={() => handleCancel(item._id)}>
-                  <Text style={styles.cancelBtn}>Cancel</Text>
-                </TouchableOpacity>
-              )}
+              <View style={styles.actions}>
+                {item.paymentStatus === 'unpaid' && item.status !== 'cancelled' && (
+                  <TouchableOpacity
+                    style={[styles.payBtn, isPaying && styles.btnDisabled]}
+                    onPress={() => handlePay(item._id)}
+                    disabled={isPaying}
+                  >
+                    {isPaying
+                      ? <ActivityIndicator size="small" color="#fff" />
+                      : <Text style={styles.payBtnText}>Pay via M-Pesa</Text>
+                    }
+                  </TouchableOpacity>
+                )}
+                {item.paymentStatus === 'paid' && (
+                  <Text style={styles.paidBadge}>✓ Paid</Text>
+                )}
+                {item.status === 'pending' && (
+                  <TouchableOpacity onPress={() => handleCancel(item._id)}>
+                    <Text style={styles.cancelBtn}>Cancel</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
             </View>
           </View>
         );
@@ -141,5 +173,15 @@ const styles = StyleSheet.create({
   itemLine: { fontSize: 13, color: '#444', marginTop: 4 },
   cardFooter: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 10, alignItems: 'center' },
   total: { fontWeight: '700', fontSize: 14, color: '#2E7D32' },
+  actions: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  payBtn: {
+    backgroundColor: '#4caf50',
+    borderRadius: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  btnDisabled: { opacity: 0.6 },
+  payBtnText: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  paidBadge: { color: '#2e7d32', fontSize: 13, fontWeight: '700' },
   cancelBtn: { color: '#c62828', fontSize: 13, fontWeight: '600' },
 });
