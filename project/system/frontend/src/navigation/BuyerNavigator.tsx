@@ -5,6 +5,8 @@ import { Text } from 'react-native';
 import HomeFeedScreen from '../screens/buyer/HomeFeedScreen';
 import MapViewScreen from '../screens/buyer/MapViewScreen';
 import ProductDetailScreen from '../screens/buyer/ProductDetailScreen';
+import CartScreen from '../screens/buyer/CartScreen';
+import OrdersScreen from '../screens/buyer/OrdersScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -42,12 +44,12 @@ export const BuyerNavigator = () => (
     />
     <Tab.Screen
       name="CartTab"
-      component={PlaceholderScreen}
+      component={CartScreen}
       options={{ tabBarLabel: 'Cart', tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>🛒</Text> }}
     />
     <Tab.Screen
       name="OrdersTab"
-      component={PlaceholderScreen}
+      component={OrdersScreen}
       options={{ tabBarLabel: 'Orders', tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 20 }}>📦</Text> }}
     />
     <Tab.Screen
