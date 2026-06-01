@@ -23,13 +23,16 @@ export default function OrdersScreen() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchOrders = useCallback(async () => {
+    setError(null);
     try {
       const res = await getMyOrders();
       setOrders(res.data);
-    } catch {
-      // silently fail on refresh
+    } catch (e: any) {
+      const msg = e?.response?.data?.message ?? e?.message ?? 'Failed to load orders';
+      setError(msg);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -59,6 +62,15 @@ export default function OrdersScreen() {
   };
 
   if (loading) return <ActivityIndicator style={{ flex: 1 }} size="large" color="#2E7D32" />;
+
+  if (error) return (
+    <View style={styles.empty}>
+      <Text style={[styles.emptyText, { color: '#c62828' }]}>{error}</Text>
+      <TouchableOpacity onPress={fetchOrders} style={{ marginTop: 12 }}>
+        <Text style={{ color: '#2E7D32', fontWeight: '600' }}>Retry</Text>
+      </TouchableOpacity>
+    </View>
+  );
 
   return (
     <FlatList
