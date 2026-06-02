@@ -16,7 +16,7 @@ function Kill-Port($port) {
 
 Write-Host "Freeing ports..." -ForegroundColor Cyan
 Kill-Port 5000
-Kill-Port 8081
+Kill-Port 3000
 Start-Sleep -Seconds 1
 
 $root = Split-Path -Parent $PSScriptRoot
@@ -28,10 +28,10 @@ Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$backend'; np
 
 Start-Sleep -Seconds 2
 
-Write-Host "Starting frontend (Expo)..." -ForegroundColor Green
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$frontend'; npx expo start --clear"
+Write-Host "Starting frontend (Next.js)..." -ForegroundColor Green
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$frontend'; npm run dev"
 
 Write-Host ""
 Write-Host "Both servers launched in separate windows." -ForegroundColor Cyan
 Write-Host "Backend:  http://localhost:5000/api" -ForegroundColor White
-Write-Host "Frontend: scan QR code in the Expo window with Expo Go" -ForegroundColor White
+Write-Host "Frontend: http://localhost:3000" -ForegroundColor White

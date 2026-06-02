@@ -1,5 +1,5 @@
 # FarmLink Setup Script
-# Run once after cloning the repo. Installs all dependencies and creates .env from template.
+# Run once after cloning the repo. Installs all dependencies and creates env files from templates.
 
 $root = Split-Path -Parent $PSScriptRoot
 $backend = Join-Path $root "backend"
@@ -59,7 +59,7 @@ MPESA_PASSKEY=
 MPESA_CALLBACK_URL=
 "@ | Out-File -FilePath $envFile -Encoding utf8
     Write-Success ".env created at project/system/backend/.env"
-    Write-Warn "ACTION REQUIRED: Open .env and fill in MONGO_URI and JWT_SECRET before starting."
+    Write-Warn "ACTION REQUIRED: Fill in MONGO_URI and JWT_SECRET before starting."
 }
 
 # ── Frontend deps ─────────────────────────────────────────────────────────────
@@ -73,24 +73,17 @@ if ($LASTEXITCODE -ne 0) {
 Write-Success "Frontend dependencies installed."
 Pop-Location
 
-# ── API URL reminder ──────────────────────────────────────────────────────────
-$clientFile = Join-Path $frontend "src\api\client.ts"
-$currentIp = (Get-NetIPAddress -AddressFamily IPv4 |
-    Where-Object { $_.IPAddress -like "192.168.*" -or $_.IPAddress -like "10.*" } |
-    Select-Object -First 1).IPAddress
-
-Write-Step "Checking API base URL..."
-if ($currentIp) {
-    $clientContent = Get-Content $clientFile -Raw
-    if ($clientContent -notmatch [regex]::Escape($currentIp)) {
-        Write-Warn "Your LAN IP is $currentIp"
-        Write-Warn "Update baseURL in src/api/client.ts if it differs from what's already set."
-        Write-Warn "(The app won't reach the backend from your phone otherwise.)"
-    } else {
-        Write-Success "API base URL matches your current IP ($currentIp)."
-    }
+# ── Frontend .env.local ───────────────────────────────────────────────────────
+$envLocal = Join-Path $frontend ".env.local"
+if (Test-Path $envLocal) {
+    Write-Warn ".env.local already exists, skipping creation."
 } else {
-    Write-Warn "Could not detect LAN IP. Make sure src/api/client.ts has the correct IP for your network."
+    Write-Step "Creating frontend .env.local..."
+    @"
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+"@ | Out-File -FilePath $envLocal -Encoding utf8
+    Write-Success ".env.local created at project/system/frontend/.env.local"
+    Write-Warn "If accessing from another device on the same network, update NEXT_PUBLIC_API_URL to use your LAN IP."
 }
 
 # ── Done ──────────────────────────────────────────────────────────────────────
@@ -99,6 +92,6 @@ Write-Host "Setup complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor White
 Write-Host "  1. Fill in project\system\backend\.env (MONGO_URI, JWT_SECRET)" -ForegroundColor White
-Write-Host "  2. Update src\api\client.ts baseURL with your LAN IP if needed" -ForegroundColor White
-Write-Host "  3. Run .\dev-start.ps1 to start both servers" -ForegroundColor White
+Write-Host "  2. Run .\dev-start.ps1 to start both servers" -ForegroundColor White
+Write-Host "  3. Open http://localhost:3000 in your browser" -ForegroundColor White
 Write-Host ""
