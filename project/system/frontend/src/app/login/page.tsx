@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import Navbar from '@/components/Navbar';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -27,7 +28,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <div className="flex items-center justify-center py-16">
       <div className="bg-white rounded-xl shadow p-8 w-full max-w-sm">
         <h1 className="text-2xl font-bold text-green-700 mb-1">FarmLink</h1>
         <p className="text-gray-500 text-sm mb-6">Sign in to your account</p>
@@ -54,6 +57,7 @@ export default function LoginPage() {
           No account?{' '}
           <Link href="/register" className="text-green-700 font-medium hover:underline">Register</Link>
         </p>
+      </div>
       </div>
     </div>
   );

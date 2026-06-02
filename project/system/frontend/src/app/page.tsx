@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   const { user, loading } = useAuth();
@@ -23,14 +24,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <nav className="bg-green-700 text-white px-6 py-4 flex items-center justify-between shadow">
-        <span className="font-bold text-xl tracking-tight">🌿 FarmLink</span>
-        <div className="flex gap-2">
-          <Link href="/login" className="px-4 py-2 text-sm font-medium text-green-100 hover:bg-green-800 rounded transition-colors">Login</Link>
-          <Link href="/register" className="px-4 py-2 text-sm font-semibold bg-white text-green-700 rounded hover:bg-green-50 transition-colors">Get Started</Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero */}
       <section className="bg-green-700 text-white py-20 px-6 text-center">
