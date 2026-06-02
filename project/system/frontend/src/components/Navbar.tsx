@@ -33,10 +33,15 @@ export default function Navbar() {
           </>
         )}
         {user?.role === 'farmer' && link('/farmer', 'Dashboard')}
-        {user && (
+        {user ? (
           <button onClick={logout} className="ml-2 px-3 py-2 rounded text-sm font-medium text-green-100 hover:bg-green-800 transition-colors">
             Logout
           </button>
+        ) : (
+          <>
+            {link('/login', 'Login')}
+            {link('/register', 'Register')}
+          </>
         )}
       </div>
     </nav>
