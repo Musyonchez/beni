@@ -28,7 +28,5 @@ export const placeOrder = (data: {
 }) => client.post<Order>('/orders', data);
 
 export const getMyOrders = () => client.get<Order[]>('/orders/my');
-
 export const getOrder = (id: string) => client.get<Order>(`/orders/${id}`);
-
 export const cancelOrder = (id: string) => client.put<Order>(`/orders/${id}/cancel`);

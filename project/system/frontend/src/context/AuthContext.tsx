@@ -1,81 +1,68 @@
+'use client';
+
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import client from '../api/client';
+import client from '@/api/client';
 
 interface User {
-  _id: string;
+  id: string;
   name: string;
   email: string;
-  role: 'farmer' | 'buyer' | 'admin';
+  role: 'buyer' | 'farmer' | 'admin';
 }
 
 interface AuthContextValue {
   user: User | null;
-  token: string | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (data: RegisterData) => Promise<void>;
-  logout: () => Promise<void>;
-}
-
-interface RegisterData {
-  name: string;
-  email: string;
-  password: string;
-  phone: string;
-  role: 'farmer' | 'buyer';
+  register: (data: { name: string; email: string; phone: string; password: string; role: string }) => Promise<void>;
+  logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
-      const storedToken = await AsyncStorage.getItem('token');
-      const storedUser = await AsyncStorage.getItem('user');
-      if (storedToken && storedUser) {
-        setToken(storedToken);
-        setUser(JSON.parse(storedUser));
-      }
-      setLoading(false);
-    })();
+    const token = localStorage.getItem('token');
+    const stored = localStorage.getItem('user');
+    if (token && stored) {
+      try { setUser(JSON.parse(stored)); } catch { /* ignore */ }
+    }
+    setLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
     const res = await client.post('/auth/login', { email, password });
-    await AsyncStorage.setItem('token', res.data.token);
-    await AsyncStorage.setItem('user', JSON.stringify(res.data.user));
-    setToken(res.data.token);
-    setUser(res.data.user);
+    const { token, user: u } = res.data;
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(u));
+    setUser(u);
   };
 
-  const register = async (data: RegisterData) => {
+  const register = async (data: { name: string; email: string; phone: string; password: string; role: string }) => {
     const res = await client.post('/auth/register', data);
-    await AsyncStorage.setItem('token', res.data.token);
-    await AsyncStorage.setItem('user', JSON.stringify(res.data.user));
-    setToken(res.data.token);
-    setUser(res.data.user);
+    const { token, user: u } = res.data;
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(u));
+    setUser(u);
   };
 
-  const logout = async () => {
-    await AsyncStorage.removeItem('token');
-    await AsyncStorage.removeItem('user');
-    setToken(null);
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = (): AuthContextValue => {
+export const useAuth = () => {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
   return ctx;
