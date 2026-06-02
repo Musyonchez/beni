@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-green-700 text-white px-4 py-3 flex items-center justify-between shadow">
-      <Link href="/browse" className="font-bold text-lg tracking-tight">🌿 FarmLink</Link>
+      <Link href="/" className="font-bold text-lg tracking-tight">🌿 FarmLink</Link>
       <div className="flex items-center gap-1">
         {user?.role === 'buyer' && (
           <>
@@ -39,6 +39,7 @@ export default function Navbar() {
           </button>
         ) : (
           <>
+            {link('/browse', 'Browse')}
             {link('/login', 'Login')}
             {link('/register', 'Register')}
           </>
