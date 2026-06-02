@@ -2,16 +2,16 @@
 
 ## Overview
 
-FarmLink follows a client-server architecture with a React Native mobile frontend,
+FarmLink follows a client-server architecture with a Next.js web frontend,
 a Node.js REST API backend, and a MongoDB database. The three layers are fully
 decoupled — the frontend communicates with the backend exclusively through HTTP
 requests to the REST API, and the backend handles all database operations.
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  MOBILE CLIENT                       │
-│            React Native (Expo)                       │
-│   Farmer App  │  Buyer App  │  Admin Dashboard       │
+│                   WEB CLIENT                         │
+│              Next.js 14 (App Router)                 │
+│   Farmer Views  │  Buyer Views  │  Admin Dashboard   │
 └──────────────────────┬──────────────────────────────┘
                        │ HTTPS / REST API
 ┌──────────────────────▼──────────────────────────────┐
@@ -32,24 +32,25 @@ requests to the REST API, and the backend handles all database operations.
 │  users  │  products  │  orders  │  reviews  │  notif │
 └─────────────────────────────────────────────────────┘
                        │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-    ┌──────────┐ ┌──────────┐ ┌──────────┐
-    │  Twilio  │ │ Safaricom│ │  Expo    │
-    │   SMS    │ │  Daraja  │ │  Push    │
-    │   API    │ │ (M-Pesa) │ │  Notify  │
-    └──────────┘ └──────────┘ └──────────┘
+              ┌────────┴────────┐
+              ▼                 ▼
+        ┌──────────┐     ┌──────────┐
+        │  Twilio  │     │ Safaricom│
+        │   SMS    │     │  Daraja  │
+        │   API    │     │ (M-Pesa) │
+        └──────────┘     └──────────┘
 ```
 
 ## Layers
 
-### Frontend — React Native (Expo)
-- Cross-platform mobile app targeting Android and iOS
-- Expo managed workflow for simplified builds and OTA updates
-- React Navigation for screen routing
-- Axios for API calls
-- Expo Location for geolocation
-- AsyncStorage for local session persistence
+### Frontend — Next.js 14 (App Router)
+- Web application accessible from any modern browser (desktop and mobile)
+- Responsive design via Tailwind CSS for usability on phones and tablets
+- Next.js App Router for file-based routing and server/client component split
+- Axios for REST API calls to the backend
+- Browser Geolocation API (`navigator.geolocation`) for GPS coordinates
+- localStorage for JWT session token persistence
+- Leaflet.js for interactive map display in the geolocation feature
 
 ### Backend — Node.js + Express.js
 - RESTful API serving JSON responses
@@ -66,5 +67,4 @@ requests to the REST API, and the backend handles all database operations.
 
 ### External Services
 - **Safaricom Daraja API** — M-Pesa STK Push for in-app payments (sandbox)
-- **Twilio** — SMS notifications for order updates
-- **Expo Push Notifications** — in-app push alerts for order status changes
+- **Twilio** — SMS notifications sent to farmer and buyer phone numbers on order events

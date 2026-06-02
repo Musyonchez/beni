@@ -1,5 +1,5 @@
-================================================================================
-FARMLINK – DETAILED WRITING GUIDE
+﻿================================================================================
+FARMLINK â€“ DETAILED WRITING GUIDE
 How to write every section of the report, with tone, length, and content rules
 ================================================================================
 
@@ -14,7 +14,7 @@ GENERAL WRITING RULES (apply everywhere)
 ================================================================================
 
 TONE
-  - Academic and formal. No slang, no contractions (don't → do not).
+  - Academic and formal. No slang, no contractions (don't â†’ do not).
   - Write in third person: "The system allows farmers to..." not "our system..."
   - Be specific. Never write vague sentences like "the system is very good."
     Instead: "FarmLink reduces post-harvest losses by connecting farmers
@@ -27,13 +27,13 @@ TENSE
 
 LENGTH TARGETS
   - Minimum total: 6,000 words (excluding diagrams, tables, appendices)
-  - Chapter 1: ~1,000–1,200 words
-  - Chapter 2: ~1,500–2,000 words
-  - Chapter 3: ~600–800 words
-  - Chapter 4: ~800–1,000 words (text only, not counting diagrams)
-  - Chapter 5: ~600–800 words
-  - Chapter 6: ~500–700 words
-  - Chapter 7: ~400–600 words (text only, not counting screenshots)
+  - Chapter 1: ~1,000â€“1,200 words
+  - Chapter 2: ~1,500â€“2,000 words
+  - Chapter 3: ~600â€“800 words
+  - Chapter 4: ~800â€“1,000 words (text only, not counting diagrams)
+  - Chapter 5: ~600â€“800 words
+  - Chapter 6: ~500â€“700 words
+  - Chapter 7: ~400â€“600 words (text only, not counting screenshots)
 
 CITATIONS
   - APA 7th edition throughout
@@ -54,18 +54,18 @@ PARAGRAPHS
 
 
 ================================================================================
-CHAPTER ONE – INTRODUCTION
+CHAPTER ONE â€“ INTRODUCTION
 ================================================================================
 
---- 1.0 INTRODUCTION (3–4 sentences) ---
+--- 1.0 INTRODUCTION (3â€“4 sentences) ---
 
 Purpose: Orient the reader. What is the project and why does it exist?
 
 Write:
-  Sentence 1 – What the system is.
-  Sentence 2 – The context/problem that motivated it.
-  Sentence 3 – What the system does to address the problem.
-  Sentence 4 – Overview of what this chapter covers.
+  Sentence 1 â€“ What the system is.
+  Sentence 2 â€“ The context/problem that motivated it.
+  Sentence 3 â€“ What the system does to address the problem.
+  Sentence 4 â€“ Overview of what this chapter covers.
 
 Example structure (fill in with real content):
   "FarmLink is a mobile-based agricultural produce eMarketplace designed to
@@ -79,34 +79,34 @@ Example structure (fill in with real content):
   scope, limitations, and significance of the project."
 
 
---- 1.1 BACKGROUND OF THE STUDY (1.5–2 pages) ---
+--- 1.1 BACKGROUND OF THE STUDY (1.5â€“2 pages) ---
 
 Purpose: Show the system exists elsewhere and is needed here.
 
-Structure – write 5–7 lines for each:
+Structure â€“ write 5â€“7 lines for each:
 
   THREE DEVELOPED COUNTRIES
-    USA     – FarmersWeb: B2B platform connecting local farms to restaurants
+    USA     â€“ FarmersWeb: B2B platform connecting local farms to restaurants
               and institutions. Launched 2013, operates across major US cities.
-    UK      – Farmdrop: Online farm-to-consumer grocery platform connecting
+    UK      â€“ Farmdrop: Online farm-to-consumer grocery platform connecting
               local British farmers to urban buyers. (Cite: farmdrop.com)
-    Australia – Farmhub or AgriDigital: digital grain marketplace and supply
+    Australia â€“ Farmhub or AgriDigital: digital grain marketplace and supply
               chain platform. Widely adopted by Australian grain farmers.
 
   TWO AFRICAN COUNTRIES
-    Nigeria – Farmcrowdy / TradeDepot: agri-tech platforms connecting farmers
+    Nigeria â€“ Farmcrowdy / TradeDepot: agri-tech platforms connecting farmers
               to markets and investors. Significant adoption since 2016.
-    Kenya   – Twiga Foods: B2B platform sourcing produce from farmers and
+    Kenya   â€“ Twiga Foods: B2B platform sourcing produce from farmers and
               distributing to urban vendors via a logistics network.
-              (Note: this is a competitor — compare and contrast with FarmLink)
+              (Note: this is a competitor â€” compare and contrast with FarmLink)
 
   KENYA CONTEXT
     - About 75% of Kenya's population depends on agriculture (FAO, 2020)
     - Smallholder farmers (< 2 acres) produce 75% of total farm output
     - Most sell through brokers/middlemen at reduced prices
-    - Post-harvest losses estimated at 30–40% of produce (MoA Kenya, 2019)
+    - Post-harvest losses estimated at 30â€“40% of produce (MoA Kenya, 2019)
     - Mobile internet penetration in Kenya reached 43% in 2023 (CA Kenya, 2023)
-      — creating a viable environment for a mobile eMarketplace
+      â€” creating a viable environment for a mobile eMarketplace
 
 IMPORTANT: Do not copy-paste from websites. Read, understand, rewrite in
 your own words, then cite the source.
@@ -117,13 +117,13 @@ your own words, then cite the source.
 Purpose: Convince the reader the problem is real and the system is necessary.
 
 The 4 problems for FarmLink:
-  1. Overdependence on middlemen – farmers receive as little as 20–30% of
+  1. Overdependence on middlemen â€“ farmers receive as little as 20â€“30% of
      the final retail price, reducing their income and discouraging production.
-  2. No direct digital channel – farmers lack a platform to reach buyers
+  2. No direct digital channel â€“ farmers lack a platform to reach buyers
      outside their immediate geography, limiting market access.
   3. Buyers cannot verify produce quality or origin before purchase, leading
      to mistrust and preference for supermarkets over local farmers.
-  4. Post-harvest losses – without a quick way to find buyers, perishable
+  4. Post-harvest losses â€“ without a quick way to find buyers, perishable
      produce rots before it can be sold, costing farmers significant income.
 
 
@@ -161,7 +161,7 @@ The 4 problems for FarmLink:
      eMarketplace for Kenyan smallholder farmers?
 
 
---- 1.5 SCOPE OF THE PROJECT (~200–300 words) ---
+--- 1.5 SCOPE OF THE PROJECT (~200â€“300 words) ---
 
   USER ROLES AND FUNCTIONALITY
     Farmer (Seller):
@@ -192,23 +192,23 @@ The 4 problems for FarmLink:
       included in this version
 
 
---- 1.6 LIMITATIONS OF THE STUDY (~150–200 words) ---
+--- 1.6 LIMITATIONS OF THE STUDY (~150â€“200 words) ---
 
-  1. Time – 14 weeks limits development to a prototype.
+  1. Time â€“ 14 weeks limits development to a prototype.
      Solution: Focus on core features; document future work in Chapter 6.
-  2. Internet access – some target farmers in peri-urban areas have
+  2. Internet access â€“ some target farmers in peri-urban areas have
      limited or expensive data.
      Solution: App designed to be lightweight; key screens cached offline.
-  3. M-Pesa sandbox – full payment testing requires a Safaricom business
+  3. M-Pesa sandbox â€“ full payment testing requires a Safaricom business
      account; only sandbox/test mode available as a student.
      Solution: Use Daraja API sandbox and document live deployment steps.
-  4. Sample size – access to farmers for the questionnaire may be limited.
+  4. Sample size â€“ access to farmers for the questionnaire may be limited.
      Solution: Use purposive sampling; target farmer cooperatives or SACCOs.
 
 
 --- 1.7 SIGNIFICANCE OF THE STUDY (~200 words) ---
 
-  Paragraph 1 – SDG 2:
+  Paragraph 1 â€“ SDG 2:
     "This project contributes to Sustainable Development Goal 2 (Zero Hunger),
     which calls for ending hunger, achieving food security and improved
     nutrition, and promoting sustainable agriculture. By providing farmers
@@ -216,28 +216,28 @@ The 4 problems for FarmLink:
     double the agricultural productivity and income of small-scale food
     producers by 2030..."
 
-  Paragraph 2 – SDG 8:
+  Paragraph 2 â€“ SDG 8:
     "FarmLink also contributes to SDG 8 (Decent Work and Economic Growth)
     by enabling smallholder farmers to earn a fair and direct income from
     their produce, reducing economic exploitation by intermediaries..."
 
-  Paragraph 3 – AU Agenda 2063:
+  Paragraph 3 â€“ AU Agenda 2063:
     "The project aligns with the African Union's Agenda 2063 Aspiration 1,
     which envisions a prosperous Africa built on inclusive growth and
     sustainable development. Digital agricultural marketplaces are identified
     as a key enabler of rural economic transformation across the continent..."
 
-  Paragraph 4 – Local impact:
+  Paragraph 4 â€“ Local impact:
     "Within Kenya, FarmLink has the potential to increase farmer income,
     reduce post-harvest losses, and improve food availability in urban areas
     by shortening the supply chain between farm and consumer."
 
 
 ================================================================================
-CHAPTER TWO – LITERATURE REVIEW
+CHAPTER TWO â€“ LITERATURE REVIEW
 ================================================================================
 
---- 2.0 INTRODUCTION (3–4 sentences) ---
+--- 2.0 INTRODUCTION (3â€“4 sentences) ---
 
   "This chapter reviews existing online agricultural eMarketplace systems
   from around the world, analysing their features, strengths, and weaknesses.
@@ -248,21 +248,21 @@ CHAPTER TWO – LITERATURE REVIEW
 
 --- 2.1 EXISTING SYSTEMS ---
 
-  System 1 – FarmersWeb (USA)
+  System 1 â€“ FarmersWeb (USA)
     URL: farmersweb.com
     B2B platform connecting local farms to chefs, restaurants, and grocery
     buyers. Features: product catalogue, order management, delivery scheduling.
     Strength: Strong B2B focus, clean UI, trusted by over 600 farms.
     Weakness: USA only, B2B only (no consumer access), subscription fee required.
 
-  System 2 – Farmdrop (UK)
+  System 2 â€“ Farmdrop (UK)
     Farm-to-consumer online grocery platform. Buyers order from local British
     farms; Farmdrop handles logistics.
     Strength: Consumer-facing, strong sustainability branding, quality control.
-    Weakness: Discontinued in 2022 due to logistics costs — important lesson
+    Weakness: Discontinued in 2022 due to logistics costs â€” important lesson
     on keeping delivery out of scope for v1.
 
-  System 3 – Twiga Foods (Kenya)
+  System 3 â€“ Twiga Foods (Kenya)
     B2B agri-logistics platform. Sources from smallholder farmers and delivers
     to urban kiosks and vendors via a cold chain.
     Strength: Kenya-specific, large farmer network, mobile-first.
@@ -278,20 +278,20 @@ CHAPTER TWO – LITERATURE REVIEW
 
   2.2.1 CHALLENGES OF TRADITIONAL/MANUAL MARKET SYSTEMS (8 challenges)
 
-    1. Exploitation by middlemen – farmers receive a fraction of retail price
-    2. Limited geographic market reach – farmers can only sell locally
-    3. Price opacity – farmers have no visibility into market prices before selling
-    4. Post-harvest losses – no fast channel to find buyers for perishables
-    5. Lack of produce traceability – buyers cannot verify origin or quality
-    6. High transport costs – farmers travel to markets without guaranteed sales
-    7. No credit or financial record – informal sales leave no transaction history
-    8. Seasonal income instability – no forward orders or pre-booking system
+    1. Exploitation by middlemen â€“ farmers receive a fraction of retail price
+    2. Limited geographic market reach â€“ farmers can only sell locally
+    3. Price opacity â€“ farmers have no visibility into market prices before selling
+    4. Post-harvest losses â€“ no fast channel to find buyers for perishables
+    5. Lack of produce traceability â€“ buyers cannot verify origin or quality
+    6. High transport costs â€“ farmers travel to markets without guaranteed sales
+    7. No credit or financial record â€“ informal sales leave no transaction history
+    8. Seasonal income instability â€“ no forward orders or pre-booking system
 
   2.2.2 BENEFITS OF AN ONLINE AGRICULTURAL EMARKETPLACE (8 benefits)
 
     1. Direct farmer-to-buyer connection removes intermediary exploitation
     2. Expanded market reach beyond local geography via mobile internet
-    3. Price transparency – farmers can set and compare prices
+    3. Price transparency â€“ farmers can set and compare prices
     4. Reduced post-harvest losses through faster buyer discovery
     5. Digital transaction records support financial inclusion and credit access
     6. Geolocation reduces buyer search time and delivery distance
@@ -311,7 +311,7 @@ CHAPTER TWO – LITERATURE REVIEW
 
 
 ================================================================================
-CHAPTER THREE – METHODOLOGY
+CHAPTER THREE â€“ METHODOLOGY
 ================================================================================
 
   Research Design: DESCRIPTIVE
@@ -321,7 +321,7 @@ CHAPTER THREE – METHODOLOGY
 
   Population and Sampling:
     Target: Smallholder farmers in peri-urban Nairobi + urban buyers
-    Sample: 30–50 respondents
+    Sample: 30â€“50 respondents
     Method: Purposive sampling (they are direct users of the proposed system)
     Where to find respondents: farmer cooperatives, local markets (Kangemi,
     Wakulima Market), SACCOs, neighbours/community members
@@ -335,9 +335,9 @@ CHAPTER THREE – METHODOLOGY
     "X% of farmer respondents indicated that..."
 
   Testing Plan:
-    Unit testing – each module (auth, listings, cart, payment, tracking)
-    Integration testing – full flow: list → discover → buy → track
-    UAT – real farmers and buyers test the prototype
+    Unit testing â€“ each module (auth, listings, cart, payment, tracking)
+    Integration testing â€“ full flow: list â†’ discover â†’ buy â†’ track
+    UAT â€“ real farmers and buyers test the prototype
 
   Ethical Considerations:
     - Informed consent from all respondents
@@ -346,37 +346,38 @@ CHAPTER THREE – METHODOLOGY
 
 
 ================================================================================
-CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
+CHAPTER FOUR â€“ SYSTEMS ANALYSIS AND DESIGN
 ================================================================================
 
 --- FUNCTIONAL REQUIREMENTS ---
 
-  FR1  – Farmers shall be able to register, log in, and manage their profile
-  FR2  – Farmers shall be able to list, edit, and remove produce listings
-  FR3  – Buyers shall be able to browse and search produce by category and location
-  FR4  – The system shall display nearby farmers based on buyer's geolocation
-  FR5  – Buyers shall be able to add items to a cart and checkout via M-Pesa
-  FR6  – The system shall update order status in real time (placed → delivered)
-  FR7  – Buyers shall be able to leave ratings and reviews for farmers
-  FR8  – Admins shall be able to manage users, listings, and view reports
+  FR1  â€“ Farmers shall be able to register, log in, and manage their profile
+  FR2  â€“ Farmers shall be able to list, edit, and remove produce listings
+  FR3  â€“ Buyers shall be able to browse and search produce by category and location
+  FR4  â€“ The system shall display nearby farmers based on buyer's geolocation
+  FR5  â€“ Buyers shall be able to add items to a cart and checkout via M-Pesa
+  FR6  â€“ The system shall update order status in real time (placed â†’ delivered)
+  FR7  â€“ Buyers shall be able to leave ratings and reviews for farmers
+  FR8  â€“ Admins shall be able to manage users, listings, and view reports
 
 --- NON-FUNCTIONAL REQUIREMENTS ---
 
-  NFR1 – Security: Passwords hashed (bcrypt), JWT for session tokens
-  NFR2 – Usability: A first-time user can complete a purchase within 5 minutes
-  NFR3 – Performance: API responses under 2 seconds on a 3G connection
-  NFR4 – Availability: App accessible 24/7 for browsing and ordering
-  NFR5 – Compatibility: Works on Android 8+ and iOS 13+
+  NFR1 â€“ Security: Passwords hashed (bcrypt), JWT for session tokens
+  NFR2 â€“ Usability: A first-time user can complete a purchase within 5 minutes
+  NFR3 â€“ Performance: API responses under 2 seconds on a 3G connection
+  NFR4 â€“ Availability: App accessible 24/7 for browsing and ordering
+  NFR5 â€“ Compatibility: Works on Android 8+ and iOS 13+
 
   NOTE ON STACK CHOICES (for Section 7.2 justifications):
-    React Native – cross-platform (Android + iOS) from one codebase; large
-                   community; Expo simplifies testing on physical devices
-    Node.js      – fast, non-blocking I/O ideal for real-time order updates;
+    Next.js      â€” full-stack React web framework; file-based routing; SSR and
+                   CSR support; responsive design accessible from any browser
+                   including mobile; easy deployment on Vercel
+    Node.js      â€” fast, non-blocking I/O ideal for real-time order updates;
                    JavaScript across frontend and backend reduces context switching
-    MongoDB      – flexible document schema suits variable produce listings
+    MongoDB      â€” flexible document schema suits variable produce listings
                    (different fields per category); scales horizontally
 
---- DIAGRAMS – WHAT EACH ONE MUST SHOW ---
+--- DIAGRAMS â€“ WHAT EACH ONE MUST SHOW ---
 
   USE CASE DIAGRAM
     Actors: Farmer, Buyer, Admin, M-Pesa Gateway
@@ -387,10 +388,10 @@ CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
     Admin:  Manage Users, Moderate Listings, View Reports
 
   FLOWCHART (buyer purchase flow)
-    Start → Open App → Register/Login → Browse/Search Produce →
-    View Product → Add to Cart → Checkout → Enter M-Pesa PIN →
-    Payment Confirmed → Order Placed → Farmer Notified →
-    Order Dispatched → Buyer Tracks → Delivered → Leave Review
+    Start â†’ Open App â†’ Register/Login â†’ Browse/Search Produce â†’
+    View Product â†’ Add to Cart â†’ Checkout â†’ Enter M-Pesa PIN â†’
+    Payment Confirmed â†’ Order Placed â†’ Farmer Notified â†’
+    Order Dispatched â†’ Buyer Tracks â†’ Delivered â†’ Leave Review
 
   CLASS DIAGRAM
     Classes: User, Farmer, Buyer, Admin, Product, Category, Order,
@@ -400,13 +401,13 @@ CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
     Order has many OrderItems; Order has one Payment; Order has one Review
 
   DATA FLOW DIAGRAM
-    Level 0: FarmLink System ↔ Farmer, Buyer, Admin, M-Pesa Gateway
+    Level 0: FarmLink System â†” Farmer, Buyer, Admin, M-Pesa Gateway
     Level 1: User Management, Product Management, Order Management,
              Payment Processing, Notification Service, Reporting
     Level 2: Break down Order Management into:
              Browse, Add to Cart, Checkout, Track, Complete, Review
 
-  ERD – KEY COLLECTIONS (MongoDB documents)
+  ERD â€“ KEY COLLECTIONS (MongoDB documents)
     users        { _id, name, email, password_hash, role, phone, created_at }
     farmers      { _id, user_id, location, bio, rating, total_sales }
     products     { _id, farmer_id, category_id, name, price, quantity,
@@ -418,14 +419,14 @@ CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
     notifications{ _id, user_id, message, type, read, created_at }
 
   SEQUENCE DIAGRAMS
-    Farmer: Login → List Product → Receive Order Notification → Confirm Order
-    Buyer:  Login → Search Produce → Add to Cart → Pay (M-Pesa) →
-            Receive Confirmation → Track Order → Leave Review
-    Admin:  Login → View Reports → Manage Users → Moderate Listings
+    Farmer: Login â†’ List Product â†’ Receive Order Notification â†’ Confirm Order
+    Buyer:  Login â†’ Search Produce â†’ Add to Cart â†’ Pay (M-Pesa) â†’
+            Receive Confirmation â†’ Track Order â†’ Leave Review
+    Admin:  Login â†’ View Reports â†’ Manage Users â†’ Moderate Listings
 
 
 ================================================================================
-CHAPTER FIVE – FINDINGS AND ANALYSIS
+CHAPTER FIVE â€“ FINDINGS AND ANALYSIS
 ================================================================================
 
   Response Rate:
@@ -449,14 +450,14 @@ CHAPTER FIVE – FINDINGS AND ANALYSIS
 
 
 ================================================================================
-CHAPTER SIX – DISCUSSION, CONCLUSION, RECOMMENDATIONS
+CHAPTER SIX â€“ DISCUSSION, CONCLUSION, RECOMMENDATIONS
 ================================================================================
 
   DISCUSSION
     Link findings back to Chapter 2 literature.
     "The finding that X% of farmers sell through middlemen corroborates
     Kirimi et al. (2011), who documented that Kenyan smallholder farmers
-    receive only 20–30% of the final retail price..."
+    receive only 20â€“30% of the final retail price..."
 
   CONCLUSION
     Answer both research questions directly.
@@ -475,20 +476,20 @@ CHAPTER SIX – DISCUSSION, CONCLUSION, RECOMMENDATIONS
 
 
 ================================================================================
-CHAPTER SEVEN – IMPLEMENTATION
+CHAPTER SEVEN â€“ IMPLEMENTATION
 ================================================================================
 
   TECHNOLOGIES (be exact):
-    Hardware : Laptop/PC, Windows 10/11, min 4GB RAM; Android phone for testing
-    Frontend : React Native (Expo) – cross-platform mobile framework
-    Backend  : Node.js with Express.js – REST API
+    Hardware : Laptop/PC, Windows 10/11, min 4GB RAM; modern web browser for testing
+    Frontend : React Native (Expo) â€“ cross-platform mobile framework
+    Backend  : Node.js with Express.js â€“ REST API
     Database : MongoDB (MongoDB Atlas free tier for cloud hosting)
-    Tools    : VS Code, Git, Postman, Expo Go, MongoDB Compass
+    Tools    : VS Code, Git, Postman, MongoDB Compass
     Payments : Safaricom Daraja API (M-Pesa STK Push, sandbox mode)
     Auth     : JWT (JSON Web Tokens) for session management
 
-  SCREENSHOTS – label every one:
-    Format: "Figure X.X – [Description]"
+  SCREENSHOTS â€“ label every one:
+    Format: "Figure X.X â€“ [Description]"
     Required:
       Admin:  login, dashboard, user management, listings moderation, reports
       Farmer: register, add listing, view orders, view earnings/ratings
@@ -497,18 +498,18 @@ CHAPTER SEVEN – IMPLEMENTATION
 
 
 ================================================================================
-ABSTRACT – WRITE THIS LAST
+ABSTRACT â€“ WRITE THIS LAST
 ================================================================================
 
   One paragraph, max 1 page (~300 words). Exact structure:
 
-  [2 sentences – background and problem]
-  [1 sentence – overall objective]
-  [2 sentences – methodology]
-  [2 sentences – key findings]
-  [2 sentences – what the system does / key features]
-  [1 sentence – conclusion]
-  [1 sentence – recommendation]
+  [2 sentences â€“ background and problem]
+  [1 sentence â€“ overall objective]
+  [2 sentences â€“ methodology]
+  [2 sentences â€“ key findings]
+  [2 sentences â€“ what the system does / key features]
+  [1 sentence â€“ conclusion]
+  [1 sentence â€“ recommendation]
 
 
 ================================================================================
@@ -521,11 +522,11 @@ APA REFERENCE FORMAT REMINDERS
 
   Minimum references: 15
   Useful sources to look up:
-    - FAO (Food and Agriculture Organization) – food security stats
-    - Kenya National Bureau of Statistics (KNBS) – agricultural data
-    - Communications Authority of Kenya – internet/mobile penetration stats
-    - Ministry of Agriculture Kenya – farmer income and post-harvest loss data
-    - Google Scholar – search "smallholder farmers Kenya market access"
+    - FAO (Food and Agriculture Organization) â€“ food security stats
+    - Kenya National Bureau of Statistics (KNBS) â€“ agricultural data
+    - Communications Authority of Kenya â€“ internet/mobile penetration stats
+    - Ministry of Agriculture Kenya â€“ farmer income and post-harvest loss data
+    - Google Scholar â€“ search "smallholder farmers Kenya market access"
 
 
 ================================================================================
@@ -542,3 +543,5 @@ MAINTAINING UNIFORMITY (read this every time you sit down to write)
   8. When in doubt, refer to: hold/SWE-IST 4900 PROJECT DOCUMENTATION FORMAT.docx
 
 ================================================================================
+
+

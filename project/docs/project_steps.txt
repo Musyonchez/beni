@@ -7,7 +7,7 @@ Based on: Logbook, Weekly Progress Plan, Project Documentation Format
 Project : FarmLink: An Online Agricultural Produce eMarketplace for
           Kenyan Smallholder Farmers
 Student : Beni Ishimwe | Reg No. 669396 | SWE
-Stack   : React Native (frontend), Node.js (backend), MongoDB (database)
+Stack   : Next.js (frontend), Node.js (backend), MongoDB (database)
 SDGs    : SDG 2 (Zero Hunger), SDG 8 (Decent Work and Economic Growth)
 
 --------------------------------------------------------------------------------

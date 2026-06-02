@@ -18,8 +18,8 @@ COURSE: SWE 4900A     DATE: _______________     SEMESTER: SUMMER 2026
 |    |                                  | Well-being. Aspiration  |                         |
 |    |                                  | 1, AU Agenda 2063.      |                         |
 +----+----------------------------------+-------------------------+-------------------------+
-| 2  | FarmLink: An Online Agricultural | Society Issue: Farmers  | Mobile App              |
-|    | Produce eMarketplace for Kenyan  | lack direct market      | (React Native, Node.js, |
+| 2  | FarmLink: An Online Agricultural | Society Issue: Farmers  | Web Application         |
+|    | Produce eMarketplace for Kenyan  | lack direct market      | (Next.js, Node.js,      |
 |    | Smallholder Farmers              | access. SDG 2 –         | MongoDB)                |
 |    |                                  | Zero Hunger.            |                         |
 |    |                                  | Aspiration 1,           |                         |

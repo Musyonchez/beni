@@ -4,13 +4,12 @@
 
 | Tool | Version | Purpose |
 |---|---|---|
-| React Native | 0.73+ | Cross-platform mobile framework |
-| Expo | SDK 50+ | Managed workflow, OTA updates, device APIs |
-| React Navigation | v6 | Screen routing and navigation stacks |
+| Next.js | 14 (App Router) | Full-stack React web framework |
+| React | 18 | UI component library |
+| Tailwind CSS | 3.x | Utility-first CSS for responsive design |
 | Axios | latest | HTTP client for API calls |
-| Expo Location | latest | GPS geolocation access |
-| AsyncStorage | latest | Local key-value storage (session token) |
-| React Native Maps | latest | Map display for geolocation feature |
+| Leaflet.js / React-Leaflet | latest | Interactive map for geolocation feature |
+| js-cookie / localStorage | built-in | JWT session token storage in browser |
 
 ## Backend
 
@@ -38,8 +37,7 @@
 | Service | Purpose | Mode |
 |---|---|---|
 | Safaricom Daraja API | M-Pesa STK Push payments | Sandbox |
-| Twilio | SMS order notifications | Free tier |
-| Expo Push Notifications | In-app push alerts | Free |
+| Twilio | SMS order notifications to farmers and buyers | Free tier |
 
 ## Dev Tools
 
@@ -48,15 +46,13 @@
 | VS Code | Primary code editor |
 | Git | Version control |
 | Postman | API endpoint testing |
-| Expo Go | Live preview on physical Android device |
+| Browser DevTools | Frontend debugging and responsive design testing |
 
 ## Setup Instructions
 
 ### Prerequisites
 - Node.js 20 LTS installed
 - MongoDB Atlas account (free)
-- Expo CLI: `npm install -g expo-cli`
-- Expo Go app installed on your phone
 
 ### Backend Setup
 ```bash
@@ -70,7 +66,7 @@ npm run dev                 # starts on http://localhost:5000
 ```bash
 cd project/system/frontend
 npm install
-npx expo start              # scan QR code with Expo Go
+npm run dev                 # starts on http://localhost:3000
 ```
 
 ### Environment Variables (backend/.env)
@@ -86,4 +82,9 @@ MPESA_CONSUMER_SECRET=your_daraja_secret
 MPESA_SHORTCODE=174379
 MPESA_PASSKEY=your_sandbox_passkey
 MPESA_CALLBACK_URL=https://your-ngrok-url.io/api/payments/callback
+```
+
+### Environment Variables (frontend/.env.local)
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
