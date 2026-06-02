@@ -1,11 +1,11 @@
-# Features Implementation Guide
+﻿# Features Implementation Guide
 
 Detailed breakdown of how each of the 4 developer features works end-to-end,
 from the API call to the UI screen.
 
 ---
 
-## Feature 1: Geolocation — Discover Nearby Farmers
+## Feature 1: Geolocation â€” Discover Nearby Farmers
 
 **What it does:** Buyer opens the app, grants location permission, and sees
 produce listed by farmers within a set radius (default 10km), sorted by distance.
@@ -13,10 +13,10 @@ produce listed by farmers within a set radius (default 10km), sorted by distance
 ### How it works
 
 **Frontend:**
-1. On app load, request location permission using `expo-location`
-2. Get device coordinates: `Location.getCurrentPositionAsync()`
+1. On app load, request location permission using `browser Geolocation API (navigator.geolocation)`
+2. Get device coordinates: `navigator.geolocation.getCurrentPosition()`
 3. Send coordinates to the backend: `GET /api/products/nearby?lat=X&lng=Y&radius=10`
-4. Render results on a React Native Maps `MapView` with farmer pins
+4. Render results on a Leaflet.js map with farmer pins
 5. Also render a flat list below the map for non-map browsing
 
 **Backend:**
@@ -47,7 +47,7 @@ reviews the cart, and pays via M-Pesa STK Push (a prompt sent to their phone).
 ### How it works
 
 **Frontend (Cart):**
-1. Cart state managed in React Context (persisted to AsyncStorage)
+1. Cart state managed in React Context (persisted to localStorage)
 2. Buyer taps "Add to Cart" on any product detail screen
 3. Cart icon in header shows item count badge
 4. Cart screen shows itemised list with subtotals and grand total
@@ -57,9 +57,9 @@ reviews the cart, and pays via M-Pesa STK Push (a prompt sent to their phone).
 1. Buyer enters M-Pesa phone number (pre-filled from profile)
 2. Taps "Pay KES X via M-Pesa"
 3. App calls `POST /api/payments/initiate`
-4. STK Push arrives on buyer's phone — buyer enters M-Pesa PIN
+4. STK Push arrives on buyer's phone â€” buyer enters M-Pesa PIN
 5. App polls `GET /api/payments/status/:orderId` every 5 seconds
-6. On `paymentStatus: "paid"` → show success screen and clear cart
+6. On `paymentStatus: "paid"` â†’ show success screen and clear cart
 
 **Backend (Initiate):**
 1. Generate Safaricom OAuth token from consumer key + secret
@@ -78,7 +78,7 @@ reviews the cart, and pays via M-Pesa STK Push (a prompt sent to their phone).
 ## Feature 3: Real-Time Order Tracking
 
 **What it does:** After payment, buyer can see the current status of their
-order as the farmer updates it — Placed → Confirmed → Dispatched → Delivered.
+order as the farmer updates it â€” Placed â†’ Confirmed â†’ Dispatched â†’ Delivered.
 
 ### How it works
 
@@ -86,23 +86,23 @@ order as the farmer updates it — Placed → Confirmed → Dispatched → Deliv
 1. Order detail screen shows a visual status stepper (4 steps)
 2. Each step highlights as status progresses
 3. Screen auto-refreshes every 30 seconds (polling `GET /api/orders/:id`)
-4. Push notification sent at each status change via Expo Push
+4. SMS notification sent at each status change via Twilio
 
 **Backend:**
 1. Farmer taps "Update Status" in their orders screen
 2. App calls `PUT /api/orders/:id/status` with new status
-3. Backend validates status transition (cannot skip from Placed → Delivered)
+3. Backend validates status transition (cannot skip from Placed â†’ Delivered)
 4. Saves new status with timestamp to `statusHistory` array
 5. Creates a notification document for the buyer
-6. Sends Expo push notification to buyer's device token
+6. Sends Twilio SMS to buyer's registered phone number
 7. Optionally sends Twilio SMS for critical updates (Dispatched, Delivered)
 
 **Status transition rules:**
 ```
-pending → confirmed   (farmer action)
-confirmed → dispatched (farmer action)
-dispatched → delivered (farmer action)
-pending → cancelled   (buyer action, before confirmation only)
+pending â†’ confirmed   (farmer action)
+confirmed â†’ dispatched (farmer action)
+dispatched â†’ delivered (farmer action)
+pending â†’ cancelled   (buyer action, before confirmation only)
 ```
 
 ---
@@ -110,7 +110,7 @@ pending → cancelled   (buyer action, before confirmation only)
 ## Feature 4: Seller Rating and Review System
 
 **What it does:** After an order is marked Delivered, the buyer can leave a
-1–5 star rating and written comment for the farmer. Each farmer's average
+1â€“5 star rating and written comment for the farmer. Each farmer's average
 rating is displayed on their profile and product listings.
 
 ### How it works
@@ -118,7 +118,7 @@ rating is displayed on their profile and product listings.
 **Frontend:**
 1. Order detail screen shows "Leave a Review" button only when `status === "delivered"`
    and no review exists yet for that order
-2. Review screen: star selector (1–5) + text input for comment
+2. Review screen: star selector (1â€“5) + text input for comment
 3. Submit calls `POST /api/reviews`
 4. Farmer profile and product cards show average star rating
 
@@ -179,3 +179,4 @@ const result = await Review.aggregate([
 - [ ] User Management
 - [ ] Listings Management
 - [ ] Reports
+

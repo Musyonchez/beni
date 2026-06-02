@@ -83,13 +83,13 @@ creating these charts.
 
 ---
 
-## Figure 5.5 — Willingness to Use a Mobile Agricultural Marketplace
+## Figure 5.5 — Willingness to Use an Online Agricultural Marketplace
 
 **Type:** Grouped bar chart  
 **X-axis:** Response options (Yes definitely, Yes if easy/M-Pesa, Uncertain, No)  
 **Y-axis:** Number of respondents  
 **Series:** Farmers, Buyers  
-**Caption:** Figure 5.5 — Willingness to Use a Mobile Agricultural Marketplace
+**Caption:** Figure 5.5 — Willingness to Use an Online Agricultural Marketplace
 
 **Data to plot:**
 

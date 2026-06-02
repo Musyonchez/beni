@@ -10,7 +10,7 @@
 ## Participants (in order, left to right)
 
 1. **Buyer** (actor)
-2. **Web Client** (FarmLink mobile app)
+2. **Web Client** (FarmLink web application)
 3. **Backend API** (Node.js + Express)
 4. **MongoDB** (database)
 5. **Safaricom** (M-Pesa Daraja API â€” external system)
@@ -105,5 +105,6 @@
 | 38 | Backend API | MongoDB | update farmer's avgRating field (recalculate) |
 | 39 | Backend API | Web Client | 201 Created + review object |
 | 40 | Web Client | Buyer | "Thank you for your review" shown |
+
 
 

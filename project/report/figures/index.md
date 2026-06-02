@@ -32,7 +32,7 @@ or a charting library once real questionnaire data is filled in.
 | Figure 5.2 | Gender Distribution of Respondents | Bar chart | [fig-5-charts.md](fig-5-charts.md) |
 | Figure 5.3 | Age Distribution of Respondents | Grouped bar chart | [fig-5-charts.md](fig-5-charts.md) |
 | Figure 5.4 | Frequency of Selling Through a Middleman | Bar chart | [fig-5-charts.md](fig-5-charts.md) |
-| Figure 5.5 | Willingness to Use Mobile Marketplace | Grouped bar chart | [fig-5-charts.md](fig-5-charts.md) |
+| Figure 5.5 | Willingness to Use Online Marketplace | Grouped bar chart | [fig-5-charts.md](fig-5-charts.md) |
 | Figure 5.6 | Most Desired Platform Features | Grouped bar chart | [fig-5-charts.md](fig-5-charts.md) |
 
 ---

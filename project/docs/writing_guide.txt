@@ -68,7 +68,7 @@ Write:
   Sentence 4 â€“ Overview of what this chapter covers.
 
 Example structure (fill in with real content):
-  "FarmLink is a mobile-based agricultural produce eMarketplace designed to
+  "FarmLink is a web-based agricultural produce eMarketplace designed to
   connect Kenyan smallholder farmers directly with buyers, eliminating the
   need for intermediaries. The majority of Kenyan farmers operate at a
   subsistence level partly due to lack of access to fair and direct markets,
@@ -304,9 +304,8 @@ CHAPTER TWO â€“ LITERATURE REVIEW
   "The literature demonstrates that traditional market systems consistently
   disadvantage smallholder farmers through price exploitation and limited
   market access. While digital solutions exist in developed countries and
-  emerging markets like Kenya, none are tailored to the direct consumer-farmer
-  mobile experience that FarmLink proposes. This gap justifies the development
-  of an affordable, mobile-first eMarketplace solution designed for the
+  emerging markets like Kenya, none are tailored to the direct consumer-farmer web experience that FarmLink proposes. This gap justifies the development
+  of an affordable, web-based eMarketplace solution designed for the
   Kenyan context."
 
 
@@ -543,5 +542,6 @@ MAINTAINING UNIFORMITY (read this every time you sit down to write)
   8. When in doubt, refer to: hold/SWE-IST 4900 PROJECT DOCUMENTATION FORMAT.docx
 
 ================================================================================
+
 
 

@@ -10,7 +10,7 @@
 ## Participants (in order, left to right)
 
 1. **Admin** (actor)
-2. **Web Client** (FarmLink mobile app)
+2. **Web Client** (FarmLink web application)
 3. **Backend API** (Node.js + Express, port 5000)
 4. **MongoDB** (database)
 
@@ -67,5 +67,6 @@
 | 22 | MongoDB | Backend API | return aggregated sales data | |
 | 23 | Backend API | Web Client | 200 OK + report object | |
 | 24 | Web Client | Admin | Sales report displayed | |
+
 
 

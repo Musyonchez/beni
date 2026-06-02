@@ -1,6 +1,6 @@
-================================================================================
-FARMLINK – PROJECT ROADMAP (START TO FINISH)
-SWE/IST 4900 – Summer Semester 2026
+﻿================================================================================
+FARMLINK â€“ PROJECT ROADMAP (START TO FINISH)
+SWE/IST 4900 â€“ Summer Semester 2026
 Based on: Logbook, Weekly Progress Plan, Project Documentation Format
 ================================================================================
 
@@ -11,43 +11,43 @@ Stack   : Next.js (frontend), Node.js (backend), MongoDB (database)
 SDGs    : SDG 2 (Zero Hunger), SDG 8 (Decent Work and Economic Growth)
 
 --------------------------------------------------------------------------------
-PHASE 0 – BEFORE WEEK 1 (Setup)
+PHASE 0 â€“ BEFORE WEEK 1 (Setup)
 --------------------------------------------------------------------------------
 
-STEP 1 – Topic Selection Form
+STEP 1 â€“ Topic Selection Form
   [x] Fill in 3 topic options
-  [x] Lecturer approved Option 2 – FarmLink eMarketplace
+  [x] Lecturer approved Option 2 â€“ FarmLink eMarketplace
   [ ] Get supervisor to sign the form
   File: project/docs/topic_selection_form.txt
 
-STEP 2 – Logbook Setup
+STEP 2 â€“ Logbook Setup
   [ ] Fill in cover page: Student ID, Name, Email, Concentration,
       Year/Semester, Supervisor name
   File: hold/SWE-IST 4900 Logbook.pdf (print and fill manually)
 
-STEP 3 – Project Folder & Git
+STEP 3 â€“ Project Folder & Git
   [x] Initialize git repository
   [x] Create project/ and hold/ folders
   [x] Create project/docs/ with roadmap and writing guide
 
 
 --------------------------------------------------------------------------------
-PHASE 1 – WEEKS 1–2 | LOGBOOK MEETING 1
+PHASE 1 â€“ WEEKS 1â€“2 | LOGBOOK MEETING 1
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
-  - Design UI mockups / wireframes for the mobile app
+  - Design UI mockups / wireframes for the web app
   - Plan: screen layouts, navigation flow, color scheme, font choices
   - Screens to design: splash, register/login, home feed, product listing,
     product detail, cart, farmer profile
 
 WHAT TO WRITE (Report):
-  CHAPTER ONE – INTRODUCTION
-    1.0  Introduction (3–4 lines about FarmLink and its purpose)
+  CHAPTER ONE â€“ INTRODUCTION
+    1.0  Introduction (3â€“4 lines about FarmLink and its purpose)
     1.1  Background of the Study
            - 3 developed countries with agricultural eMarketplace systems
-             (e.g. USA – FarmersWeb, UK – Farmdrop, Australia – Farmhub)
-           - 2 African countries (e.g. Nigeria – Farmcrowdy, Ethiopia – ATA)
+             (e.g. USA â€“ FarmersWeb, UK â€“ Farmdrop, Australia â€“ Farmhub)
+           - 2 African countries (e.g. Nigeria â€“ Farmcrowdy, Ethiopia â€“ ATA)
            - Kenya context: smallholder farmers lose income to middlemen,
              limited access to markets, post-harvest losses
     1.2  Problem Statement (4 problems)
@@ -60,7 +60,7 @@ WHAT TO WRITE (Report):
                   "To design and develop FarmLink, an online agricultural
                   produce eMarketplace for Kenyan smallholder farmers."
            1.3.2  Systems Design Objectives (4 unique developer features)
-                  i.   Geolocation – buyers discover nearby farmers and produce
+                  i.   Geolocation â€“ buyers discover nearby farmers and produce
                   ii.  Shopping cart with M-Pesa payment integration
                   iii. Real-time order tracking from farm to buyer
                   iv.  Seller rating and review system for quality assurance
@@ -84,7 +84,7 @@ LOGBOOK MEETING 1:
 
 
 --------------------------------------------------------------------------------
-PHASE 2 – WEEKS 3–4 | LOGBOOK MEETING 2
+PHASE 2 â€“ WEEKS 3â€“4 | LOGBOOK MEETING 2
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
@@ -93,12 +93,12 @@ WHAT TO BUILD (System):
   - Validation: empty fields, correct format (price as number, quantity > 0)
 
 WHAT TO WRITE (Report):
-  CHAPTER TWO – LITERATURE REVIEW
-    2.0  Introduction (3–4 lines)
+  CHAPTER TWO â€“ LITERATURE REVIEW
+    2.0  Introduction (3â€“4 lines)
     2.1  Analysis of 3 Existing eMarketplace Systems
-           2.1.1  System 1 – e.g. FarmersWeb (USA)
-           2.1.2  System 2 – e.g. Farmdrop (UK)
-           2.1.3  System 3 – e.g. Twiga Foods (Kenya) or Farmcrowdy (Nigeria)
+           2.1.1  System 1 â€“ e.g. FarmersWeb (USA)
+           2.1.2  System 2 â€“ e.g. Farmdrop (UK)
+           2.1.3  System 3 â€“ e.g. Twiga Foods (Kenya) or Farmcrowdy (Nigeria)
            2.1.4  Comparison Table:
                   Features | System 1 | System 2 | System 3
                   Cost, Easy to Install, Easy to Use, Efficient Database,
@@ -115,7 +115,7 @@ LOGBOOK MEETING 2:
 
 
 --------------------------------------------------------------------------------
-PHASE 3 – WEEKS 5–6 | LOGBOOK MEETING 3
+PHASE 3 â€“ WEEKS 5â€“6 | LOGBOOK MEETING 3
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
@@ -124,7 +124,7 @@ WHAT TO BUILD (System):
             order_items, reviews, payments, notifications
 
 WHAT TO WRITE (Report):
-  CHAPTER THREE – RESEARCH DESIGN AND METHODOLOGY
+  CHAPTER THREE â€“ RESEARCH DESIGN AND METHODOLOGY
     3.0  Introduction
     3.1  Locality: target smallholder farmers in peri-urban Nairobi
          (e.g. Limuru, Kikuyu, Kiambu area)
@@ -135,7 +135,7 @@ WHAT TO WRITE (Report):
     3.6  Testing Plan: unit testing, integration testing, UAT
     3.7  Ethical Considerations
 
-  CHAPTER FOUR – SYSTEMS ANALYSIS AND DESIGN
+  CHAPTER FOUR â€“ SYSTEMS ANALYSIS AND DESIGN
     4.1  Functional Requirements
     4.2  Non-Functional Requirements
     4.3  Stakeholders: Farmers, Buyers, Admin, M-Pesa/Payment Gateway
@@ -148,7 +148,7 @@ WHAT TO WRITE (Report):
            - Sequence Diagrams (Admin, Farmer, Buyer)
 
   NOTE: Distribute the questionnaire this week (Appendix 9.1)
-        Target: 30–50 respondents (farmers and buyers)
+        Target: 30â€“50 respondents (farmers and buyers)
 
 LOGBOOK MEETING 3:
   [ ] Present Chapters 1 & 2, show Chapters 3 & 4 progress
@@ -157,7 +157,7 @@ LOGBOOK MEETING 3:
 
 
 --------------------------------------------------------------------------------
-PHASE 4 – WEEKS 8–9 | LOGBOOK MEETING 4
+PHASE 4 â€“ WEEKS 8â€“9 | LOGBOOK MEETING 4
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
@@ -166,64 +166,64 @@ WHAT TO BUILD (System):
   - Password hashing (bcrypt), input sanitisation, role-based access
 
 WHAT TO WRITE (Report):
-  CHAPTER FIVE – RESEARCH FINDINGS AND ANALYSIS
+  CHAPTER FIVE â€“ RESEARCH FINDINGS AND ANALYSIS
     5.1  Response Rate
     5.2  Demographics (gender, education, farming experience)
     5.3  Results of SRO1 (challenges of traditional systems)
     5.4  Results of SRO2 (benefits of online eMarketplace)
 
-  CHAPTER SIX – DISCUSSION, CONCLUSION AND RECOMMENDATIONS
+  CHAPTER SIX â€“ DISCUSSION, CONCLUSION AND RECOMMENDATIONS
     6.1  Discussion
     6.2  Conclusion
     6.3  Recommendations
     6.4  Future Work
 
 LOGBOOK MEETING 4:
-  [ ] Present Chapters 1–4, show Chapters 5 & 6 progress
+  [ ] Present Chapters 1â€“4, show Chapters 5 & 6 progress
   [ ] Demo geolocation and M-Pesa integration
   [ ] Get supervisor signature + date
 
 
 --------------------------------------------------------------------------------
-PHASE 5 – WEEKS 10–11 | LOGBOOK MEETING 5
+PHASE 5 â€“ WEEKS 10â€“11 | LOGBOOK MEETING 5
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
-  - Order tracking feature (status: placed → confirmed → dispatched → delivered)
+  - Order tracking feature (status: placed â†’ confirmed â†’ dispatched â†’ delivered)
   - Seller rating and review system
   - Admin reports: sales summary, top products, active farmers
 
 WHAT TO WRITE (Report):
-  CHAPTER SEVEN – IMPLEMENTATION (PROTOTYPE FRAMEWORK)
+  CHAPTER SEVEN â€“ IMPLEMENTATION (PROTOTYPE FRAMEWORK)
     7.1  System Implementation
     7.2  Technologies Used
            7.2.1  Hardware Platform
-           7.2.2  Programming Language (Node.js backend, React Native frontend)
-           7.2.3  Programming Tools (VS Code, Git, Postman, Expo)
-           7.2.4  Software Platform (MySQL, Expo Go for testing)
+           7.2.2  Programming Language (Node.js backend, Next.js frontend)
+           7.2.3  Programming Tools (VS Code, Git, Postman)
+           7.2.4  Software Platform (Next.js dev server, MongoDB Atlas, Vercel)
     7.3  Features of the Prototype
            7.3.1  Technical Manual Screenshots (admin side)
            7.3.2  User Manual Screenshots (farmer listing, buyer purchasing)
     7.4  Database Management System
 
 LOGBOOK MEETING 5:
-  [ ] Present Chapters 1–6, show Chapter 7 progress
+  [ ] Present Chapters 1â€“6, show Chapter 7 progress
   [ ] Demo order tracking and ratings
   [ ] Get supervisor signature + date
 
 
 --------------------------------------------------------------------------------
-PHASE 6 – WEEKS 12–13 | LOGBOOK MEETING 6
+PHASE 6 â€“ WEEKS 12â€“13 | LOGBOOK MEETING 6
 --------------------------------------------------------------------------------
 
 WHAT TO BUILD (System):
-  - Full system integration – all modules working end-to-end
-  - End-to-end test: farmer lists produce → buyer finds it → pays → tracks order
+  - Full system integration â€“ all modules working end-to-end
+  - End-to-end test: farmer lists produce â†’ buyer finds it â†’ pays â†’ tracks order
   - Consider submitting to hackathon / innovation challenge
 
 WHAT TO WRITE (Report):
   FINAL SECTIONS:
-    8.0  References – APA Format
+    8.0  References â€“ APA Format
     9.0  Appendix
            9.1  Questionnaire / Interview Schedule
            9.2  Work Plan in Gantt Chart Format
@@ -245,8 +245,8 @@ LOGBOOK MEETING 6:
   [ ] Get supervisor signature + date
 
 FINAL SUBMISSION CHECKLIST:
-  [ ] Full report (minimum 6,000 words) – printed and bound
-  [ ] Logbook – all 6 meetings signed
+  [ ] Full report (minimum 6,000 words) â€“ printed and bound
+  [ ] Logbook â€“ all 6 meetings signed
   [ ] Working prototype / system demo
   [ ] Questionnaire results in appendix
   [ ] Gantt chart and budget in appendix
@@ -270,19 +270,20 @@ FILE STRUCTURE (suggested)
 ================================================================================
 
   project/
-  ├── docs/
-  │   ├── project_steps.txt         ← this file
-  │   ├── writing_guide.txt         ← how to write each section
-  │   └── topic_selection_form.txt  ← approved form
-  ├── chapters/
-  │   ├── chapter1_introduction.txt
-  │   ├── chapter2_literature_review.txt
-  │   ├── chapter3_methodology.txt
-  │   ├── chapter4_systems_analysis.txt
-  │   ├── chapter5_findings.txt
-  │   ├── chapter6_discussion.txt
-  │   └── chapter7_implementation.txt
-  └── system/
-      └── (FarmLink app code goes here)
+  â”œâ”€â”€ docs/
+  â”‚   â”œâ”€â”€ project_steps.txt         â† this file
+  â”‚   â”œâ”€â”€ writing_guide.txt         â† how to write each section
+  â”‚   â””â”€â”€ topic_selection_form.txt  â† approved form
+  â”œâ”€â”€ chapters/
+  â”‚   â”œâ”€â”€ chapter1_introduction.txt
+  â”‚   â”œâ”€â”€ chapter2_literature_review.txt
+  â”‚   â”œâ”€â”€ chapter3_methodology.txt
+  â”‚   â”œâ”€â”€ chapter4_systems_analysis.txt
+  â”‚   â”œâ”€â”€ chapter5_findings.txt
+  â”‚   â”œâ”€â”€ chapter6_discussion.txt
+  â”‚   â””â”€â”€ chapter7_implementation.txt
+  â””â”€â”€ system/
+      â””â”€â”€ (FarmLink app code goes here)
 
 ================================================================================
+
