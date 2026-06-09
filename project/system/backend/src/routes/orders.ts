@@ -52,6 +52,15 @@ router.post(
       };
     });
 
+    // Check each item has enough stock
+    for (const i of items) {
+      const product = products.find((p) => p._id.toString() === i.productId);
+      if (product!.quantity < i.quantity) {
+        res.status(400).json({ message: `Not enough stock for "${product!.title}" (${product!.quantity} ${product!.unit} left)` });
+        return;
+      }
+    }
+
     const total = orderItems.reduce(
       (sum: number, i: any) => sum + i.price * i.quantity,
       0
@@ -65,6 +74,13 @@ router.post(
       deliveryAddress,
       notes,
     });
+
+    // Deduct stock for each ordered item
+    await Promise.all(
+      items.map((i: any) =>
+        Product.findByIdAndUpdate(i.productId, { $inc: { quantity: -i.quantity } })
+      )
+    );
 
     res.status(201).json(order);
   }
