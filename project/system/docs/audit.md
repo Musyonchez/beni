@@ -149,4 +149,15 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 12. ~~**F1**~~ ✅ Profile/account page (also fixed U6 — farmer Browse link)
 13. ~~**B4**~~ ✅ M-Pesa callback fix
 14. ~~**C3**~~ ✅ Order status sequence enforcement
-15. Everything else
+15. ~~**C4**~~ ✅ errorHandler Mongoose 400/500 distinction
+16. ~~**U2**~~ ✅ Cart stock cap (maxQuantity in CartItem)
+17. ~~**U3**~~ ✅ Product detail back button Browse fallback
+18. ~~**U4**~~ ✅ Farmer earnings error state
+19. ~~**U8**~~ ✅ MapView icons served locally from /public
+
+**Remaining (5 items — next session starts here):**
+- **F3** — Browse search only covers loaded page (12 items). Fix: pass `search` as query param to backend, add text index to Product.
+- **F4** — No mobile Navbar (hamburger menu). Fix: `sm:hidden` / `hidden sm:flex` pattern.
+- **C1** — CORS wide open (`app.use(cors())`). Fix: restrict to `ALLOWED_ORIGIN` env var for production.
+- **C2** — ✅ Already fixed (express-async-errors in B6).
+- **C5** — reviews/admin routes are 501 stubs. Future work (Phase 8/9).
