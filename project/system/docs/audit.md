@@ -96,10 +96,8 @@ Product detail page caps quantity at `product.quantity`, but on the cart page th
 If order loading fails, stat cards show 0/0/0/0 with no indication of error.  
 **Fix:** Show `ordersError` banner on Earnings tab the same way it shows on Orders tab.
 
-### U5 — Phone validation rejects valid Kenyan formats
-**File:** `frontend/src/app/register/page.tsx` line 9  
-Regex `/^07\d{8}$/` only accepts `07XXXXXXXX`. Valid Safaricom/Airtel numbers starting with `01XXXXXXXX` are rejected. Backend accepts any non-empty phone string — frontend is more restrictive than it needs to be.  
-**Fix:** Update regex to `/^0[17]\d{8}$/` to allow both `07` and `01` prefixes.
+### ✅ U5 — Phone validation rejects valid Kenyan formats
+**Fixed in commit `pending`** — regex updated from `/^07\d{8}$/` to `/^0[17]\d{8}$/` to accept both `07XXXXXXXX` and `01XXXXXXXX` formats.
 
 ### U6 — Farmer cannot browse or access map
 **File:** `frontend/src/components/Navbar.tsx` lines 23–34  
@@ -149,9 +147,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
 | 🟠 Missing features | 6 | 3 ✅ |
-| 🟡 UX issues | 8 | 2 ✅ |
+| 🟡 UX issues | 8 | 3 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **11 done** |
+| **Total** | **26** | **12 done** |
 
 ---
 
@@ -167,8 +165,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 8. ~~**F6**~~ ✅ Admin redirect to non-existent /admin page
 9. ~~**F2**~~ ✅ Extend User type (phone/isVerified lost after login)
 10. ~~**U1**~~ ✅ KES formatting consistency
-11. **U5** — Phone regex (blocks valid 01X numbers)  ← next
-12. **F1** — Profile/account page
+11. ~~**U5**~~ ✅ Phone regex (blocks valid 01X numbers)
+12. **F1** — Profile/account page  ← next
 13. **B4** — M-Pesa callback fix (needed before payment goes live)
 14. **C3** — Order status sequence enforcement
 15. Everything else

@@ -6,7 +6,7 @@ import { useAuth } from '@/context/AuthContext';
 import Navbar from '@/components/Navbar';
 
 function validatePhone(phone: string) {
-  return /^07\d{8}$/.test(phone);
+  return /^0[17]\d{8}$/.test(phone);
 }
 
 export default function RegisterPage() {
