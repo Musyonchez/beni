@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     if (loading) return;
     if (user?.role === 'farmer') router.replace('/farmer');
-    else if (user?.role === 'admin') router.replace('/admin');
+    else if (user?.role === 'admin') router.replace('/browse');
     else if (user?.role === 'buyer') router.replace('/browse');
   }, [user, loading, router]);
 

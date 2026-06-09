@@ -73,10 +73,8 @@ The nav links are all in a single flex row. On small screens (phone) they'll wra
 ### ✅ F5 — No role guard on protected routes
 **Fixed in commit `pending`** — `AuthGuard` now accepts `role?: 'buyer' | 'farmer'`; farmer layout uses `role="farmer"`, cart and orders layouts use `role="buyer"`. Wrong-role users are redirected to their home page.
 
-### F6 — Admin redirect goes to /admin which doesn't exist
-**File:** `frontend/src/app/page.tsx` line 16  
-`if (user?.role === 'admin') router.replace('/admin')` — there is no `/admin` route. Any admin user will be redirected to a 404.  
-**Fix:** Either redirect admin to `/browse` for now, or note this needs to be built before any admin accounts are created.
+### ✅ F6 — Admin redirect goes to /admin which doesn't exist
+**Fixed in commit `pending`** — admin role now redirects to `/browse` until an admin dashboard is built.
 
 ---
 
@@ -154,10 +152,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
-| 🟠 Missing features | 6 | 1 ✅ |
+| 🟠 Missing features | 6 | 2 ✅ |
 | 🟡 UX issues | 8 | 1 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **8 done** |
+| **Total** | **26** | **9 done** |
 
 ---
 
@@ -170,8 +168,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 5. ~~**B7**~~ ✅ Out-of-stock add to cart
 6. ~~**B3**~~ ✅ Location optional on backend
 7. ~~**F5**~~ ✅ Role guard on protected routes
-8. **F6** — Admin redirect to non-existent /admin page  ← next
-9. **F2** — Extend User type (phone/isVerified lost after login)
+8. ~~**F6**~~ ✅ Admin redirect to non-existent /admin page
+9. **F2** — Extend User type (phone/isVerified lost after login)  ← next
 10. **U1** — KES formatting consistency
 11. **U5** — Phone regex (blocks valid 01X numbers)
 12. **F1** — Profile/account page
