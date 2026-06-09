@@ -127,17 +127,25 @@ export default function ProductDetailPage() {
 
             {/* Quantity + add to cart */}
             <div className="mt-6 flex items-center gap-4">
-              <div className="flex items-center border rounded-lg overflow-hidden">
-                <button onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                  className="px-3 py-2 text-lg text-green-700 hover:bg-green-50">−</button>
-                <span className="px-4 py-2 font-semibold">{quantity}</span>
-                <button onClick={() => setQuantity(q => Math.min(product.quantity, q + 1))}
-                  className="px-3 py-2 text-lg text-green-700 hover:bg-green-50">+</button>
-              </div>
-              <button onClick={handleAdd}
-                className={`flex-1 py-2.5 rounded-lg font-semibold text-white transition-colors ${added ? 'bg-green-500' : 'bg-green-700 hover:bg-green-800'}`}>
-                {added ? '✓ Added to Cart' : 'Add to Cart'}
-              </button>
+              {product.quantity > 0 ? (
+                <>
+                  <div className="flex items-center border rounded-lg overflow-hidden">
+                    <button onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                      className="px-3 py-2 text-lg text-green-700 hover:bg-green-50">−</button>
+                    <span className="px-4 py-2 font-semibold">{quantity}</span>
+                    <button onClick={() => setQuantity(q => Math.min(product.quantity, q + 1))}
+                      className="px-3 py-2 text-lg text-green-700 hover:bg-green-50">+</button>
+                  </div>
+                  <button onClick={handleAdd}
+                    className={`flex-1 py-2.5 rounded-lg font-semibold text-white transition-colors ${added ? 'bg-green-500' : 'bg-green-700 hover:bg-green-800'}`}>
+                    {added ? '✓ Added to Cart' : 'Add to Cart'}
+                  </button>
+                </>
+              ) : (
+                <div className="flex-1 py-2.5 rounded-lg font-semibold text-center bg-gray-100 text-gray-400 cursor-not-allowed">
+                  Out of Stock
+                </div>
+              )}
             </div>
           </div>
         </div>
