@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Spinner from '@/components/Spinner';
 import { getProduct, Product } from '@/api/products';
 import { useCart } from '@/context/CartContext';
+import { useAuth } from '@/context/AuthContext';
 
 const CATEGORY_ICON: Record<string, string> = {
   vegetables: '🥦', fruits: '🍎', grains: '🌾', livestock: '🐄', inputs: '🌱',
@@ -14,6 +15,7 @@ export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { addItem } = useCart();
+  const { user } = useAuth();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -25,6 +27,7 @@ export default function ProductDetailPage() {
   }, [id]);
 
   const handleAdd = () => {
+    if (!user) { router.push('/login'); return; }
     if (!product) return;
     addItem({
       productId: product._id,

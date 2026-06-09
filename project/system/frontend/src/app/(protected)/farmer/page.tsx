@@ -6,10 +6,13 @@ import { useAuth } from '@/context/AuthContext';
 import { getMyProducts, createProduct, updateProduct, deleteProduct, Product } from '@/api/products';
 import { getFarmerOrders, updateOrderStatus, Order } from '@/api/orders';
 
-type Tab = 'listings' | 'orders' | 'earnings';
+type Tab = 'listings' | 'add' | 'orders' | 'earnings';
 
 const CATEGORIES = ['vegetables', 'fruits', 'grains', 'livestock', 'inputs'];
 const UNITS = ['kg', 'crate', 'bunch', 'piece', 'litre'];
+const CATEGORY_UNIT: Record<string, string> = {
+  vegetables: 'kg', fruits: 'kg', grains: 'kg', livestock: 'piece', inputs: 'piece',
+};
 
 const CAT_EMOJI: Record<string, string> = {
   vegetables: '🥦', fruits: '🍎', grains: '🌾', livestock: '🐄', inputs: '🌱',
@@ -115,6 +118,10 @@ export default function FarmerPage() {
   const setF = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm(prev => ({ ...prev, [field]: e.target.value }));
 
+  const setCategory = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setForm(prev => ({ ...prev, category: e.target.value, unit: CATEGORY_UNIT[e.target.value] ?? prev.unit }));
+
+
   function openAdd() {
     setEditId(null);
     setForm({ ...EMPTY_FORM });
@@ -163,12 +170,13 @@ export default function FarmerPage() {
       if (editId) {
         const res = await updateProduct(editId, payload);
         setProducts(prev => prev.map(p => p._id === editId ? res.data : p));
+        setShowForm(false);
+        setEditId(null);
       } else {
         const res = await createProduct(payload);
         setProducts(prev => [res.data, ...prev]);
+        setTab('listings');
       }
-      setShowForm(false);
-      setEditId(null);
     } catch (err: any) {
       setFormError(err?.response?.data?.message ?? 'Save failed. Try again.');
     } finally {
@@ -237,12 +245,15 @@ export default function FarmerPage() {
 
         {/* Tabs */}
         <div className="flex gap-1 bg-white rounded-xl shadow p-1 mb-6">
-          {(['listings', 'orders', 'earnings'] as Tab[]).map(t => {
-            const labels: Record<Tab, string> = { listings: '🌿 My Listings', orders: '📦 Orders', earnings: '💰 Earnings' };
+          {(['listings', 'add', 'orders', 'earnings'] as Tab[]).map(t => {
+            const labels: Record<Tab, string> = { listings: '🌿 My Listings', add: '➕ New Listing', orders: '📦 Orders', earnings: '💰 Earnings' };
             return (
               <button
                 key={t}
-                onClick={() => switchTab(t)}
+                onClick={() => {
+                  if (t === 'add') { setForm({ ...EMPTY_FORM }); setFormError(''); setEditId(null); }
+                  switchTab(t);
+                }}
                 className={`flex-1 py-2.5 px-3 rounded-lg text-sm font-medium transition-colors ${
                   tab === t ? 'bg-green-700 text-white' : 'text-gray-600 hover:bg-gray-100'
                 }`}
@@ -284,7 +295,7 @@ export default function FarmerPage() {
 
                 <div className="flex flex-col gap-1">
                   <label className="text-xs font-medium text-gray-500">Category</label>
-                  <select value={form.category} onChange={setF('category')}
+                  <select value={form.category} onChange={setCategory}
                     className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
                     {CATEGORIES.map(c => <option key={c} value={c}>{CAT_EMOJI[c]} {c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
                   </select>
@@ -298,10 +309,9 @@ export default function FarmerPage() {
 
                 <div className="flex flex-col gap-1">
                   <label className="text-xs font-medium text-gray-500">Unit</label>
-                  <select value={form.unit} onChange={setF('unit')}
-                    className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
-                    {UNITS.map(u => <option key={u} value={u}>{u}</option>)}
-                  </select>
+                  <div className="border border-gray-200 rounded-lg px-3 py-2 text-sm bg-gray-50 text-gray-600">
+                    {form.unit}
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -417,7 +427,87 @@ export default function FarmerPage() {
           </div>
         )}
 
-        {/* ── TAB 2: ORDERS ── */}
+        {/* ── TAB 2: NEW LISTING ── */}
+        {tab === 'add' && (
+          <form onSubmit={submitForm} className="bg-white rounded-xl shadow p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <h3 className="sm:col-span-2 font-semibold text-gray-700 text-base">New Listing</h3>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Title *</label>
+              <input value={form.title} onChange={setF('title')} placeholder="e.g. Fresh Tomatoes"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Category</label>
+              <select value={form.category} onChange={setCategory}
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                {CATEGORIES.map(c => <option key={c} value={c}>{CAT_EMOJI[c]} {c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Price (KES) *</label>
+              <input type="number" min="0" value={form.price} onChange={setF('price')} placeholder="e.g. 80"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Unit</label>
+              <select value={form.unit} onChange={setF('unit')}
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500">
+                {UNITS.map(u => <option key={u} value={u}>{u}</option>)}
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Quantity *</label>
+              <input type="number" min="0" value={form.quantity} onChange={setF('quantity')} placeholder="e.g. 50"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Location Name</label>
+              <input value={form.locationName} onChange={setF('locationName')} placeholder="e.g. Kiambu, Nairobi"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Latitude</label>
+              <input type="number" step="any" value={form.lat} onChange={setF('lat')} placeholder="e.g. -1.2921"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Longitude</label>
+              <input type="number" step="any" value={form.lng} onChange={setF('lng')} placeholder="e.g. 36.8219"
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500" />
+            </div>
+
+            <div className="sm:col-span-2 flex flex-col gap-1">
+              <label className="text-xs font-medium text-gray-500">Description *</label>
+              <textarea value={form.description} onChange={setF('description')} rows={3} placeholder="Describe your product..."
+                className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" />
+            </div>
+
+            {formError && (
+              <p className="sm:col-span-2 text-sm text-red-600 bg-red-50 rounded-lg px-3 py-2">{formError}</p>
+            )}
+
+            <div className="sm:col-span-2 flex gap-3">
+              <button type="submit" disabled={formSaving}
+                className="bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-green-800 disabled:opacity-60 transition-colors">
+                {formSaving ? 'Saving…' : 'Create Listing'}
+              </button>
+              <button type="button" onClick={() => setTab('listings')}
+                className="text-sm text-gray-500 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors">
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* ── TAB 4: ORDERS ── */}
         {tab === 'orders' && (
           <div>
             <h2 className="font-semibold text-gray-700 mb-4">
@@ -496,7 +586,7 @@ export default function FarmerPage() {
           </div>
         )}
 
-        {/* ── TAB 3: EARNINGS ── */}
+        {/* ── TAB 5: EARNINGS ── */}
         {tab === 'earnings' && (
           <div>
             {ordersLoading ? (
