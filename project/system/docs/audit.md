@@ -55,10 +55,8 @@ Files scanned: backend models, all routes, all middleware (auth, error), mpesa s
 ### ✅ F3 — Browse search only covers loaded page
 **Fixed in commit `pending`** — backend `GET /api/products` now accepts a `search` query param and filters with `$regex` on `title` + `description`. Browse page passes `search` to the API (debounced 350ms), removes client-side filter, and `Load more` now also passes search so pagination works during a search.
 
-### F4 — No mobile-friendly Navbar
-**File:** `frontend/src/components/Navbar.tsx`  
-The nav links are all in a single flex row. On small screens (phone) they'll wrap or overflow.  
-**Fix:** Add a hamburger menu that toggles a dropdown on mobile (`sm:hidden` / `hidden sm:flex` pattern).
+### ✅ F4 — No mobile-friendly Navbar
+**Fixed in commit `pending`** — added hamburger toggle on mobile. Desktop links use `hidden sm:flex`; mobile hamburger (`sm:hidden`) toggles an inline dropdown. Single `navLinks` block shared between both so links stay in sync.
 
 ### ✅ F5 — No role guard on protected routes
 **Fixed in commit `pending`** — `AuthGuard` now accepts `role?: 'buyer' | 'farmer'`; farmer layout uses `role="farmer"`, cart and orders layouts use `role="buyer"`. Wrong-role users are redirected to their home page.
@@ -124,10 +122,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 7 ✅ |
-| 🟠 Missing features | 6 | 5 ✅ |
+| 🟠 Missing features | 6 | 6 ✅ |
 | 🟡 UX issues | 8 | 8 ✅ |
 | 🔵 Code quality | 5 | 2 ✅ |
-| **Total** | **26** | **22 done** |
+| **Total** | **26** | **23 done** |
 
 ---
 
@@ -153,9 +151,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 18. ~~**U4**~~ ✅ Farmer earnings error state
 19. ~~**U8**~~ ✅ MapView icons served locally from /public
 20. ~~**F3**~~ ✅ Browse search passes `search` query param to backend; debounced; pagination works during search
+21. ~~**F4**~~ ✅ Mobile Navbar hamburger menu (`hidden sm:flex` / `sm:hidden` toggle)
 
-**Remaining (4 items):**
-- **F4** — No mobile Navbar (hamburger menu). Fix: `sm:hidden` / `hidden sm:flex` pattern.
+**Remaining (3 items):**
 - **C1** — CORS wide open (`app.use(cors())`). Fix: restrict to `ALLOWED_ORIGIN` env var for production.
 - **C2** — ✅ Already fixed (express-async-errors in B6).
 - **C5** — reviews/admin routes are 501 stubs. Future work (Phase 8/9).
