@@ -14,7 +14,10 @@ import adminRoutes from './routes/admin';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.ALLOWED_ORIGIN || 'http://localhost:3000',
+  credentials: true,
+}));
 app.use(express.json());
 
 app.get('/api', (_req, res) => {

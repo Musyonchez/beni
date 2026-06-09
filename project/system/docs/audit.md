@@ -96,10 +96,8 @@ Fixed with B1 (commit `5acf989`).
 
 ## 🔵 Backend / Code Quality
 
-### C1 — CORS wide open
-**File:** `backend/src/index.ts` line 16  
-`app.use(cors())` with no origin restriction. Fine for development, but should restrict to the frontend URL for production.  
-**Fix (prod):** `app.use(cors({ origin: process.env.ALLOWED_ORIGIN }))`.
+### ✅ C1 — CORS wide open
+**Fixed in commit `pending`** — `app.use(cors())` replaced with `cors({ origin: process.env.ALLOWED_ORIGIN || 'http://localhost:3000', credentials: true })`. Set `ALLOWED_ORIGIN` in the backend `.env` for production.
 
 ### C2 — No try/catch around DB operations in routes
 All route handlers call Mongoose directly with no try/catch. Unhandled promise rejections go to `errorHandler` via Express's error propagation — which works, but only if Express catches the async error. Express 5 handles this automatically; Express 4 does not without `express-async-errors` or manual wraps.  
@@ -124,8 +122,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 6 ✅ |
 | 🟡 UX issues | 8 | 8 ✅ |
-| 🔵 Code quality | 5 | 2 ✅ |
-| **Total** | **26** | **23 done** |
+| 🔵 Code quality | 5 | 3 ✅ |
+| **Total** | **26** | **24 done** |
 
 ---
 
@@ -152,8 +150,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 19. ~~**U8**~~ ✅ MapView icons served locally from /public
 20. ~~**F3**~~ ✅ Browse search passes `search` query param to backend; debounced; pagination works during search
 21. ~~**F4**~~ ✅ Mobile Navbar hamburger menu (`hidden sm:flex` / `sm:hidden` toggle)
+22. ~~**C1**~~ ✅ CORS restricted to `ALLOWED_ORIGIN` env var (defaults to `localhost:3000`)
 
-**Remaining (3 items):**
+**Remaining (2 items — C2 already fixed, C5 is future work):**
 - **C1** — CORS wide open (`app.use(cors())`). Fix: restrict to `ALLOWED_ORIGIN` env var for production.
 - **C2** — ✅ Already fixed (express-async-errors in B6).
 - **C5** — reviews/admin routes are 501 stubs. Future work (Phase 8/9).
