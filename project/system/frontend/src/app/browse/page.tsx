@@ -27,9 +27,11 @@ export default function BrowsePage() {
   const [hasMore, setHasMore] = useState(true);
   const [total, setTotal] = useState(0);
 
-  const fetchProducts = useCallback(async (cat: string, p: number, replace = false) => {
+  const fetchProducts = useCallback(async (cat: string, p: number, replace = false, q?: string) => {
     try {
-      const params = { page: p, limit: 12, ...(cat !== 'All' && { category: cat }) };
+      const params: Record<string, any> = { page: p, limit: 12 };
+      if (cat !== 'All') params.category = cat;
+      if (q) params.search = q;
       const res = await getProducts(params);
       setProducts(prev => replace ? res.data.products : [...prev, ...res.data.products]);
       setHasMore(p < res.data.pages);
@@ -41,13 +43,16 @@ export default function BrowsePage() {
 
   useEffect(() => {
     setLoading(true);
-    setPage(1);
-    fetchProducts(category, 1, true);
-  }, [category, fetchProducts]);
+    const q = search.trim() || undefined;
+    const delay = q ? 350 : 0;
+    const t = setTimeout(() => {
+      setPage(1);
+      fetchProducts(category, 1, true, q);
+    }, delay);
+    return () => clearTimeout(t);
+  }, [category, search, fetchProducts]);
 
-  const filtered = search.trim()
-    ? products.filter(p => p.title.toLowerCase().includes(search.toLowerCase()))
-    : products;
+  const filtered = products;
 
   return (
     <div className="min-h-screen">
@@ -84,7 +89,7 @@ export default function BrowsePage() {
         ) : (
           <>
             <p className="text-sm text-gray-500 mb-4">
-              {search ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''} for "${search}"` : `${total} listing${total !== 1 ? 's' : ''}`}
+              {search.trim() ? `${total} result${total !== 1 ? 's' : ''} for "${search.trim()}"` : `${total} listing${total !== 1 ? 's' : ''}`}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {filtered.map(p => (
@@ -111,9 +116,9 @@ export default function BrowsePage() {
                 </Link>
               ))}
             </div>
-            {hasMore && !search && (
+            {hasMore && (
               <div className="flex justify-center mt-8">
-                <button onClick={() => { const next = page + 1; setPage(next); fetchProducts(category, next); }}
+                <button onClick={() => { const next = page + 1; setPage(next); fetchProducts(category, next, false, search.trim() || undefined); }}
                   className="px-6 py-2 border border-green-700 text-green-700 rounded-full text-sm font-medium hover:bg-green-50 transition-colors">
                   Load more
                 </button>

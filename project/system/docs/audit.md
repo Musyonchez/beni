@@ -52,10 +52,8 @@ Files scanned: backend models, all routes, all middleware (auth, error), mpesa s
 ### ✅ F2 — AuthContext User type missing fields
 **Fixed in commit `pending`** — `User` interface extended with `phone?`, `isVerified?`, `avgRating?`, `profilePhoto?`. These are returned by login/register and now flow through to components.
 
-### F3 — Browse search only covers loaded page
-**File:** `frontend/src/app/browse/page.tsx` lines 48–51  
-Search filters `products` array which is only the current page (12 items). If 50 products exist, searching only covers the first 12 loaded.  
-**Fix:** Either (a) pass `search` as a query param to the backend and add text search there, or (b) show a note "Searching loaded products only — load more to search all."
+### ✅ F3 — Browse search only covers loaded page
+**Fixed in commit `pending`** — backend `GET /api/products` now accepts a `search` query param and filters with `$regex` on `title` + `description`. Browse page passes `search` to the API (debounced 350ms), removes client-side filter, and `Load more` now also passes search so pagination works during a search.
 
 ### F4 — No mobile-friendly Navbar
 **File:** `frontend/src/components/Navbar.tsx`  
@@ -126,10 +124,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 7 ✅ |
-| 🟠 Missing features | 6 | 4 ✅ |
+| 🟠 Missing features | 6 | 5 ✅ |
 | 🟡 UX issues | 8 | 8 ✅ |
 | 🔵 Code quality | 5 | 2 ✅ |
-| **Total** | **26** | **21 done** |
+| **Total** | **26** | **22 done** |
 
 ---
 
@@ -154,9 +152,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 17. ~~**U3**~~ ✅ Product detail back button Browse fallback
 18. ~~**U4**~~ ✅ Farmer earnings error state
 19. ~~**U8**~~ ✅ MapView icons served locally from /public
+20. ~~**F3**~~ ✅ Browse search passes `search` query param to backend; debounced; pagination works during search
 
-**Remaining (5 items — next session starts here):**
-- **F3** — Browse search only covers loaded page (12 items). Fix: pass `search` as query param to backend, add text index to Product.
+**Remaining (4 items):**
 - **F4** — No mobile Navbar (hamburger menu). Fix: `sm:hidden` / `hidden sm:flex` pattern.
 - **C1** — CORS wide open (`app.use(cors())`). Fix: restrict to `ALLOWED_ORIGIN` env var for production.
 - **C2** — ✅ Already fixed (express-async-errors in B6).

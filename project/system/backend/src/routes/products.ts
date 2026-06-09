@@ -5,14 +5,18 @@ import { protect, requireRole, AuthRequest } from '../middleware/auth';
 
 const router = Router();
 
-// GET /api/products — public, filter by category/available, paginate
+// GET /api/products — public, filter by category/available/search, paginate
 router.get('/', async (req: Request, res: Response): Promise<void> => {
-  const { category, available, page = '1', limit = '10' } = req.query;
+  const { category, available, page = '1', limit = '10', search } = req.query;
 
   const filter: Record<string, unknown> = {};
   if (category) filter.category = category;
   if (available !== undefined) filter.isAvailable = available === 'true';
   else filter.isAvailable = true;
+  if (search) {
+    const re = { $regex: search as string, $options: 'i' };
+    filter.$or = [{ title: re }, { description: re }];
+  }
 
   const pageNum = Math.max(1, parseInt(page as string));
   const limitNum = Math.min(50, parseInt(limit as string));
