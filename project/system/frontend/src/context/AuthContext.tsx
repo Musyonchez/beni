@@ -8,6 +8,10 @@ interface User {
   name: string;
   email: string;
   role: 'buyer' | 'farmer' | 'admin';
+  phone?: string;
+  isVerified?: boolean;
+  avgRating?: number;
+  profilePhoto?: string;
 }
 
 interface AuthContextValue {

@@ -55,10 +55,8 @@ MongoDB ObjectId fields cannot be queried with `$regex` — this query will neve
 Backend has `PUT /api/auth/me` (update name, phone, location) and `PUT /api/auth/password` but no frontend page uses them. Users cannot update their profile or change their password after registering.  
 **Fix:** Add `/account` page accessible from Navbar for logged-in users (both roles). Form fields: name, phone, location name. Separate section for password change.
 
-### F2 — AuthContext User type missing fields
-**File:** `frontend/src/context/AuthContext.tsx` line 6–9  
-`User` interface only has `{ id, name, email, role }`. The login/register API returns `phone`, `isVerified`, `avgRating`, `profilePhoto` but they are discarded. This means the farmer dashboard can't show verified badge, and a future account page can't pre-fill phone.  
-**Fix:** Extend `User` interface to include `phone`, `isVerified`, `avgRating`, `profilePhoto` (all optional).
+### ✅ F2 — AuthContext User type missing fields
+**Fixed in commit `pending`** — `User` interface extended with `phone?`, `isVerified?`, `avgRating?`, `profilePhoto?`. These are returned by login/register and now flow through to components.
 
 ### F3 — Browse search only covers loaded page
 **File:** `frontend/src/app/browse/page.tsx` lines 48–51  
@@ -152,10 +150,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
-| 🟠 Missing features | 6 | 2 ✅ |
+| 🟠 Missing features | 6 | 3 ✅ |
 | 🟡 UX issues | 8 | 1 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **9 done** |
+| **Total** | **26** | **10 done** |
 
 ---
 
@@ -169,8 +167,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 6. ~~**B3**~~ ✅ Location optional on backend
 7. ~~**F5**~~ ✅ Role guard on protected routes
 8. ~~**F6**~~ ✅ Admin redirect to non-existent /admin page
-9. **F2** — Extend User type (phone/isVerified lost after login)  ← next
-10. **U1** — KES formatting consistency
+9. ~~**F2**~~ ✅ Extend User type (phone/isVerified lost after login)
+10. **U1** — KES formatting consistency  ← next
 11. **U5** — Phone regex (blocks valid 01X numbers)
 12. **F1** — Profile/account page
 13. **B4** — M-Pesa callback fix (needed before payment goes live)
