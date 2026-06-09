@@ -20,7 +20,7 @@ export default function MapPage() {
       pos => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setCoords({ lat, lng });
-        getNearbyProducts({ lat, lng, radius: 20000 })
+        getNearbyProducts({ lat, lng, radius: 20 })
           .then(res => setProducts(res.data))
           .catch(() => setError('Failed to load nearby products.'));
       },
