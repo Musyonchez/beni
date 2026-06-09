@@ -149,6 +149,12 @@ router.put(
       return;
     }
 
+    const NEXT: Record<string, string> = { pending: 'confirmed', confirmed: 'ready', ready: 'delivered' };
+    if (req.body.status !== NEXT[order.status]) {
+      res.status(400).json({ message: `Status must advance from ${order.status} to ${NEXT[order.status] ?? '(already final)'}` });
+      return;
+    }
+
     order.status = req.body.status;
     await order.save();
     res.json(order);

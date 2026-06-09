@@ -117,10 +117,8 @@ Leaflet marker icons are loaded from `unpkg.com`. Map pins disappear if unpkg is
 All route handlers call Mongoose directly with no try/catch. Unhandled promise rejections go to `errorHandler` via Express's error propagation — which works, but only if Express catches the async error. Express 5 handles this automatically; Express 4 does not without `express-async-errors` or manual wraps.  
 Check which Express version is installed. If v4, wrap handlers or add `require('express-async-errors')`.
 
-### C3 — Order status update allows skipping steps
-**File:** `backend/src/routes/orders.ts` line 114  
-`body('status').isIn(['confirmed', 'ready', 'delivered'])` — a farmer can jump from `pending` directly to `delivered`, skipping `confirmed` and `ready`.  
-**Fix:** Validate that status follows the sequence: only allow the next step based on `order.status`.
+### ✅ C3 — Order status update allows skipping steps
+**Fixed in commit `pending`** — added a `NEXT` map check: status must advance exactly one step (pending→confirmed→ready→delivered). Any other transition returns 400.
 
 ### C4 — errorHandler doesn't distinguish Mongoose validation errors
 **File:** `backend/src/middleware/error.ts`  
@@ -140,8 +138,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 4 ✅ |
 | 🟡 UX issues | 8 | 4 ✅ |
-| 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **15 done** |
+| 🔵 Code quality | 5 | 1 ✅ |
+| **Total** | **26** | **16 done** |
 
 ---
 
@@ -160,5 +158,5 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 11. ~~**U5**~~ ✅ Phone regex (blocks valid 01X numbers)
 12. ~~**F1**~~ ✅ Profile/account page (also fixed U6 — farmer Browse link)
 13. ~~**B4**~~ ✅ M-Pesa callback fix
-14. **C3** — Order status sequence enforcement  ← next
+14. ~~**C3**~~ ✅ Order status sequence enforcement
 15. Everything else
