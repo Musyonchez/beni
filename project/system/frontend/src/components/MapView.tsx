@@ -43,7 +43,7 @@ export default function MapView({ center, products, onSelect }: Props) {
         <Marker key={p._id} position={[p.location.coordinates[1], p.location.coordinates[0]]}
           eventHandlers={{ click: () => onSelect(p) }}>
           <Popup>
-            <strong>{p.title}</strong><br />KES {p.price}/{p.unit}
+            <strong>{p.title}</strong><br />KES {p.price.toLocaleString()}/{p.unit}
           </Popup>
         </Marker>
       ))}

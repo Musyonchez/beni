@@ -118,7 +118,7 @@ export default function OrdersPage() {
                   {order.items.map((item, i) => (
                     <div key={i} className="flex justify-between px-3 py-2 text-sm">
                       <span className="text-gray-700">{item.title} × {item.quantity} {item.unit}</span>
-                      <span className="text-gray-500">KES {item.price * item.quantity}</span>
+                      <span className="text-gray-500">KES {(item.price * item.quantity).toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
@@ -132,7 +132,7 @@ export default function OrdersPage() {
 
                 {/* Footer: total + actions */}
                 <div className="flex items-center justify-between flex-wrap gap-2">
-                  <span className="font-bold text-green-700">Total: KES {order.total}</span>
+                  <span className="font-bold text-green-700">Total: KES {order.total.toLocaleString()}</span>
                   <div className="flex items-center gap-3 flex-wrap">
                     {order.paymentStatus === 'paid' && (
                       <span className="text-green-600 text-sm font-semibold">✓ Paid</span>

@@ -78,10 +78,8 @@ The nav links are all in a single flex row. On small screens (phone) they'll wra
 
 ## 🟡 UX Issues (minor but visible)
 
-### U1 — KES amounts not formatted with commas
-**Files:** `orders/page.tsx` line 136, `cart/page.tsx` line 101, `farmer/page.tsx` various  
-`KES {order.total}` shows `KES 1500` not `KES 1,500`. Some places already use `.toLocaleString()`, others don't. Inconsistent.  
-**Fix:** Wrap all KES amounts in a helper: `const kes = (n: number) => n.toLocaleString('en-KE')`.
+### ✅ U1 — KES amounts not formatted with commas
+**Fixed in commit `pending`** — all KES amounts across orders, cart, farmer, browse, map, product detail, and MapView now use `.toLocaleString()`.
 
 ### U2 — Cart + button doesn't respect stock on cart page
 **File:** `frontend/src/app/(protected)/cart/page.tsx` line 89  
@@ -151,9 +149,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
 | 🟠 Missing features | 6 | 3 ✅ |
-| 🟡 UX issues | 8 | 1 ✅ |
+| 🟡 UX issues | 8 | 2 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **10 done** |
+| **Total** | **26** | **11 done** |
 
 ---
 
@@ -168,8 +166,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 7. ~~**F5**~~ ✅ Role guard on protected routes
 8. ~~**F6**~~ ✅ Admin redirect to non-existent /admin page
 9. ~~**F2**~~ ✅ Extend User type (phone/isVerified lost after login)
-10. **U1** — KES formatting consistency  ← next
-11. **U5** — Phone regex (blocks valid 01X numbers)
+10. ~~**U1**~~ ✅ KES formatting consistency
+11. **U5** — Phone regex (blocks valid 01X numbers)  ← next
 12. **F1** — Profile/account page
 13. **B4** — M-Pesa callback fix (needed before payment goes live)
 14. **C3** — Order status sequence enforcement

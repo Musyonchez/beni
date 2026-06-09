@@ -101,7 +101,7 @@ export default function BrowsePage() {
                     <p className="font-semibold text-sm text-gray-800 truncate">{p.title}</p>
                     <p className="text-xs text-gray-400 truncate mt-0.5">{p.locationName}</p>
                     <div className="flex items-center justify-between mt-1">
-                      <p className="text-green-700 font-bold text-sm">KES {p.price}/{p.unit}</p>
+                      <p className="text-green-700 font-bold text-sm">KES {p.price.toLocaleString()}/{p.unit}</p>
                       {p.quantity < 5 && p.quantity > 0 && (
                         <span className="text-xs text-orange-500 font-medium">Low stock</span>
                       )}

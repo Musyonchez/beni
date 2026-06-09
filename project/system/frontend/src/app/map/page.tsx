@@ -71,7 +71,7 @@ export default function MapPage() {
                 <div>
                   <p className="font-semibold text-gray-800">{selected.title}</p>
                   <p className="text-sm text-gray-400">{selected.locationName}</p>
-                  <p className="text-green-700 font-bold mt-1">KES {selected.price}/{selected.unit}</p>
+                  <p className="text-green-700 font-bold mt-1">KES {selected.price.toLocaleString()}/{selected.unit}</p>
                 </div>
                 <button onClick={() => setSelected(null)} className="text-gray-300 hover:text-gray-500 text-lg leading-none">✕</button>
               </div>

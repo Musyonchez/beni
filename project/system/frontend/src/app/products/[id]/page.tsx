@@ -93,7 +93,7 @@ export default function ProductDetailPage() {
             {/* Title + price */}
             <div className="flex items-start justify-between gap-4">
               <h1 className="text-xl font-bold text-gray-800">{product.title}</h1>
-              <span className="text-green-700 font-bold text-lg shrink-0">KES {product.price}/{product.unit}</span>
+              <span className="text-green-700 font-bold text-lg shrink-0">KES {product.price.toLocaleString()}/{product.unit}</span>
             </div>
 
             {/* Location + category badge */}

@@ -378,7 +378,7 @@ export default function FarmerPage() {
                         )}
                       </div>
                       <p className="text-sm text-gray-500 mt-0.5">
-                        KES {p.price}/{p.unit} · {p.quantity} {p.unit} left
+                        KES {p.price.toLocaleString()}/{p.unit} · {p.quantity} {p.unit} left
                         {p.locationName ? ` · 📍 ${p.locationName}` : ''}
                       </p>
                     </div>

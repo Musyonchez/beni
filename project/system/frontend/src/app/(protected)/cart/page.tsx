@@ -80,7 +80,7 @@ export default function CartPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-sm text-gray-800 truncate">{item.title}</p>
-                <p className="text-xs text-gray-400">KES {item.price}/{item.unit}</p>
+                <p className="text-xs text-gray-400">KES {item.price.toLocaleString()}/{item.unit}</p>
               </div>
               <div className="flex items-center border rounded-lg overflow-hidden text-sm">
                 <button onClick={() => item.quantity > 1 ? updateQuantity(item.productId, item.quantity - 1) : removeItem(item.productId)}
@@ -89,7 +89,7 @@ export default function CartPage() {
                 <button onClick={() => updateQuantity(item.productId, item.quantity + 1)}
                   className="px-2.5 py-1.5 text-green-700 hover:bg-green-50">+</button>
               </div>
-              <span className="text-green-700 font-bold text-sm w-20 text-right">KES {item.price * item.quantity}</span>
+              <span className="text-green-700 font-bold text-sm w-20 text-right">KES {(item.price * item.quantity).toLocaleString()}</span>
               <button onClick={() => removeItem(item.productId)} className="text-red-400 hover:text-red-600 text-base ml-1">✕</button>
             </div>
           ))}
@@ -98,7 +98,7 @@ export default function CartPage() {
         <div className="bg-white rounded-xl shadow p-5">
           <div className="flex justify-between mb-4 pb-3 border-b">
             <span className="font-semibold text-gray-700">Total</span>
-            <span className="font-bold text-green-700 text-lg">KES {total}</span>
+            <span className="font-bold text-green-700 text-lg">KES {total.toLocaleString()}</span>
           </div>
           {error && <p className="text-red-600 text-sm mb-3 p-3 bg-red-50 rounded-lg">{error}</p>}
           <form onSubmit={handleOrder} className="flex flex-col gap-3">
