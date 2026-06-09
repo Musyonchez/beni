@@ -51,9 +51,8 @@ MongoDB ObjectId fields cannot be queried with `$regex` — this query will neve
 
 ## 🟠 Missing Features (gaps users will notice)
 
-### F1 — No profile / account page
-Backend has `PUT /api/auth/me` (update name, phone, location) and `PUT /api/auth/password` but no frontend page uses them. Users cannot update their profile or change their password after registering.  
-**Fix:** Add `/account` page accessible from Navbar for logged-in users (both roles). Form fields: name, phone, location name. Separate section for password change.
+### ✅ F1 — No profile / account page
+**Fixed in commit `pending`** — added `/account` page with profile edit (name, phone) and password change forms. `AuthContext` gains `patchUser()` to sync name back to the Navbar after save. Account link added to Navbar for all logged-in users.
 
 ### ✅ F2 — AuthContext User type missing fields
 **Fixed in commit `pending`** — `User` interface extended with `phone?`, `isVerified?`, `avgRating?`, `profilePhoto?`. These are returned by login/register and now flow through to components.
@@ -99,10 +98,8 @@ If order loading fails, stat cards show 0/0/0/0 with no indication of error.
 ### ✅ U5 — Phone validation rejects valid Kenyan formats
 **Fixed in commit `pending`** — regex updated from `/^07\d{8}$/` to `/^0[17]\d{8}$/` to accept both `07XXXXXXXX` and `01XXXXXXXX` formats.
 
-### U6 — Farmer cannot browse or access map
-**File:** `frontend/src/components/Navbar.tsx` lines 23–34  
-Farmers only see "Dashboard" and "Logout". They have no way to browse products or see the map (e.g. to check competitor prices or their own listing's map pin).  
-**Fix:** Add Browse and Nearby links to farmer nav, or at minimum Browse.
+### ✅ U6 — Farmer cannot browse or access map
+**Fixed with F1 commit** — Browse link added to farmer nav in Navbar.
 
 ### ✅ U7 — Cart category icon placeholder broken
 Fixed with B1 (commit `5acf989`).
@@ -146,10 +143,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
-| 🟠 Missing features | 6 | 3 ✅ |
-| 🟡 UX issues | 8 | 3 ✅ |
+| 🟠 Missing features | 6 | 4 ✅ |
+| 🟡 UX issues | 8 | 4 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **12 done** |
+| **Total** | **26** | **14 done** |
 
 ---
 
@@ -166,7 +163,7 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 9. ~~**F2**~~ ✅ Extend User type (phone/isVerified lost after login)
 10. ~~**U1**~~ ✅ KES formatting consistency
 11. ~~**U5**~~ ✅ Phone regex (blocks valid 01X numbers)
-12. **F1** — Profile/account page  ← next
-13. **B4** — M-Pesa callback fix (needed before payment goes live)
+12. ~~**F1**~~ ✅ Profile/account page (also fixed U6 — farmer Browse link)
+13. **B4** — M-Pesa callback fix (needed before payment goes live)  ← next
 14. **C3** — Order status sequence enforcement
 15. Everything else
