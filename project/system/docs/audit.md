@@ -70,10 +70,8 @@ Search filters `products` array which is only the current page (12 items). If 50
 The nav links are all in a single flex row. On small screens (phone) they'll wrap or overflow.  
 **Fix:** Add a hamburger menu that toggles a dropdown on mobile (`sm:hidden` / `hidden sm:flex` pattern).
 
-### F5 — No role guard on protected routes
-**File:** `frontend/src/components/AuthGuard.tsx`  
-`AuthGuard` only checks if a user is logged in — it doesn't check role. A buyer can navigate to `/farmer` and call farmer APIs (which return 403 from backend, so data is empty, but it's confusing). A farmer can navigate to `/cart` and `/orders` (cart is localStorage so it works, but placing an order would fail with 403).  
-**Fix:** Accept an optional `role` prop on `AuthGuard` and redirect to appropriate page if role doesn't match. Use in `(protected)/farmer` layout and `(protected)/layout`.
+### ✅ F5 — No role guard on protected routes
+**Fixed in commit `pending`** — `AuthGuard` now accepts `role?: 'buyer' | 'farmer'`; farmer layout uses `role="farmer"`, cart and orders layouts use `role="buyer"`. Wrong-role users are redirected to their home page.
 
 ### F6 — Admin redirect goes to /admin which doesn't exist
 **File:** `frontend/src/app/page.tsx` line 16  
@@ -156,10 +154,10 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | Severity | Count | Fixed |
 |---|---|---|
 | 🔴 Critical bugs | 7 | 6 ✅ |
-| 🟠 Missing features | 6 | 0 |
+| 🟠 Missing features | 6 | 1 ✅ |
 | 🟡 UX issues | 8 | 1 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **7 done** |
+| **Total** | **26** | **8 done** |
 
 ---
 
@@ -171,8 +169,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 4. ~~**B1 + U7**~~ ✅ Cart icon category field
 5. ~~**B7**~~ ✅ Out-of-stock add to cart
 6. ~~**B3**~~ ✅ Location optional on backend
-7. **F5** — Role guard on protected routes  ← next
-8. **F6** — Admin redirect to non-existent /admin page
+7. ~~**F5**~~ ✅ Role guard on protected routes
+8. **F6** — Admin redirect to non-existent /admin page  ← next
 9. **F2** — Extend User type (phone/isVerified lost after login)
 10. **U1** — KES formatting consistency
 11. **U5** — Phone regex (blocks valid 01X numbers)
