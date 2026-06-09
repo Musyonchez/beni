@@ -30,6 +30,7 @@ export default function ProductDetailPage() {
       productId: product._id,
       farmerId: typeof product.farmer === 'object' ? product.farmer._id : product.farmer as any,
       title: product.title,
+      category: product.category,
       price: product.price,
       unit: product.unit,
       quantity,
