@@ -21,23 +21,14 @@ Files scanned: backend models, all routes, all middleware (auth, error), mpesa s
 
 ## 🔴 Critical Bugs (breaks functionality)
 
-### B1 — Cart icon uses wrong lookup key
-**File:** `frontend/src/app/(protected)/cart/page.tsx` line 79  
-`CATEGORY_ICON[item.unit]` — uses `unit` (kg, litre, etc.) as the key instead of `category`.  
-`CartItem` doesn't store a `category` field, so this always falls through to `🌿`.  
-**Fix:** Add `category` field to `CartItem` interface and `CartContext`, populate it when adding item in `products/[id]/page.tsx`.
+### ✅ B1 — Cart icon uses wrong lookup key
+**Fixed in commit `5acf989`** — added `category` to `CartItem`, now used for icon lookup.
 
-### B2 — No stock deduction on order placement
-**File:** `backend/src/routes/orders.ts` lines 44–68  
-When an order is created, product quantities are never decremented. A buyer can order 100 units of a product that only has 10 left.  
-**Fix:** After creating the order, run `Product.updateMany` with `$inc: { quantity: -qty }` for each item. Also add a stock-check before creating the order (compare requested qty vs available).
+### ✅ B2 — No stock deduction on order placement
+**Fixed in commit `efc55fb`** — stock check + `$inc` deduction added to order creation.
 
-### B3 — Product creation fails silently when location is empty
-**File:** `backend/src/routes/products.ts` line 101–104 + `frontend/src/app/(protected)/farmer/page.tsx`  
-Backend validates `location.coordinates` as a required array. Farmer form only sends `location` if both lat and lng are filled. If left empty, the backend returns 400 but the frontend `formError` won't catch the specific field — it'll show generic "Save failed."  
-**Fix option A:** Make location optional in the backend (remove the validator, wrap in optional check).  
-**Fix option B:** Mark lat/lng as required in the form with a visible error.  
-Recommended: Fix option A — many farmers may not have precise coordinates.
+### ✅ B3 — Product creation fails when location is empty
+**Fixed in commit `5edebf0`** — location and locationName are now optional in both model and route.
 
 ### B4 — M-Pesa callback can't find order
 **File:** `backend/src/routes/payments.ts` lines 70–78  
@@ -45,23 +36,16 @@ Recommended: Fix option A — many farmers may not have precise coordinates.
 Order.findOne({ _id: { $regex: suffix + '$', $options: 'i' } })
 ```
 MongoDB ObjectId fields cannot be queried with `$regex` — this query will never match. Orders will never be marked as paid via callback.  
-**Fix:** Store the order's `_id` suffix (last 6 chars) as a separate `reference` field on the Order model, index it, and query by that field in the callback.
+**Fix:** Add a `reference` field to the Order model (last 6 chars of `_id`), index it, and query by that field in the callback.
 
-### B5 — Map nearby radius is 20,000× too large
-**File:** `frontend/src/app/map/page.tsx` line 23  
-`getNearbyProducts({ lat, lng, radius: 20000 })` — frontend sends `20000`.  
-Backend multiplies by 1000: `$maxDistance: radius * 1000` → `20,000,000 metres = 20,000 km`. This returns every product in the database, not just nearby ones.  
-**Fix:** Pass `radius: 20` (km) instead of `20000`.
+### ✅ B5 — Map nearby radius is 20,000× too large
+**Fixed in commit `e2771fb`** — changed `radius: 20000` to `radius: 20` (km).
 
-### B6 — Express 4 + no try/catch = unhandled promise rejections
-**File:** `backend/package.json` + all route files  
-Express version is `4.19.2`. Express 4 does NOT automatically catch errors from async route handlers — they become unhandled promise rejections and bypass `errorHandler`. None of the route handlers have try/catch blocks.  
-**Fix:** Add `express-async-errors` package (`npm install express-async-errors`) and `require('express-async-errors')` at the top of `index.ts`. Zero code changes to routes needed.
+### ✅ B6 — Express 4 async errors bypass errorHandler
+**Fixed in commit `e2771fb`** — added `express-async-errors` to `index.ts`.
 
-### B7 — Out-of-stock products can still be added to cart
-**File:** `frontend/src/app/products/[id]/page.tsx` lines 136–139  
-The `Add to Cart` button is never disabled when `product.quantity === 0`. The `+` button is capped but the Add button itself has no guard.  
-**Fix:** Disable and grey out "Add to Cart" when `product.quantity === 0`, show "Out of Stock" label instead.
+### ✅ B7 — Out-of-stock products can still be added to cart
+**Fixed in commit `29378b7`** — button replaced with "Out of Stock" pill when `quantity === 0`.
 
 ---
 
@@ -130,8 +114,8 @@ Regex `/^07\d{8}$/` only accepts `07XXXXXXXX`. Valid Safaricom/Airtel numbers st
 Farmers only see "Dashboard" and "Logout". They have no way to browse products or see the map (e.g. to check competitor prices or their own listing's map pin).  
 **Fix:** Add Browse and Nearby links to farmer nav, or at minimum Browse.
 
-### U7 — Cart category icon placeholder broken (related to B1)
-Already covered in B1 — all cart items show 🌿 instead of their category emoji.
+### ✅ U7 — Cart category icon placeholder broken
+Fixed with B1 (commit `5acf989`).
 
 ### U8 — MapView marker icons loaded from CDN
 **File:** `frontend/src/components/MapView.tsx` lines 8–13  
@@ -169,30 +153,30 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 
 ## Summary Count
 
-| Severity | Count |
-|---|---|
-| 🔴 Critical bugs | 7 |
-| 🟠 Missing features | 6 |
-| 🟡 UX issues | 8 |
-| 🔵 Code quality | 5 |
-| **Total** | **26** |
+| Severity | Count | Fixed |
+|---|---|---|
+| 🔴 Critical bugs | 7 | 6 ✅ |
+| 🟠 Missing features | 6 | 0 |
+| 🟡 UX issues | 8 | 1 ✅ |
+| 🔵 Code quality | 5 | 0 |
+| **Total** | **26** | **7 done** |
 
 ---
 
 ## Fix Priority Recommendation
 
-1. **B6** — `express-async-errors` (any Mongo error currently crashes silently)
-2. **B5** — Map radius (currently searches the whole world)
-3. **B2** — Stock deduction (orders can oversell)
-4. **B1 + U7** — Cart icon category field (visible broken UI)
-5. **B7** — Out-of-stock add to cart
-6. **B3** — Location optional on backend (farmers can't create listings without coordinates)
-7. **F5** — Role guard on protected routes
+1. ~~**B6**~~ ✅ `express-async-errors`
+2. ~~**B5**~~ ✅ Map radius
+3. ~~**B2**~~ ✅ Stock deduction
+4. ~~**B1 + U7**~~ ✅ Cart icon category field
+5. ~~**B7**~~ ✅ Out-of-stock add to cart
+6. ~~**B3**~~ ✅ Location optional on backend
+7. **F5** — Role guard on protected routes  ← next
 8. **F6** — Admin redirect to non-existent /admin page
-9. **F1** — Profile/account page
-10. **F2** — Extend User type (phone/isVerified lost after login)
-11. **U1** — KES formatting consistency
-12. **U5** — Phone regex (blocks valid 01X numbers)
+9. **F2** — Extend User type (phone/isVerified lost after login)
+10. **U1** — KES formatting consistency
+11. **U5** — Phone regex (blocks valid 01X numbers)
+12. **F1** — Profile/account page
 13. **B4** — M-Pesa callback fix (needed before payment goes live)
 14. **C3** — Order status sequence enforcement
 15. Everything else
