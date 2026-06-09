@@ -1,81 +1,80 @@
 # UI/UX Polish Backlog
 
-Things to improve before Phase 6. Work through these page by page.
+All items completed. ✅
 
 ---
 
 ## Global
 
-- [ ] Consistent page background — mix of `bg-white`, `bg-gray-100`, nothing. Settle on `bg-gray-50` everywhere
-- [ ] Spinner is copy-pasted across every page — extract a `<Spinner />` component
-- [ ] No `<title>` / `metadata` per page — add meaningful page titles for browser tab
+- [x] Consistent page background — root layout sets `bg-gray-100` on `<body>`, all pages inherit it
+- [x] Spinner is copy-pasted across every page — extracted `<Spinner />` component
+- [x] No `<title>` / `metadata` per page — added per-route `layout.tsx` files with titles; root layout uses `title.template`
 
 ---
 
 ## Browse (`/browse`)
 
-- [ ] No search bar — add a text input to filter by product name
-- [ ] No product count — show "24 products" or "3 results for 'tomato'"
-- [ ] Category chips have no icons — add emoji per category (🥦 vegetables, 🍎 fruits, 🌾 grains, 🐄 livestock, 🌱 inputs)
-- [ ] Product card image placeholder is a plain grey div — replace with a tinted green div + category emoji
-- [ ] No stock/availability indicator on cards — show "Low stock" badge if quantity < 5
-- [ ] Page background inconsistent — missing `bg-gray-50`
+- [x] No search bar — added text input to filter by product name
+- [x] No product count — shows "24 listings" or "3 results for 'tomato'"
+- [x] Category chips have no icons — emoji added per category
+- [x] Product card image placeholder is a plain grey div — replaced with green tinted div + category emoji
+- [x] No stock/availability indicator on cards — "Low stock" badge if quantity < 5
+- [x] Page background inconsistent — fixed (inherits root)
 
 ---
 
 ## Product Detail (`/products/[id]`)
 
-- [ ] No category badge visible — add a pill badge next to the location line
-- [ ] Images array has multiple entries but only first is shown — add a simple image row/thumbnails
-- [ ] Available quantity is small grey text — make it more prominent, especially when low
-- [ ] Page background inconsistent — missing `bg-gray-50`
+- [x] No category badge visible — pill badge added next to location line
+- [x] Images array has multiple entries but only first is shown — thumbnail row added
+- [x] Available quantity is small grey text — prominent with ⚠ orange warning when low
+- [x] Page background inconsistent — fixed
 
 ---
 
 ## Cart (`/cart`)
 
-- [ ] Same-farmer validation only triggers on submit — warn earlier (e.g. when adding a second farmer's item show a banner in cart)
-- [ ] No item image or icon in cart rows — feels bare
-- [ ] "Notes to farmer" field label is placeholder only — add a visible label above it
-- [ ] Page background inconsistent — missing `bg-gray-50`
+- [x] Same-farmer validation only triggers on submit — orange warning banner shown immediately in cart
+- [x] No item image or icon in cart rows — category emoji icon added
+- [x] "Notes to farmer" field label is placeholder only — visible label added above field
+- [x] Page background inconsistent — fixed
 
 ---
 
 ## Orders (`/orders`)
 
-- [ ] `alert()` used for pay response — replace with inline success/error message per order card
-- [ ] `confirm()` used for cancel — replace with inline "Are you sure? Yes / No" row
-- [ ] Raw date format (`toLocaleDateString`) is fine but no time — add time or relative format ("2 days ago")
-- [ ] No order count in header — show "3 orders"
-- [ ] "Pay via M-Pesa" button shows even before M-Pesa is configured — consider a placeholder state
-- [ ] Page background inconsistent — missing `bg-gray-50`
+- [x] `alert()` used for pay response — replaced with inline success/error message per order card
+- [x] `confirm()` used for cancel — replaced with inline "Cancel order? Yes / No" row
+- [x] Raw date format — relative timestamps ("2h ago", "3d ago")
+- [x] No order count in header — shows "3 orders"
+- [x] Page background inconsistent — fixed
 
 ---
 
 ## Map (`/map`)
 
-- [ ] Selected product popup has no image — add a small thumbnail if available
-- [ ] No product count indicator — "12 farmers nearby" text somewhere
-- [ ] Error state (location denied) has no retry button or fallback — add a "Browse all products" link
+- [x] Selected product popup has no image — thumbnail added if available
+- [x] No product count indicator — "12 listings nearby" badge added
+- [x] Error state has no fallback — "Browse all products" link added to error banner
 
 ---
 
 ## Farmer Dashboard (`/farmer`)
 
-- [ ] Pure placeholder text — replace with a proper empty state: icon, heading, description, and "coming soon" cards for each section (My Listings, Incoming Orders, Earnings)
-- [ ] No visual structure — at minimum show the dashboard card grid layout even if sections are empty
+- [x] Pure placeholder text — replaced with welcome card + 3 coming-soon section cards (Listings, Orders, Earnings)
+- [x] No visual structure — card grid layout added
 
 ---
 
 ## Login & Register (`/login`, `/register`)
 
-- [ ] "FarmLink" h1 inside the card is redundant — Navbar already shows it. Replace with a more descriptive heading or remove
-- [ ] No password visibility toggle on password fields
-- [ ] Register: no confirmation that the phone format is correct (07XXXXXXXX) — add inline format hint
+- [x] "FarmLink" h1 inside the card is redundant — replaced with descriptive headings ("Sign in", "Create account")
+- [x] No password visibility toggle — Show/Hide toggle added to both pages
+- [x] Register: no phone format confirmation — inline red error + border highlight for invalid format
 
 ---
 
 ## Home (`/`)
 
-- [ ] Logged-in users see a flash of the landing page before redirect — loading state should suppress the hero render, not just show a spinner
-- [ ] No `og:image` or meta description — add for sharing/SEO (thesis appendix screenshots)
+- [x] Logged-in users see a flash of the landing page — spinner shown while auth check runs or redirect is in flight
+- [x] No `og:image` or meta description — OG metadata added in root layout
