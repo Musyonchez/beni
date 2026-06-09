@@ -120,10 +120,8 @@ Check which Express version is installed. If v4, wrap handlers or add `require('
 ### ✅ C3 — Order status update allows skipping steps
 **Fixed in commit `pending`** — added a `NEXT` map check: status must advance exactly one step (pending→confirmed→ready→delivered). Any other transition returns 400.
 
-### C4 — errorHandler doesn't distinguish Mongoose validation errors
-**File:** `backend/src/middleware/error.ts`  
-All errors return 500 with `err.message`. Mongoose validation errors (wrong type, missing required field) should return 400, not 500. Currently a bad request to the DB returns the same status as a server crash.  
-**Fix:** Check `err.name === 'ValidationError'` and return 400 with a cleaner message.
+### ✅ C4 — errorHandler doesn't distinguish Mongoose validation errors
+**Fixed in commit `pending`** — errorHandler now returns 400 for `ValidationError` (with joined field messages), `CastError` (invalid ObjectId), and duplicate key errors (11000). Other errors still return 500 or `err.status` if set.
 
 ### C5 — reviews and admin routes are all 501 stubs
 **Files:** `routes/reviews.ts`, `routes/admin.ts`  
@@ -138,8 +136,8 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 | 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 4 ✅ |
 | 🟡 UX issues | 8 | 4 ✅ |
-| 🔵 Code quality | 5 | 1 ✅ |
-| **Total** | **26** | **16 done** |
+| 🔵 Code quality | 5 | 2 ✅ |
+| **Total** | **26** | **17 done** |
 
 ---
 
