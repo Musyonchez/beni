@@ -68,7 +68,7 @@ router.post('/callback', async (req, res): Promise<void> => {
     if (accountRef) {
       // AccountReference is "FarmLink-XXXXXX" where XXXXXX is last 6 chars of orderId
       const suffix = accountRef.replace('FarmLink-', '').toLowerCase();
-      const order = await Order.findOne({ _id: { $regex: suffix + '$', $options: 'i' } }).catch(() => null);
+      const order = await Order.findOne({ reference: suffix }).catch(() => null);
 
       if (order) {
         order.paymentStatus = 'paid';

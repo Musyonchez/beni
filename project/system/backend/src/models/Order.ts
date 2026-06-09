@@ -17,6 +17,7 @@ export interface IOrder extends Document {
   deliveryAddress: string;
   notes?: string;
   paymentStatus: 'unpaid' | 'paid';
+  reference?: string;
 }
 
 const OrderSchema = new Schema<IOrder>(
@@ -41,9 +42,17 @@ const OrderSchema = new Schema<IOrder>(
     deliveryAddress: { type: String, required: true },
     notes: { type: String },
     paymentStatus: { type: String, enum: ['unpaid', 'paid'], default: 'unpaid' },
+    reference: { type: String, index: true },
   },
   { timestamps: true }
 );
+
+OrderSchema.pre('save', function (next) {
+  if (this.isNew && !this.reference) {
+    this.reference = this._id.toString().slice(-6).toLowerCase();
+  }
+  next();
+});
 
 OrderSchema.index({ buyer: 1, createdAt: -1 });
 OrderSchema.index({ farmer: 1, createdAt: -1 });

@@ -30,13 +30,8 @@ Files scanned: backend models, all routes, all middleware (auth, error), mpesa s
 ### ✅ B3 — Product creation fails when location is empty
 **Fixed in commit `5edebf0`** — location and locationName are now optional in both model and route.
 
-### B4 — M-Pesa callback can't find order
-**File:** `backend/src/routes/payments.ts` lines 70–78  
-```js
-Order.findOne({ _id: { $regex: suffix + '$', $options: 'i' } })
-```
-MongoDB ObjectId fields cannot be queried with `$regex` — this query will never match. Orders will never be marked as paid via callback.  
-**Fix:** Add a `reference` field to the Order model (last 6 chars of `_id`), index it, and query by that field in the callback.
+### ✅ B4 — M-Pesa callback can't find order
+**Fixed in commit `pending`** — added `reference` field to Order model (last 6 hex chars of `_id`, set via pre-save hook). Callback now queries `{ reference: suffix }` instead of the broken `$regex` on ObjectId.
 
 ### ✅ B5 — Map nearby radius is 20,000× too large
 **Fixed in commit `e2771fb`** — changed `radius: 20000` to `radius: 20` (km).
@@ -142,11 +137,11 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 
 | Severity | Count | Fixed |
 |---|---|---|
-| 🔴 Critical bugs | 7 | 6 ✅ |
+| 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 4 ✅ |
 | 🟡 UX issues | 8 | 4 ✅ |
 | 🔵 Code quality | 5 | 0 |
-| **Total** | **26** | **14 done** |
+| **Total** | **26** | **15 done** |
 
 ---
 
@@ -164,6 +159,6 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 10. ~~**U1**~~ ✅ KES formatting consistency
 11. ~~**U5**~~ ✅ Phone regex (blocks valid 01X numbers)
 12. ~~**F1**~~ ✅ Profile/account page (also fixed U6 — farmer Browse link)
-13. **B4** — M-Pesa callback fix (needed before payment goes live)  ← next
-14. **C3** — Order status sequence enforcement
+13. ~~**B4**~~ ✅ M-Pesa callback fix
+14. **C3** — Order status sequence enforcement  ← next
 15. Everything else
