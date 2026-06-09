@@ -45,7 +45,7 @@ export default function Navbar() {
       {user && link('/account', 'Account')}
       {user ? (
         <button onClick={() => { logout(); close(); }}
-          className="px-3 py-2 rounded text-sm font-medium text-green-100 hover:bg-green-800 transition-colors text-left">
+          className="px-3 py-2 rounded text-sm font-medium bg-red-700 text-white hover:bg-red-700 transition-colors text-left">
           Logout
         </button>
       ) : (
@@ -61,7 +61,7 @@ export default function Navbar() {
   return (
     <nav className="bg-green-700 text-white px-4 py-3 shadow relative">
       <div className="flex items-center justify-between">
-        <Link href="/" className="font-bold text-lg tracking-tight">🌿 FarmLink</Link>
+        <Link href="/" className="font-bold text-lg tracking-tight">🌿 EMarketPlace</Link>
         <div className="hidden sm:flex items-center gap-1">
           {navLinks}
         </div>
