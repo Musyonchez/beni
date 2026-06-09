@@ -49,6 +49,10 @@ if (Test-Path $envFile) {
 PORT=5000
 MONGO_URI=
 JWT_SECRET=
+# DNS_FIX: set to true only if MongoDB Atlas connection times out on this machine.
+# This overrides your ISP's DNS with Google DNS (8.8.8.8) and forces IPv4.
+# Most machines don't need it — leave it as false or remove the line entirely.
+DNS_FIX=false
 TWILIO_SID=
 TWILIO_AUTH_TOKEN=
 TWILIO_PHONE=
@@ -60,6 +64,7 @@ MPESA_CALLBACK_URL=
 "@ | Out-File -FilePath $envFile -Encoding utf8
     Write-Success ".env created at project/system/backend/.env"
     Write-Warn "ACTION REQUIRED: Fill in MONGO_URI and JWT_SECRET before starting."
+    Write-Warn "If MongoDB times out, set DNS_FIX=true in .env (see docs/dns-fix.md)."
 }
 
 # ── Frontend deps ─────────────────────────────────────────────────────────────
