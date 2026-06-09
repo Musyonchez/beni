@@ -34,6 +34,7 @@ export default function ProductDetailPage() {
       price: product.price,
       unit: product.unit,
       quantity,
+      maxQuantity: product.quantity,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
@@ -65,7 +66,10 @@ export default function ProductDetailPage() {
     <div className="min-h-screen">
       <Navbar />
       <div className="max-w-3xl mx-auto px-4 py-6">
-        <button onClick={() => router.back()} className="text-green-700 text-sm mb-4 hover:underline">← Back</button>
+        <div className="flex items-center gap-4 mb-4">
+          <button onClick={() => router.back()} className="text-green-700 text-sm hover:underline">← Back</button>
+          <a href="/browse" className="text-sm text-gray-400 hover:text-green-700 hover:underline">Browse all products</a>
+        </div>
         <div className="bg-white rounded-xl shadow overflow-hidden">
 
           {/* Image gallery */}

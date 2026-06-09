@@ -75,20 +75,14 @@ The nav links are all in a single flex row. On small screens (phone) they'll wra
 ### ✅ U1 — KES amounts not formatted with commas
 **Fixed in commit `pending`** — all KES amounts across orders, cart, farmer, browse, map, product detail, and MapView now use `.toLocaleString()`.
 
-### U2 — Cart + button doesn't respect stock on cart page
-**File:** `frontend/src/app/(protected)/cart/page.tsx` line 89  
-Product detail page caps quantity at `product.quantity`, but on the cart page the `+` button calls `updateQuantity(id, quantity + 1)` with no upper bound.  
-**Fix:** Store `maxQuantity` in `CartItem`, use it as the cap in cart page.
+### ✅ U2 — Cart + button doesn't respect stock on cart page
+**Fixed in commit `pending`** — added optional `maxQuantity` to `CartItem`, populated from `product.quantity` on add-to-cart, used to disable the `+` button on cart page when at the limit.
 
-### U3 — Product detail back button goes blank if accessed directly
-**File:** `frontend/src/app/products/[id]/page.tsx` line 67  
-`router.back()` with no history sends user to a blank tab.  
-**Fix:** `router.back()` is fine, but add `router.push('/browse')` as a visible fallback link ("← Browse").
+### ✅ U3 — Product detail back button goes blank if accessed directly
+**Fixed in commit `pending`** — added a persistent "Browse all products" link alongside the ← Back button.
 
-### U4 — Farmer dashboard earnings shows zeros when orders failed to load
-**File:** `frontend/src/app/(protected)/farmer/page.tsx` — Earnings tab  
-If order loading fails, stat cards show 0/0/0/0 with no indication of error.  
-**Fix:** Show `ordersError` banner on Earnings tab the same way it shows on Orders tab.
+### ✅ U4 — Farmer dashboard earnings shows zeros when orders failed to load
+**Fixed in commit `pending`** — Earnings tab now shows the same red error banner as the Orders tab when `ordersError` is set.
 
 ### ✅ U5 — Phone validation rejects valid Kenyan formats
 **Fixed in commit `pending`** — regex updated from `/^07\d{8}$/` to `/^0[17]\d{8}$/` to accept both `07XXXXXXXX` and `01XXXXXXXX` formats.
@@ -135,9 +129,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 |---|---|---|
 | 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 4 ✅ |
-| 🟡 UX issues | 8 | 4 ✅ |
+| 🟡 UX issues | 8 | 7 ✅ |
 | 🔵 Code quality | 5 | 2 ✅ |
-| **Total** | **26** | **17 done** |
+| **Total** | **26** | **20 done** |
 
 ---
 

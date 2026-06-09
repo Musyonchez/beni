@@ -87,7 +87,8 @@ export default function CartPage() {
                   className="px-2.5 py-1.5 text-green-700 hover:bg-green-50">−</button>
                 <span className="px-3 py-1.5 font-semibold">{item.quantity}</span>
                 <button onClick={() => updateQuantity(item.productId, item.quantity + 1)}
-                  className="px-2.5 py-1.5 text-green-700 hover:bg-green-50">+</button>
+                  disabled={item.maxQuantity !== undefined && item.quantity >= item.maxQuantity}
+                  className="px-2.5 py-1.5 text-green-700 hover:bg-green-50 disabled:opacity-40 disabled:cursor-not-allowed">+</button>
               </div>
               <span className="text-green-700 font-bold text-sm w-20 text-right">KES {(item.price * item.quantity).toLocaleString()}</span>
               <button onClick={() => removeItem(item.productId)} className="text-red-400 hover:text-red-600 text-base ml-1">✕</button>
