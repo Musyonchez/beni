@@ -9,11 +9,11 @@ export interface IProduct extends Document {
   unit: 'kg' | 'crate' | 'bunch' | 'piece' | 'litre';
   quantity: number;
   images: string[];
-  location: {
+  location?: {
     type: 'Point';
     coordinates: [number, number];
   };
-  locationName: string;
+  locationName?: string;
   isAvailable: boolean;
 }
 
@@ -32,10 +32,10 @@ const ProductSchema = new Schema<IProduct>(
     quantity: { type: Number, required: true, min: 0 },
     images: [{ type: String }],
     location: {
-      type: { type: String, enum: ['Point'], required: true, default: 'Point' },
-      coordinates: { type: [Number], required: true },
+      type: { type: String, enum: ['Point'], default: 'Point' },
+      coordinates: { type: [Number] },
     },
-    locationName: { type: String, required: true },
+    locationName: { type: String },
     isAvailable: { type: Boolean, default: true },
   },
   { timestamps: true }

@@ -99,9 +99,10 @@ router.post(
       .withMessage('Invalid unit'),
     body('quantity').isInt({ min: 0 }).withMessage('Quantity must be a non-negative integer'),
     body('location.coordinates')
+      .optional()
       .isArray({ min: 2, max: 2 })
       .withMessage('location.coordinates must be [lng, lat]'),
-    body('locationName').trim().notEmpty().withMessage('Location name is required'),
+    body('locationName').optional().trim(),
   ],
   async (req: AuthRequest, res: Response): Promise<void> => {
     const errors = validationResult(req);
@@ -110,14 +111,15 @@ router.post(
       return;
     }
 
-    const product = await Product.create({
+    const productData: any = {
       ...req.body,
       farmer: req.user!.id,
-      location: {
-        type: 'Point',
-        coordinates: req.body.location.coordinates,
-      },
-    });
+    };
+    if (req.body.location?.coordinates) {
+      productData.location = { type: 'Point', coordinates: req.body.location.coordinates };
+    }
+
+    const product = await Product.create(productData);
 
     res.status(201).json(product);
   }
