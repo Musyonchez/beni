@@ -28,5 +28,8 @@ export const placeOrder = (data: {
 }) => client.post<Order>('/orders', data);
 
 export const getMyOrders = () => client.get<Order[]>('/orders/my');
+export const getFarmerOrders = () => client.get<Order[]>('/orders/farmer');
 export const getOrder = (id: string) => client.get<Order>(`/orders/${id}`);
 export const cancelOrder = (id: string) => client.put<Order>(`/orders/${id}/cancel`);
+export const updateOrderStatus = (id: string, status: string) =>
+  client.put<Order>(`/orders/${id}/status`, { status });
