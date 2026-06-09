@@ -93,10 +93,8 @@ The nav links are all in a single flex row. On small screens (phone) they'll wra
 ### ✅ U7 — Cart category icon placeholder broken
 Fixed with B1 (commit `5acf989`).
 
-### U8 — MapView marker icons loaded from CDN
-**File:** `frontend/src/components/MapView.tsx` lines 8–13  
-Leaflet marker icons are loaded from `unpkg.com`. Map pins disappear if unpkg is slow or down.  
-**Fix:** Copy the 3 icon files into `/public` and reference them locally.
+### ✅ U8 — MapView marker icons loaded from CDN
+**Fixed in commit `pending`** — marker-icon.png, marker-icon-2x.png, and marker-shadow.png copied to `/public`; MapView now references them locally.
 
 ---
 
@@ -129,9 +127,9 @@ These mount and register routes but all return 501. Not a bug but noted as futur
 |---|---|---|
 | 🔴 Critical bugs | 7 | 7 ✅ |
 | 🟠 Missing features | 6 | 4 ✅ |
-| 🟡 UX issues | 8 | 7 ✅ |
+| 🟡 UX issues | 8 | 8 ✅ |
 | 🔵 Code quality | 5 | 2 ✅ |
-| **Total** | **26** | **20 done** |
+| **Total** | **26** | **21 done** |
 
 ---
 
