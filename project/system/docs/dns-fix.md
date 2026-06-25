@@ -30,41 +30,53 @@ The result: Node.js can't find the cluster hosts, so Mongoose never gets an addr
 
 ## The Fix
 
-Two changes were made to `project/system/backend/src/config/db.ts`:
+The fix is controlled by a `DNS_FIX` environment variable so each developer can enable it only on machines that need it. Others connect normally without any DNS override.
 
-### 1. Override the DNS resolver
+### In your `.env` file
 
-```typescript
-import { setServers } from 'dns';
-setServers(['8.8.8.8', '8.8.4.4']);
+Add this line **only on machines that hit the DNS error**:
+
+```
+DNS_FIX=true
 ```
 
-This tells Node.js to use **Google's public DNS servers** instead of the system default. Google DNS fully supports SRV record lookups, which is exactly what the `mongodb+srv://` protocol needs.
+Leave it out (or set it to `false`) on machines that connect fine without it.
 
-This must be called **before** any connection attempt — placing it at the top of `db.ts` ensures it runs first.
-
-### 2. Force IPv4
+### What `DNS_FIX=true` does in `db.ts`
 
 ```typescript
-await mongoose.connect(uri, { family: 4 });
+if (process.env.DNS_FIX === 'true') {
+  // Override DNS to Google's public servers (supports SRV lookups)
+  setServers(['8.8.8.8', '8.8.4.4']);
+  // Force IPv4 to avoid IPv6 fallback failures
+  await mongoose.connect(uri, { family: 4 });
+} else {
+  await mongoose.connect(uri);
+}
 ```
 
-The `family: 4` option tells Mongoose to resolve hostnames using IPv4 only. Without this, Node.js may try IPv6 first, fail, and not fall back cleanly — adding another potential point of failure on networks where IPv6 isn't fully configured.
+- **`setServers(['8.8.8.8', '8.8.4.4'])`** — tells Node.js to use Google's public DNS instead of the system default. Google DNS fully supports SRV record lookups, which is what `mongodb+srv://` needs.
+- **`family: 4`** — forces IPv4-only hostname resolution, avoiding silent IPv6 fallback failures.
 
 ---
 
 ## The Final `db.ts`
 
 ```typescript
-import { setServers } from 'dns';
 import mongoose from 'mongoose';
-
-setServers(['8.8.8.8', '8.8.4.4']);
+import { setServers } from 'dns';
 
 export const connectDB = async (): Promise<void> => {
   const uri = process.env.MONGO_URI;
   if (!uri) throw new Error('MONGO_URI is not defined in environment variables');
-  await mongoose.connect(uri, { family: 4 });
+
+  if (process.env.DNS_FIX === 'true') {
+    setServers(['8.8.8.8', '8.8.4.4']);
+    await mongoose.connect(uri, { family: 4 });
+  } else {
+    await mongoose.connect(uri);
+  }
+
   console.log('MongoDB connected');
 };
 ```
@@ -73,7 +85,7 @@ export const connectDB = async (): Promise<void> => {
 
 ## Still failing on a new machine?
 
-If you still see `ETIMEDOUT` after this fix, check:
+If you still see `ETIMEDOUT` after adding `DNS_FIX=true`, check:
 
 1. **`.env` is filled in** — `MONGO_URI` must not be empty.
 2. **Atlas IP Access List** — go to MongoDB Atlas → Network Access and confirm `0.0.0.0/0` is active, or add your machine's IP.
