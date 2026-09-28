@@ -5,59 +5,71 @@ SWE4040A (Software Construction and Development) group project — USIU-Africa, 
 Matches students who need help in a course ("tutees") with students able to
 tutor that course, lets them book and manage sessions, and collects feedback
 after each session. See [docs/01-group-project-discussion.md](docs/01-group-project-discussion.md)
-for the project's scope, requirements process, design approach, and test plan.
+for the project's scope, requirements process, design approach, and test plan,
+and [docs/02-technical-plan.md](docs/02-technical-plan.md) for the technical
+architecture and route map.
 
 ## Stack
 
-- **Backend:** Node.js + Express, REST API under `/api`
-- **Data store:** a JSON file (`backend/data/db.json`, auto-created on first run) —
+- **Framework:** Next.js (App Router) + TypeScript — Server Components for reads,
+  Server Actions for mutations (plain `<form action={...}>`, no hand-written fetch/JSON).
+- **Styling:** Tailwind CSS.
+- **Data store:** a JSON file (`data/db.json`, auto-created on first run, gitignored) —
   no native modules or external database needed, so `npm install` stays simple
-  on any machine. Swap for a real database later without touching route logic much.
-- **Frontend:** plain HTML/CSS/JS (no build step), served by the same Express server
-- **Auth:** email/password with bcrypt hashing + JWT
+  on any machine. Swap for a real database later without touching page/action logic much.
+- **Auth:** email/password (bcrypt-hashed) with a JWT session in an httpOnly
+  cookie (`jose`), following the pattern in Next.js's own Authentication guide
+  (stateless sessions + a Data Access Layer in `lib/dal.ts`).
 
 ## Getting started
 
 ```bash
-cd backend
 npm install
-npm start
+npm run dev
 ```
 
 Then open **http://localhost:3000**.
 
-The first account you register becomes an admin automatically (visible via an
-"Admin" tab), so there's no separate seed script to run.
+The first account you register becomes an admin automatically (an "Admin" tab
+appears), so there's no separate seed script to run.
 
-For local development with auto-restart on file changes:
+For a production build:
 
 ```bash
-npm run dev
+npm run build
+npm start
 ```
 
 ### Configuration
 
-Copy `backend/.env.example` to `backend/.env` to override the port or JWT
-secret:
+Copy `.env.example` to `.env` to override the session signing secret:
 
 ```
-PORT=3000
-JWT_SECRET=change-this-secret-in-production
+SESSION_SECRET=change-this-secret-in-production
 ```
 
 ## Project structure
 
 ```
-backend/
-  server.js          Express app entrypoint, serves the API + frontend
-  db.js              JSON-file data store (courses, users, tutors, requests, sessions, feedback)
-  middleware/auth.js JWT auth + admin-only guard
-  routes/            auth, courses, tutors, requests, sessions, admin
-frontend/
-  index.html, styles.css, app.js   vanilla JS single-page UI
+app/
+  layout.tsx, page.tsx        root layout + "/" redirect (to /login or /dashboard)
+  login/, register/           auth pages (client forms using useActionState)
+  actions/                    Server Actions: auth, tutors, requests, sessions, admin
+  dashboard/
+    layout.tsx                 protected layout: verifies session, renders TopNav
+    page.tsx                   Find a Tutor (default tab)
+    tutor/, requests/, sessions/, admin/   the other tabs
+lib/
+  db.ts                        JSON-file data store + types
+  session.ts                   JWT encrypt/decrypt + cookie helpers (jose)
+  dal.ts                       Data Access Layer: verifySession(), getCurrentUser(), requireAdmin()
+  queries.ts                   read-side "views" (joins) used by the pages
+  validation.ts                zod schemas for form input
+components/
+  top-nav.tsx, banner.tsx
+proxy.ts                       optimistic auth redirect (Next 16's renamed middleware)
 docs/
-  01-group-project-discussion.md  group discussion write-up
-  SWE4040A course outline PDF
+  01-group-project-discussion.md, 02-technical-plan.md, SWE4040A course outline PDF
 ```
 
 ## Core flows implemented
