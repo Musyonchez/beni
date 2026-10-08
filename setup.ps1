@@ -50,9 +50,12 @@ try {
 
   # 2. Dependencies ----------------------------------------------------------
   Step "Installing dependencies"
-  $lock = Test-Path 'package-lock.json'
-  if ($lock) { npm ci } else { npm install }
-  if ($LASTEXITCODE -ne 0) { Fail "Dependency install failed." }
+  # `npm ci` wipes node_modules first, which fails on Windows if any file is
+  # locked (e.g. a running dev server). Only use it for a clean first install.
+  if ((Test-Path 'package-lock.json') -and -not (Test-Path 'node_modules')) { npm ci } else { npm install }
+  if ($LASTEXITCODE -ne 0) {
+    Fail "Dependency install failed. If you saw EPERM, a file is locked: close other terminals/editors running this app (stop any 'next dev'), pause antivirus for this folder, then run again."
+  }
   Ok "Dependencies installed"
 
   # 3. Environment file ------------------------------------------------------
