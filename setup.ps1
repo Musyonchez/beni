@@ -9,6 +9,8 @@ param(
   [switch]$Production,  # build + `next start` instead of `next dev`
   [switch]$NoStart,     # install/configure only, don't launch the server
   [switch]$NoBrowser,   # don't open the browser automatically
+  [switch]$Seed,        # fill the database with demo data (skipped if users already exist)
+  [switch]$ResetSeed,   # wipe the database and reseed the demo data
   [int]$Port = 3000
 )
 
@@ -72,6 +74,11 @@ try {
   }
 
   # The JSON-file store in /data is created automatically on first run.
+  if ($Seed -or $ResetSeed) {
+    Step "Seeding demo data"
+    if ($ResetSeed) { node scripts/seed.mjs --force } else { node scripts/seed.mjs }
+    if ($LASTEXITCODE -ne 0) { Fail "Seeding failed." }
+  }
 
   if ($NoStart) { Ok "Setup complete."; exit 0 }
 
