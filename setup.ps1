@@ -75,19 +75,31 @@ try {
     Ok "Created $envFile with a freshly generated SESSION_SECRET"
   }
 
+  # Free the port ---------------------------------------------------------------
+  # An old server of THIS project is stopped (it also keeps the DB in memory and
+  # would overwrite a reset). Anything else on the port is left alone and we
+  # move to the next free port instead.
+  Step "Checking port $Port"
+  function Get-Listeners($port) {
+    Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
+  }
+  foreach ($l in (Get-Listeners $Port)) {
+    $proc = Get-CimInstance Win32_Process -Filter "ProcessId = $($l.OwningProcess)" -ErrorAction SilentlyContinue
+    if ($proc -and $proc.Name -eq 'node.exe' -and $proc.CommandLine -like "*$PSScriptRoot*") {
+      Write-Host "    Stopping old server of this project on port $Port (PID $($proc.ProcessId))"
+      Stop-Process -Id $proc.ProcessId -Force
+    }
+  }
+  Start-Sleep -Milliseconds 500
+  $start = $Port
+  while ((Get-Listeners $Port) -and $Port -lt $start + 20) { $Port++ }
+  if (Get-Listeners $Port) { Fail "No free port between $start and $Port." }
+  if ($Port -ne $start) { Write-Host "    Port $start is used by another program - using $Port instead" -ForegroundColor Yellow }
+  Ok "Using port $Port"
+
   # The JSON-file store in /data is created automatically on first run.
   if (-not $Keep) {
     Step "Resetting to fresh demo data"
-    # A running server keeps the DB in memory and would overwrite the reset,
-    # so stop any Node process still listening on our port first.
-    $listeners = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
-    foreach ($l in $listeners) {
-      $p = Get-Process -Id $l.OwningProcess -ErrorAction SilentlyContinue
-      if ($p -and $p.ProcessName -eq 'node') {
-        Write-Host "    Stopping old server on port $Port (PID $($p.Id))"
-        Stop-Process -Id $p.Id -Force
-      }
-    }
     node scripts/seed.mjs --force
     if ($LASTEXITCODE -ne 0) { Fail "Seeding failed." }
     # Login page lists the demo accounts only when this flag is set.
