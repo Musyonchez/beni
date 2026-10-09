@@ -76,26 +76,23 @@ try {
   }
 
   # Free the port ---------------------------------------------------------------
-  # An old server of THIS project is stopped (it also keeps the DB in memory and
-  # would overwrite a reset). Anything else on the port is left alone and we
-  # move to the next free port instead.
-  Step "Checking port $Port"
-  function Get-Listeners($port) {
-    Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
+  # Whatever is listening on the port is stopped so this app can take it over
+  # (an old server would also keep the DB in memory and overwrite a reset).
+  Step "Freeing port $Port"
+  $listeners = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
+  foreach ($procId in ($listeners | Select-Object -ExpandProperty OwningProcess -Unique)) {
+    if ($procId -le 4) { Fail "Port $Port is held by a Windows system process (PID $procId). Use -Port to pick another port." }
+    $p = Get-Process -Id $procId -ErrorAction SilentlyContinue
+    Write-Host "    Stopping $($p.ProcessName) (PID $procId) that was using port $Port"
+    Stop-Process -Id $procId -Force -ErrorAction SilentlyContinue
   }
-  foreach ($l in (Get-Listeners $Port)) {
-    $proc = Get-CimInstance Win32_Process -Filter "ProcessId = $($l.OwningProcess)" -ErrorAction SilentlyContinue
-    if ($proc -and $proc.Name -eq 'node.exe' -and $proc.CommandLine -like "*$PSScriptRoot*") {
-      Write-Host "    Stopping old server of this project on port $Port (PID $($proc.ProcessId))"
-      Stop-Process -Id $proc.ProcessId -Force
-    }
+  for ($i = 0; $i -lt 10 -and (Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue); $i++) {
+    Start-Sleep -Milliseconds 500
   }
-  Start-Sleep -Milliseconds 500
-  $start = $Port
-  while ((Get-Listeners $Port) -and $Port -lt $start + 20) { $Port++ }
-  if (Get-Listeners $Port) { Fail "No free port between $start and $Port." }
-  if ($Port -ne $start) { Write-Host "    Port $start is used by another program - using $Port instead" -ForegroundColor Yellow }
-  Ok "Using port $Port"
+  if (Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue) {
+    Fail "Couldn't free port $Port (try running as Administrator, or use -Port to pick another port)."
+  }
+  Ok "Port $Port is free"
 
   # The JSON-file store in /data is created automatically on first run.
   if (-not $Keep) {
