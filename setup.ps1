@@ -3,14 +3,16 @@
   Run from a fresh `git clone`:  right-click > Run with PowerShell
   (or double-click run.bat, which bypasses the execution policy for you).
 
-  Usage:  ./setup.ps1 [-Production] [-NoStart] [-NoBrowser] [-Port 3000]
+  Every run starts from a clean slate: the database is wiped and refilled with
+  demo data, so previous sessions leave nothing behind. Use -Keep to skip that.
+
+  Usage:  ./setup.ps1 [-Keep] [-Production] [-NoStart] [-NoBrowser] [-Port 3000]
 #>
 param(
+  [switch]$Keep,        # keep the existing database instead of resetting to demo data
   [switch]$Production,  # build + `next start` instead of `next dev`
   [switch]$NoStart,     # install/configure only, don't launch the server
   [switch]$NoBrowser,   # don't open the browser automatically
-  [switch]$Seed,        # fill the database with demo data (skipped if users already exist)
-  [switch]$ResetSeed,   # wipe the database and reseed the demo data
   [int]$Port = 3000
 )
 
@@ -74,10 +76,24 @@ try {
   }
 
   # The JSON-file store in /data is created automatically on first run.
-  if ($Seed -or $ResetSeed) {
-    Step "Seeding demo data"
-    if ($ResetSeed) { node scripts/seed.mjs --force } else { node scripts/seed.mjs }
+  if (-not $Keep) {
+    Step "Resetting to fresh demo data"
+    # A running server keeps the DB in memory and would overwrite the reset,
+    # so stop any Node process still listening on our port first.
+    $listeners = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
+    foreach ($l in $listeners) {
+      $p = Get-Process -Id $l.OwningProcess -ErrorAction SilentlyContinue
+      if ($p -and $p.ProcessName -eq 'node') {
+        Write-Host "    Stopping old server on port $Port (PID $($p.Id))"
+        Stop-Process -Id $p.Id -Force
+      }
+    }
+    node scripts/seed.mjs --force
     if ($LASTEXITCODE -ne 0) { Fail "Seeding failed." }
+    # Login page lists the demo accounts only when this flag is set.
+    if (-not (Select-String -Path $envFile -Pattern '^SHOW_DEMO_ACCOUNTS=' -Quiet)) {
+      Add-Content -Path $envFile -Value 'SHOW_DEMO_ACCOUNTS=true' -Encoding ascii
+    }
   }
 
   if ($NoStart) { Ok "Setup complete."; exit 0 }
