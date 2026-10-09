@@ -54,6 +54,14 @@ try {
 
   # 2. Dependencies ----------------------------------------------------------
   Step "Installing dependencies"
+  # An interrupted install can leave node_modules half-written (missing files
+  # inside next/). Detect that and start clean instead of failing at runtime.
+  if ((Test-Path 'node_modules') -and -not (Test-Path 'node_modules/next/dist/pages/_error.js')) {
+    Write-Host "    node_modules looks incomplete - removing it for a clean install"
+    Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
+    if (Test-Path 'node_modules') { Fail "Couldn't delete node_modules (a file is locked). Close VS Code/terminals using this folder, then run again." }
+    Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue
+  }
   # `npm ci` wipes node_modules first, which fails on Windows if any file is
   # locked (e.g. a running dev server). Only use it for a clean first install.
   if ((Test-Path 'package-lock.json') -and -not (Test-Path 'node_modules')) { npm ci } else { npm install }
